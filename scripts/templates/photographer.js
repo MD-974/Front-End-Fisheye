@@ -30,7 +30,12 @@ function photographerTemplate(data) {
         // ajout du setAttribute pour creer la class dans la DIV "photographers_section"
         taglineText.setAttribute("class", "photograper_taglineText")
         article.appendChild(taglineText);
-			
+		
+        const price = document.createElement( 'p' );
+        price.textContent = price + "€/jour";
+        price.setAttribute("class", "photographer_price");
+        article.appendChild(price);
+
         
         article.appendChild(img);
         article.appendChild(h2); 
@@ -41,5 +46,6 @@ function photographerTemplate(data) {
     return { name, picture,
         //  city,
         //  country,
+         price,
          tagline, getUserCardDOM }
 }
