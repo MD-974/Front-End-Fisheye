@@ -19,9 +19,10 @@ function photographerTemplate(data) {
 		taglineText.textContent = tagline;
         priceText.textContent = price + "€/jour";
         
-        
-        // ajout du setAttribute pour creer les class differentes dans la DIV "photographers_section"
+        // setttribute "src" & "alt" pour l'element"img"
         img.setAttribute("src", picture)
+        img.setAttribute("alt", "Photo de" + name)
+        // ajout du setAttribute pour creer les "class" dans la DIV "photographers_section"
         img.setAttribute("class", "photographer_picture")
         h2.setAttribute("class", "photographer_name");
         villeText.setAttribute("class", "photographer_villeText");
