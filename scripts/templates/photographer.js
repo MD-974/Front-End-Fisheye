@@ -9,7 +9,7 @@ function photographerTemplate(data) {
         const img = document.createElement( 'img' );
         const h2 = document.createElement( 'h2' );
         const villeText = document.createElement ( 'p' );
-        const taglineText = document.createElement( 'span' );
+        const taglineText = document.createElement( 'p' );
         const priceText = document.createElement( 'p' );
         
         // ajout du textContent pour chaque const
