@@ -49,12 +49,12 @@ h1 {
 .photographer_section article img {
     height: 200px;
     width: 200px;
-    /* ajout du radius pour faire un  cadre en cercle */
+    /* ajout du radius pour faire un  cadre en cercle
     border-radius: 100px;
     /* recentrage de l img  */
-    object-fit: cover;
-    overflow: hidden;
-}
+    /* object-fit: cover;
+    overflow: hidden; */
+} 
 
 /* ajout de P */
 /* .photographer_section article p {

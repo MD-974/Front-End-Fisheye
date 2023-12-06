@@ -12,21 +12,20 @@ function photographerTemplate(data) {
         const taglineText = document.createElement( 'span' );
         const priceText = document.createElement( 'p' );
         
-        
         // ajout du textContent pour chaque const
         h2.textContent = name;
         villeText.textContent = city + "," + country;
 		taglineText.textContent = tagline;
         priceText.textContent = price + "€/jour";
         
-        // setAttribute "src" & "alt" pour l'element"img"
-        img.setAttribute("src", picture)
-        img.setAttribute("alt", "Photo de" + name)
+        // setAttribute "src" & "alt" pour la balise "img"
+        img.setAttribute("src", picture);
+        img.setAttribute("alt", "Photo de " + name);
         // ajout du setAttribute pour creer les "class" dans la DIV "photographers_section"
-        img.setAttribute("class", "photographer_picture")
+        img.setAttribute("class", "photographer_picture");
         h2.setAttribute("class", "photographer_name");
         villeText.setAttribute("class", "photographer_villeText");
-        taglineText.setAttribute("class", "photograper_taglineText")
+        taglineText.setAttribute("class", "photograper_taglineText");
         priceText.setAttribute("class", "photographer_price");
         
         // ajout du article.appendChild pour l'affichage dans l'ordre des elements
@@ -35,7 +34,6 @@ function photographerTemplate(data) {
         article.appendChild(villeText);
         article.appendChild(taglineText);
         article.appendChild(priceText);
-
 
         return (article);
     }

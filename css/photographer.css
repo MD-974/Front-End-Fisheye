@@ -77,6 +77,18 @@ form input {
 
 /* photographers_section => Card Photographe */
 
+.photographer_picture{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.photographer_name{
+    font-weight: 400;
+    margin: 20px 0 0 0;
+}
+
 .photographer_villeText{
     font-size: 13px;
     font-weight: 400;
