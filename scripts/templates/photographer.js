@@ -24,8 +24,8 @@ function photographerTemplate(data) {
         // ajout du setAttribute pour creer les "class" dans la DIV "photographers_section"
         img.setAttribute("class", "photographer_picture");
         h2.setAttribute("class", "photographer_name");
-        villeText.setAttribute("class", "photographer_villeText");
-        taglineText.setAttribute("class", "photograper_taglineText");
+        villeText.setAttribute("class", "photographer_ville");
+        taglineText.setAttribute("class", "photograper_tagline");
         priceText.setAttribute("class", "photographer_price");
         
         // ajout du article.appendChild pour l'affichage dans l'ordre des elements
