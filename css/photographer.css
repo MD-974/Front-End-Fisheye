@@ -89,6 +89,13 @@ form input {
     margin: 20px 0 0 0;
 }
 
+.photographer_lien {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
 .photographer_ville {
     font-size: 13px;
     font-weight: 400;
