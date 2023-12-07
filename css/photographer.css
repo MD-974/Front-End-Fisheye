@@ -77,14 +77,14 @@ form input {
 
 /* photographers_section => Card Photographe */
 
-.photographer_picture {
+.photographer_image {
     width: 100%;
     height: 300px;
     object-fit: cover;
     border-radius: 50%;
 }
 
-.photographer_name {
+.photographer_nom {
     font-weight: 400;
     margin: 20px 0 0 0;
 }
@@ -92,21 +92,20 @@ form input {
 .photographer_ville {
     font-size: 13px;
     font-weight: 400;
-    margin: 0;
     color: #901C1C;
+    margin: 0;
 }
 
 .photographer_tagline {
-    font-weight : 400;
     font-size: 10px;
-    line-height: 13.02px;
-    margin: 0;
+    font-weight : 400;
     color: #000;
+    margin: 0;
 }
 
-.photographer_price {
+.photographer_prix {
     font-size: 9px;
     font-weight: 400;
-    margin: 0;
     color: #757575;
+    margin: 0;
 }
