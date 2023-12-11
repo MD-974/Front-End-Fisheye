@@ -12,7 +12,7 @@ async function getOnePhotographer(id) {
             onePhotographe = element;
         }  
     });
-    
+
 // attention il faut gerer aussi les erreur d id 
 
    return onePhotographe;
