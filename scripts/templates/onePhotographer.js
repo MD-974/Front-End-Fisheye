@@ -41,7 +41,7 @@ function displayData(photographer) {
         modal.focus();
         var modalOverlay = document.getElementById("modal-overlay");
         modalOverlay.style.display = "block";
-    })
+    });
     // element "picture"
     const img = document.createElement( 'img' );
     img.setAttribute("id", "onephotographer_image");

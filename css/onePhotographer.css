@@ -16,3 +16,23 @@
     color: #d3573c;
     margin: 0;
 }
+
+.onePhotographer_ville {
+    font-size: 24px;
+    font-weight: 400;
+    color: #901c1c;
+    margin: 0;
+}
+
+.onePhotographer_tagline {
+    font-size: 18px;
+    font-weight: 400;
+    color: #525252;
+    margin: 0;
+}
+
+img.onephotographer_image {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+}
