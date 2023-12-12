@@ -37,8 +37,6 @@ function photographerTemplate(data) {
         
         
         // ajout de article.appendChild pour l'affichage dans l'ordre des elements
-        // article.appendChild(img);
-        // article.appendChild(h2); 
         article.appendChild(lienPhotographe)
         article.appendChild(villeText);
         article.appendChild(taglineText);
