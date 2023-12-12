@@ -5,9 +5,12 @@ function displayData(photographer) {
  // Creation "div" informations
     const informations = document.createElement("div");
     informations.setAttribute("class", "onePhotographer_informations");
-    
+
     const contactButton = document.createElement("div");
     contactButton.setAttribute("class", "onePhotographer_button");
+
+    const photographeImage = document.createElement("div");
+    photographeImage.setAttribute("class", "onePhotographer_image");
 
     
     const h2 = document.createElement("h2");
@@ -22,7 +25,7 @@ function displayData(photographer) {
     taglineText.textContent = tagline;
     taglineText.setAttribute("class", "onePhotographer_tagline");
 
-    // const divButton = document.createElement("div");
+    
 	const button = document.createElement("button");
     button.textContent = "Contactez-moi";
 	button.setAttribute("class", "onePhotographer_button");
@@ -34,13 +37,7 @@ function displayData(photographer) {
         modalOverlay.style.display = "block";
     })
 
-    
-    // const img = document.createElement("img");
-	// img.setAttribute("id", "onePhotographer_image");
-	// img.setAttribute("src", picture);
-	// img.setAttribute("alt", name);
-	// img.setAttribute("class", "onePhotographer_image");
-    const article = document.createElement( 'article' );
+    // const article = document.createElement( 'article' );
     const img = document.createElement( 'img' );
     img.setAttribute("id", "onephotographer_image");
     img.setAttribute("src", picture);
@@ -51,13 +48,21 @@ function displayData(photographer) {
     informations.appendChild(h2);
     informations.appendChild(villeText);
     informations.appendChild(taglineText);
-    informations.appendChild(button);
-	informations.appendChild(img);
-    
+    // informations.appendChild(button);
+
+    contactButton.appendChild(button);
+    photographeImage.appendChild(img)
 
     const onePhotographerSection = document.querySelector(".photograph-header");
     onePhotographerSection.appendChild(informations);
+
+    const onePhotographerContact = document.querySelector(".photograph-header");
+    onePhotographerContact.appendChild(contactButton);
+
+    const onePhotographerimage = document.querySelector(".photograph-header");
+    onePhotographerimage.appendChild(photographeImage);
    
+
 }
 
 async function init() {
