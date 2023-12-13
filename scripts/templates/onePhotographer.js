@@ -3,7 +3,7 @@ function displayData(photographer) {
     const picture = `assets/Photographers/${portrait}`;
 
 
- // Creations de 4 "div" 
+ // Creations de 5 "div" 
     // "div" container
     const container = document.createElement("div");
     container.setAttribute("class", "onePhotographer_container");
@@ -16,9 +16,14 @@ function displayData(photographer) {
     // "div" photographeImage
     const photographeImage = document.createElement("div");
     photographeImage.setAttribute("class", "onePhotographer_image");
+    // "div" photosMedias
+    const photosMedias = document.createElement("div")
+    photosMedias.setAttribute("class", "photograph_photosMedias")
 
 
- // Creations des elements
+ // Creations des elements dans les "div"
+
+    // "div" informations
     // element "name"
     const h2 = document.createElement("h2");
     h2.textContent = name;
@@ -30,7 +35,9 @@ function displayData(photographer) {
     // element "tagline"
     const taglineText = document.createElement("p");
     taglineText.textContent = tagline;
-    taglineText.setAttribute("class", "onePhotographer_tagline");
+    taglineText.setAttribute("class", "onePhotographer_tagline"); 
+
+    // "div" contactButton
     // element "button"
 	const button = document.createElement("button");
     button.textContent = "Contactez-moi";
@@ -42,6 +49,8 @@ function displayData(photographer) {
         var modalOverlay = document.getElementById("modal-overlay");
         modalOverlay.style.display = "block";
     });
+
+    // "div" photographeImage
     // element "picture"
     const img = document.createElement( 'img' );
     img.setAttribute("id", "onephotographer_image");
@@ -60,6 +69,9 @@ function displayData(photographer) {
  // ajout de 'article.appendChild' pour la "div" photographeImage
     photographeImage.appendChild(img);
 
+
+    const onePhotographer_photosMedias = document.querySelector("main");
+    onePhotographer_photosMedias.appendChild(photosMedias)
 
     const onePhotographerContainer = document.querySelector(".photograph-header");
     onePhotographerContainer.appendChild(container);

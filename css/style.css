@@ -17,7 +17,6 @@ header {
 h1 {
     color: #901C1C;
     margin-right: 100px;
-    /* rajout de la taille de font */
     font-size: 36px;
 }
 
@@ -49,19 +48,4 @@ h1 {
 .photographer_section article img {
     height: 200px;
     width: 200px;
-    /* ajout du radius pour faire un  cadre en cercle
-    border-radius: 100px;
-    /* recentrage de l img  */
-    /* object-fit: cover;
-    overflow: hidden; */
 } 
-
-/* ajout de P */
-/* .photographer_section article p {
-    color: #901C1C;
-    font-weight: 400 ;
-    Size: 13px;
-    line-height: 16.93px;
-    text-align: Center;
-
-} */
