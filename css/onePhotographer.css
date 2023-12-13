@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.onePhotographer_container {
+.onePhotographer_headerContainer {
     display: contents;
 }
 
@@ -36,3 +36,7 @@ img.onephotographer_image {
     width: 200px;
     border-radius: 100%;
 }
+
+/* .photograph-photosMedias {
+    margin: 50px 100px;
+} */
