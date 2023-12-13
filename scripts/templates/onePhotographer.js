@@ -2,8 +2,9 @@ function displayData(photographer) {
     const {city, country, name, portrait, price, tagline } = photographer;
     const picture = `assets/Photographers/${portrait}`;
 
- //--------------------------- Creations des "div" --------------------------
-    //onePhotographer_container
+ //--------------------------- Creations des "DIV" --------------------------
+   //"DIV" photograph-header
+    //onePhotographer_headerContainer
     const headerContainer = document.createElement("div");
     headerContainer.setAttribute("class", "onePhotographer_headerContainer");
     //onePhotographer_informations
@@ -15,6 +16,14 @@ function displayData(photographer) {
     //onePhotographer_image
     const photographeImage = document.createElement("div");
     photographeImage.setAttribute("class", "onePhotographer_image");
+
+   //"DIV" photograph-photosMedias
+    //onePhotographer_allMedias
+    const allMedias = document.createElement("div");
+    allMedias.setAttribute("class", "onePhotographer_allMedias");
+    //onePhotographer_trier
+    const trier = document.createElement("div");
+    trier.setAttribute("class", "onePhotographer_trier")
    
   
  //---------- Creations des elements dans les 3 "div" de (onePhotographer_container) -------------
@@ -35,15 +44,15 @@ function displayData(photographer) {
 
     //------"div" contactButton
     // element "button"
-	const button = document.createElement("button");
-   button.textContent = "Contactez-moi";
-	button.setAttribute("class", "onePhotographer_button");
-   button.addEventListener("click", function () {
-      const modal = document.getElementById("contact_modal");
-      modal.style.display = "block";
-      modal.focus();
-      var modalOverlay = document.getElementById("modal-overlay");
-      modalOverlay.style.display = "block";
+	 const button = document.createElement("button");
+    button.textContent = "Contactez-moi";
+	 button.setAttribute("class", "onePhotographer_button");
+    button.addEventListener("click", function () {
+       const modal = document.getElementById("contact_modal");
+       modal.style.display = "block";
+       modal.focus();
+       var modalOverlay = document.getElementById("modal-overlay");
+       modalOverlay.style.display = "block";
     });
 
     //------"div" photographeImage
@@ -53,6 +62,9 @@ function displayData(photographer) {
     img.setAttribute("src", picture);
     img.setAttribute("alt", "Photo de " + name);
     img.setAttribute("class", "onephotographer_image");
+
+
+    
 
  //---------------------- ajout de 'article.appendChild' ------------------ 
     // pour la "div" informations
@@ -77,6 +89,9 @@ function displayData(photographer) {
     onePhotographerContact.appendChild(contactButton);
     const onePhotographerimage = document.querySelector(".onePhotographer_headerContainer");
     onePhotographerimage.appendChild(photographeImage);
+
+    const onePhotographerallMedias = document.querySelector(".photograph-photosMedias");
+    onePhotographerallMedias.appendChild(allMedias);
     
     
  
