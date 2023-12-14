@@ -39,4 +39,22 @@ img.onephotographer_image {
 
 .photograph-photosMedias {
     margin: 50px 100px;
+    height: 1750px;
 }
+
+.label-medias {
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 25px;
+  }
+  
+  .onephotographer_liste-deroulante {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    width: 170px;
+    border-radius: 5px;
+    border: none;
+    background-color: #901c1c;
+    padding: 15px 30px 15px 15px;
+  }

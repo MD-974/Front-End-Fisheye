@@ -17,15 +17,14 @@ function displayData(photographer) {
     const photographeImage = document.createElement("div");
     photographeImage.setAttribute("class", "onePhotographer_image");
 
+
+    
    //"DIV" photograph-photosMedias
     //onePhotographer_allMedias
     const allMedias = document.createElement("div");
     allMedias.setAttribute("class", "onePhotographer_allMedias");
-    //onePhotographer_trier
-    const trier = document.createElement("div");
-    trier.setAttribute("class", "onePhotographer_trier")
-   
-  
+
+
  //---------- Creations des elements dans les 3 "div" de (onePhotographer_container) -------------
 
     //------"div" informations
@@ -64,7 +63,25 @@ function displayData(photographer) {
     img.setAttribute("class", "onephotographer_image");
 
 
-    
+
+
+    const medias = document.createElement( 'label' );
+    medias.setAttribute("class", "onephotographer_trier");
+    medias.setAttribute("for", "tri-medias");
+    medias.setAttribute("class", "label-medias");
+    medias.textContent = "Trier par";
+
+    const mediasSelect = document.createElement(  'select' );
+    mediasSelect.setAttribute("class", "onephotographer_liste-deroulante");
+    mediasSelect.setAttribute("name", "tri-liste");
+    mediasSelect.setAttribute("id", "tri-medias");
+    console.log(mediasSelect)
+   
+
+
+
+
+
 
  //---------------------- ajout de 'article.appendChild' ------------------ 
     // pour la "div" informations
@@ -75,7 +92,10 @@ function displayData(photographer) {
     contactButton.appendChild(button);
     // pour la "div" photographeImage
     photographeImage.appendChild(img);
-
+    // pour la "div" allMedias
+    allMedias.appendChild(medias);
+   allMedias.appendChild(mediasSelect)
+    
 
 
 
@@ -90,8 +110,14 @@ function displayData(photographer) {
     const onePhotographerimage = document.querySelector(".onePhotographer_headerContainer");
     onePhotographerimage.appendChild(photographeImage);
 
+
     const onePhotographerallMedias = document.querySelector(".photograph-photosMedias");
     onePhotographerallMedias.appendChild(allMedias);
+
+
+    const onePhotographertriesSelects = document.querySelector("label");
+    onePhotographertriesSelects.appendChild(allMedias);
+    console.log(onePhotographertriesSelects)
     
     
  
