@@ -34,7 +34,7 @@ function displayData(photographer) {
     h2.setAttribute("class", "onePhotographer_nom");
     // element "city+country"
     const villeText = document.createElement("p");
-    villeText.textContent = city + "," + country;
+    villeText.textContent = city + ", " + country;
     villeText.setAttribute("class", "onePhotographer_ville");
     // element "tagline"
     const taglineText = document.createElement("p");
@@ -75,10 +75,17 @@ function displayData(photographer) {
     mediasSelect.setAttribute("class", "onephotographer_liste-deroulante");
     mediasSelect.setAttribute("name", "tri-liste");
     mediasSelect.setAttribute("id", "tri-medias");
-    console.log(mediasSelect)
+   //  console.log(mediasSelect)
    
 
-
+   //--------------------------------------------------------------
+   //--------------------------------------------------------------
+   //  const selectOption1 = document.createElement( 'option' );
+   //  selectOption1.setAttribute("class", "onephotographer_option1");
+   //  selectOption1.setAttribute("value", "populaire");
+   //  selectOption1.textContent("populaire");
+   //---------------------------------------------------------------
+   //---------------------------------------------------------------
 
 
 
@@ -94,8 +101,11 @@ function displayData(photographer) {
     photographeImage.appendChild(img);
     // pour la "div" allMedias
     allMedias.appendChild(medias);
-   allMedias.appendChild(mediasSelect)
-    
+    allMedias.appendChild(mediasSelect);
+
+    //-------------------------------------
+   //  selectOption1.appendChild(mediasSelect)
+    //-------------------------------------
 
 
 
@@ -115,9 +125,9 @@ function displayData(photographer) {
     onePhotographerallMedias.appendChild(allMedias);
 
 
-    const onePhotographertriesSelects = document.querySelector("label");
-    onePhotographertriesSelects.appendChild(allMedias);
-    console.log(onePhotographertriesSelects)
+    const onePhotographer_triesSelects = document.querySelector("label");
+    onePhotographer_triesSelects.appendChild(allMedias);
+
     
     
  
@@ -127,11 +137,9 @@ async function init() {
  // Récuperation de l'id de l'url
     const paramsUrl = new URLSearchParams(window.location.search);
     const id = paramsUrl.get("id");
-    console.log (id);
 
  // Récupère les datas d'un photographe
     const dataOnePhotographe  = await getOnePhotographer(id);
-    console.log(dataOnePhotographe)
     displayData(dataOnePhotographe);
 }   
 

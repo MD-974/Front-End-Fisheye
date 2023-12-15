@@ -24,7 +24,7 @@ function photographerTemplate(data) {
 
 
         const villeText = document.createElement ( 'p' );
-        villeText.textContent = city + "," + country;
+        villeText.textContent = city + ", " + country;
         villeText.setAttribute("class", "photographer_ville");
 
         const taglineText = document.createElement( 'p' );
