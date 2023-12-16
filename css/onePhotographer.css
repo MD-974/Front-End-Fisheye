@@ -58,3 +58,14 @@ img.onephotographer_image {
     background-color: #901c1c;
     padding: 15px 30px 15px 15px;
   }
+
+  .onephotographer_allCoeurprix {
+    position: fixed;
+    display: flex;
+    flex-direction: row-reverse;
+    bottom: 0;
+    right: 0;
+    border-radius: 5px;
+    background: #db8876;
+    margin-right: 50px;
+}

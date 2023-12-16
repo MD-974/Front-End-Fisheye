@@ -18,13 +18,17 @@ function displayData(photographer) {
     photographeImage.setAttribute("class", "onePhotographer_image");
 
 
-    
    //"DIV" photograph-photosMedias
-    //onePhotographer_allMedias
+    //onePhotographer_allTrier
+    const allTrier = document.createElement("div");
+    allTrier.setAttribute("class", "onePhotographer_allTrier");
+    
     const allMedias = document.createElement("div");
-    allMedias.setAttribute("class", "onePhotographer_allMedias");
+    allMedias.setAttribute("class", "onephotographer_allMedias");
 
-
+    const allCoeurprix = document.createElement("div");
+    allCoeurprix.setAttribute("class", "onephotographer_allCoeurprix");
+    
  //---------- Creations des elements dans les 3 "div" de (onePhotographer_container) -------------
 
     //------"div" informations
@@ -75,9 +79,16 @@ function displayData(photographer) {
     mediasSelect.setAttribute("class", "onephotographer_liste-deroulante");
     mediasSelect.setAttribute("name", "tri-liste");
     mediasSelect.setAttribute("id", "tri-medias");
-   //  console.log(mediasSelect)
    
 
+    const imagesVideos = document.createElement ( "div" );
+    imagesVideos.setAttribute("class", "onephotographer_images-videos");
+
+    const prixText = document.createElement( 'p' );
+    prixText.textContent = price + "€/jour";
+   
+    
+    
    //--------------------------------------------------------------
    //--------------------------------------------------------------
    //  const selectOption1 = document.createElement( 'option' );
@@ -99,10 +110,14 @@ function displayData(photographer) {
     contactButton.appendChild(button);
     // pour la "div" photographeImage
     photographeImage.appendChild(img);
-    // pour la "div" allMedias
-    allMedias.appendChild(medias);
-    allMedias.appendChild(mediasSelect);
+    // pour la "div" allTrier
+    allTrier.appendChild(medias);
+    allTrier.appendChild(mediasSelect);
 
+    allMedias.appendChild(imagesVideos);
+
+   
+    allCoeurprix.appendChild(prixText)
     //-------------------------------------
    //  selectOption1.appendChild(mediasSelect)
     //-------------------------------------
@@ -121,16 +136,14 @@ function displayData(photographer) {
     onePhotographerimage.appendChild(photographeImage);
 
 
-    const onePhotographerallMedias = document.querySelector(".photograph-photosMedias");
-    onePhotographerallMedias.appendChild(allMedias);
+    const onePhotographerallTrier = document.querySelector(".photograph-photosMedias");
+    onePhotographerallTrier.appendChild(allTrier);
 
-
-    const onePhotographer_triesSelects = document.querySelector("label");
-    onePhotographer_triesSelects.appendChild(allMedias);
-
+    const onePhotographerImagesvideos = document.querySelector(".photograph-photosMedias");
+    onePhotographerImagesvideos.appendChild(allMedias);
     
-    
- 
+    const onephotographerCoeurprix = document.querySelector(".photograph-photosMedias");
+    onephotographerCoeurprix.appendChild(allCoeurprix)
 }
 
 async function init() {
