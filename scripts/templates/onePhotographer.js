@@ -2,8 +2,11 @@ function displayData(photographer) {
     const {city, country, name, portrait, price, tagline } = photographer;
     const picture = `assets/Photographers/${portrait}`;
 
+
  //--------------------------- Creations des "DIV" --------------------------
+
    //"DIV" photograph-header
+
     //onePhotographer_headerContainer
     const headerContainer = document.createElement("div");
     headerContainer.setAttribute("class", "onePhotographer_headerContainer");
@@ -18,20 +21,24 @@ function displayData(photographer) {
     photographeImage.setAttribute("class", "onePhotographer_image");
 
 
-   //"DIV" photograph-photosMedias
+       // ---------------------------------------------------
+
+
+    //"DIV" photograph-photosMedias
+
     //onePhotographer_allTrier
     const allTrier = document.createElement("div");
     allTrier.setAttribute("class", "onePhotographer_allTrier");
-    
+    //onephotographer_allMedias
     const allMedias = document.createElement("div");
     allMedias.setAttribute("class", "onephotographer_allMedias");
-
+    //onephotographer_allCoeurprix
     const allCoeurprix = document.createElement("div");
     allCoeurprix.setAttribute("class", "onephotographer_allCoeurprix");
-    
- //---------- Creations des elements dans les 3 "div" de (onePhotographer_container) -------------
 
-    //------"div" informations
+
+    
+    //-------- Creations des elements  de la "div" informations -----------
     // element "name"
     const h2 = document.createElement("h2");
     h2.textContent = name;
@@ -45,7 +52,7 @@ function displayData(photographer) {
     taglineText.textContent = tagline;
     taglineText.setAttribute("class", "onePhotographer_tagline"); 
 
-    //------"div" contactButton
+    //-------- Creations des elements  de la "div" contactButton -----------
     // element "button"
 	 const button = document.createElement("button");
     button.textContent = "Contactez-moi";
@@ -57,8 +64,7 @@ function displayData(photographer) {
        var modalOverlay = document.getElementById("modal-overlay");
        modalOverlay.style.display = "block";
     });
-
-    //------"div" photographeImage
+    //-------- Creations des elements  de la "div" photographeImage -----------
     // element "picture"
     const img = document.createElement( 'img' );
     img.setAttribute("id", "onephotographer_image");
@@ -67,27 +73,27 @@ function displayData(photographer) {
     img.setAttribute("class", "onephotographer_image");
 
 
-
-
+    //-------- Creations des elements  de la "div" allTrier -----------
+    // element "label"
     const medias = document.createElement( 'label' );
     medias.setAttribute("class", "onephotographer_trier");
     medias.setAttribute("for", "tri-medias");
     medias.setAttribute("class", "label-medias");
     medias.textContent = "Trier par";
-
+   // element "select"
     const mediasSelect = document.createElement(  'select' );
     mediasSelect.setAttribute("class", "onephotographer_liste-deroulante");
     mediasSelect.setAttribute("name", "tri-liste");
     mediasSelect.setAttribute("id", "tri-medias");
    
-
+    //-------- Creations des elements  de la "div" allMedias -----------
     const imagesVideos = document.createElement ( "div" );
     imagesVideos.setAttribute("class", "onephotographer_images-videos");
 
+    //-------- Creations des elements  de la "div" allCoeurprix -----------
     const prixText = document.createElement( 'p' );
     prixText.textContent = price + "€/jour";
    
-    
     
    //--------------------------------------------------------------
    //--------------------------------------------------------------
@@ -113,11 +119,11 @@ function displayData(photographer) {
     // pour la "div" allTrier
     allTrier.appendChild(medias);
     allTrier.appendChild(mediasSelect);
-
+    // pour la "div" allMedias
     allMedias.appendChild(imagesVideos);
-
-   
+    // pour la "div" allCoeurprix
     allCoeurprix.appendChild(prixText)
+    
     //-------------------------------------
    //  selectOption1.appendChild(mediasSelect)
     //-------------------------------------
