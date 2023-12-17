@@ -36,6 +36,9 @@ function displayData(photographer) {
     const allCoeurprix = document.createElement("div");
     allCoeurprix.setAttribute("class", "onephotographer_allCoeurprix");
 
+    const allCoeur = document.createElement("div");
+    allCoeur.setAttribute("class", "onephtographer_likes");
+
 
     
     //-------- Creations des elements  de la "div" informations -----------
@@ -93,8 +96,19 @@ function displayData(photographer) {
     //-------- Creations des elements  de la "div" allCoeurprix -----------
     const prixText = document.createElement( 'p' );
     prixText.textContent = price + "€/jour";
+    prixText.setAttribute("class", "onephotographer_prix");
+
+    const likesText = document.createElement( "div" );
+    likesText.setAttribute("class", "onephotographer_likes");
+
+    const coeurText = document.createElement( "p" );
+    coeurText.textContent = "---";
+    coeurText.setAttribute("class", "onephotographer_coeur-text");
+
+    const coeurImage = document.createElement ( "i" );
+    coeurImage.setAttribute("class", "fa-regular fa-heart fas")
+
    
-    
    //--------------------------------------------------------------
    //--------------------------------------------------------------
    //  const selectOption1 = document.createElement( 'option' );
@@ -122,8 +136,12 @@ function displayData(photographer) {
     // pour la "div" allMedias
     allMedias.appendChild(imagesVideos);
     // pour la "div" allCoeurprix
-    allCoeurprix.appendChild(prixText)
-    
+    allCoeurprix.appendChild(prixText);
+    allCoeurprix.appendChild(likesText);
+
+    allCoeur.appendChild(coeurText);
+    allCoeur.appendChild(coeurImage)
+
     //-------------------------------------
    //  selectOption1.appendChild(mediasSelect)
     //-------------------------------------
@@ -149,7 +167,12 @@ function displayData(photographer) {
     onePhotographerImagesvideos.appendChild(allMedias);
     
     const onephotographerCoeurprix = document.querySelector(".photograph-photosMedias");
-    onephotographerCoeurprix.appendChild(allCoeurprix)
+    onephotographerCoeurprix.appendChild(allCoeurprix);
+
+    const onephotographer_allCoeurs = document.querySelector(".onephotographer_likes");
+    onephotographer_allCoeurs.appendChild(allCoeur)
+
+
 }
 
 async function init() {
