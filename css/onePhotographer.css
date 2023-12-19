@@ -46,20 +46,10 @@ img.onephotographer_image {
     font-size: 18px;
     font-weight: 700;
     margin-right: 25px;
-  }
+}
   
-  /* .onephotographer_liste-deroulante {
-    font-size: 16px;
-    font-weight: 700;
-    color: #fff;
-    width: 170px;
-    border-radius: 5px;
-    border: none;
-    background-color: #901c1c;
-    padding: 15px 30px 15px 15px;
-  } */
 
-  .onephotographer_allCoeurprix {
+.onephotographer_allCoeurprix {
     position: fixed;
     display: flex;
     flex-direction: row-reverse;
@@ -72,16 +62,17 @@ img.onephotographer_image {
 
 .onephotographer_allCoeurprix p {
     margin: 0;
-    padding: 10px 5px 10px 20px;
+    padding: 10px 25px;
     font-size: 24px;
     font-weight: 500;
     color: #000;
 }
 
-.onephotographer_allCoeurprix i {
-    font-weight: 900;
+.onephotographer_coeur-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    padding: 10px 0px 10px 20px;
 }
 
-.onephotographer_likes {
-    display :flex;
-}

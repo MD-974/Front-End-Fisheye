@@ -1,7 +1,7 @@
-function displayData(photographer) {
-    const {city, country, name, portrait, price, tagline } = photographer;
-    const picture = `assets/Photographers/${portrait}`;
-
+function displayData(photographer, media) {
+   const {city, country, name, portrait, price, tagline } = photographer;
+   const picture = `assets/Photographers/${portrait}`;
+   
 
  //--------------------------- Creations des "DIV" --------------------------
 
@@ -98,20 +98,14 @@ function displayData(photographer) {
     prixText.textContent = price + "€/jour";
     prixText.setAttribute("class", "onephotographer_prix");
 
-    const likesText = document.createElement( "div" );
-    likesText.setAttribute("class", "onephotographer_likes");
+   //  const likesText = document.createElement( "div" );
+   //  likesText.setAttribute("class", "onephotographer_likes");
 
-    const coeurText = document.createElement( "p" );
-    coeurText.textContent = "---";
+    const coeurText = document.createElement( "div" );
+    coeurText.innerHTML = "10000<i class='fa-solid fa-heart'><i>"
     coeurText.setAttribute("class", "onephotographer_coeur-text");
 
-    const coeurImage = document.createElement ( "i" );
-    coeurImage.setAttribute("class", "fa-solid fa-heart")
-    
-   
-
-   
-
+ 
 
  //---------------------- ajout de 'article.appendChild' ------------------ 
     // pour la "div" informations
@@ -129,10 +123,11 @@ function displayData(photographer) {
     allMedias.appendChild(imagesVideos);
     // pour la "div" allCoeurprix
     allCoeurprix.appendChild(prixText);
-    allCoeurprix.appendChild(likesText);
+   //  allCoeurprix.appendChild(likesText);
+   allCoeurprix.appendChild(coeurText);
 
-    allCoeur.appendChild(coeurText);
-    allCoeur.appendChild(coeurImage)
+   //  allCoeur.appendChild(coeurText);
+   //  allCoeur.appendChild(coeurImage)
 
  
 
@@ -156,8 +151,8 @@ function displayData(photographer) {
     const onephotographerCoeurprix = document.querySelector(".photograph-photosMedias");
     onephotographerCoeurprix.appendChild(allCoeurprix);
 
-    const onephotographer_allCoeurs = document.querySelector(".onephotographer_likes");
-    onephotographer_allCoeurs.appendChild(allCoeur)
+   //  const onephotographer_allCoeurs = document.querySelector(".onephotographer_likes");
+   //  onephotographer_allCoeurs.appendChild(allCoeur)
 
 
 }
@@ -169,7 +164,12 @@ async function init() {
 
  // Récupère les datas d'un photographe
     const dataOnePhotographe  = await getOnePhotographer(id);
-    displayData(dataOnePhotographe);
+// Récupère les media d'un photographe
+    const mediaOnePhotographe  = await getOnePhotographerMedia(id);
+
+
+
+    displayData(dataOnePhotographe, mediaOnePhotographe);
 }   
 
 init()

@@ -20,3 +20,14 @@ async function getOnePhotographer(id) {
 
 }
 
+async function getOnePhotographerMedia(id) {
+    const reponse = await fetch ("data/photographers.json");
+    const {  media } = await reponse.json();
+
+    let photographeMedia = media.filter( element => {
+        if (element.photographerId == id) {
+            return element
+        }
+    })
+    return photographeMedia;
+}
