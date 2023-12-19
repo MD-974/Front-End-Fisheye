@@ -35,7 +35,7 @@ function displayData(photographer) {
     //onephotographer_allCoeurprix
     const allCoeurprix = document.createElement("div");
     allCoeurprix.setAttribute("class", "onephotographer_allCoeurprix");
-
+    //onephotographer_allCoeurprix => onephtographer_likes
     const allCoeur = document.createElement("div");
     allCoeur.setAttribute("class", "onephtographer_likes");
 
@@ -106,19 +106,11 @@ function displayData(photographer) {
     coeurText.setAttribute("class", "onephotographer_coeur-text");
 
     const coeurImage = document.createElement ( "i" );
-    coeurImage.setAttribute("class", "fa-regular fa-heart fas")
+    coeurImage.setAttribute("class", "fa-solid fa-heart")
+    
+   
 
    
-   //--------------------------------------------------------------
-   //--------------------------------------------------------------
-   //  const selectOption1 = document.createElement( 'option' );
-   //  selectOption1.setAttribute("class", "onephotographer_option1");
-   //  selectOption1.setAttribute("value", "populaire");
-   //  selectOption1.textContent("populaire");
-   //---------------------------------------------------------------
-   //---------------------------------------------------------------
-
-
 
 
  //---------------------- ajout de 'article.appendChild' ------------------ 
@@ -142,13 +134,8 @@ function displayData(photographer) {
     allCoeur.appendChild(coeurText);
     allCoeur.appendChild(coeurImage)
 
-    //-------------------------------------
-   //  selectOption1.appendChild(mediasSelect)
-    //-------------------------------------
+ 
 
-
-
-    
     
     const onePhotographerContainer = document.querySelector(".photograph-header");
     onePhotographerContainer.appendChild(headerContainer);

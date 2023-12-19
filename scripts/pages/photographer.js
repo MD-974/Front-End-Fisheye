@@ -20,4 +20,3 @@ async function getOnePhotographer(id) {
 
 }
 
-getOnePhotographer();
