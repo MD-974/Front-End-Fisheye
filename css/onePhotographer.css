@@ -76,3 +76,31 @@ img.onephotographer_image {
     padding: 10px 0px 10px 20px;
 }
 
+
+
+
+
+
+
+.onephotographer_allMedias {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.onephotographer_images-videos {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0;
+    gap: 95px;
+    margin: 50px 0;
+}
+
+.onephotographer_images-videos img {
+    width: 350px;
+    height: 300px;
+    list-style: none;
+    margin-bottom: 30px;
+}
+

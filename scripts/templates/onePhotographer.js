@@ -1,7 +1,8 @@
-function displayData(photographer, media) {
+function displayData(photographer, photographerMedia) {
    const {city, country, name, portrait, price, tagline } = photographer;
    const picture = `assets/Photographers/${portrait}`;
-   
+   //  console.log(photographerMedia)
+  
 
  //--------------------------- Creations des "DIV" --------------------------
 
@@ -92,6 +93,19 @@ function displayData(photographer, media) {
     //-------- Creations des elements  de la "div" allMedias -----------
     const imagesVideos = document.createElement ( "div" );
     imagesVideos.setAttribute("class", "onephotographer_images-videos");
+
+   //  photographerMedia.map(media => {
+   //    const mediasTitre = document.createElement ("h3");
+   //    mediasTitre.textContent = media.title;
+   //    imagesVideos.append(mediasTitre)
+   //  })
+   photographerMedia.map(media => {
+         const mediasImage = document.createElement ("img");
+         mediasImage.setAttribute = media.image;
+         imagesVideos.append(mediasImage)
+         console.log(mediasImage)
+         // return mediasImage
+       })
 
     //-------- Creations des elements  de la "div" allCoeurprix -----------
     const prixText = document.createElement( 'p' );
