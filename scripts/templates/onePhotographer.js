@@ -1,6 +1,7 @@
 function displayData(photographer, photographerMedia) {
    const {city, country, name, portrait, price, tagline } = photographer;
    const picture = `assets/Photographers/${portrait}`;
+   // const { media } = photographerMedia;
    //  console.log(photographerMedia)
   
 
@@ -93,19 +94,34 @@ function displayData(photographer, photographerMedia) {
     //-------- Creations des elements  de la "div" allMedias -----------
     const imagesVideos = document.createElement ( "div" );
     imagesVideos.setAttribute("class", "onephotographer_images-videos");
-
-   //  photographerMedia.map(media => {
-   //    const mediasTitre = document.createElement ("h3");
-   //    mediasTitre.textContent = media.title;
-   //    imagesVideos.append(mediasTitre)
-   //  })
+   //  const titreImagesVideos = document.createElement ( "div" );
+   //  titreImagesVideos.setAttribute("class", "onephotographer_titre-images_videos");
+   //  console.log(titreImagesVideos)
+    
    photographerMedia.map(media => {
-         const mediasImage = document.createElement ("img");
-         mediasImage.setAttribute = media.image;
-         imagesVideos.append(mediasImage)
-         console.log(mediasImage)
-         // return mediasImage
-       })
+      const mediasImage = document.createElement ( "img" );
+      mediasImage.setAttribute("src", media.image);
+      mediasImage.setAttribute("class", "onephotographer_imageMedias");
+      // mediasImage.setAttribute = media.image;
+      imagesVideos.append(mediasImage);
+      console.log(mediasImage)
+      
+   })
+      // titreImagesVideos.appendChild(allMedias)
+
+
+   
+   
+//    photographerMedia.map(media => {
+//       const mediasTitre = document.createElement ("h3");
+//       mediasTitre.textContent = media.title;
+//       imagesVideos.appendChild(mediasTitre)
+// })
+        // const mediasVideo = document.createElement ("video");
+        // mediasVideo.setAttribute = media.Video;
+        // imagesVideos.append(mediasVideo)
+
+      
 
     //-------- Creations des elements  de la "div" allCoeurprix -----------
     const prixText = document.createElement( 'p' );

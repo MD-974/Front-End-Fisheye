@@ -82,10 +82,10 @@ img.onephotographer_image {
 
 
 
-.onephotographer_allMedias {
+/* .onephotographer_allMedias {
     display: flex;
     flex-wrap: wrap;
-}
+} */
 
 .onephotographer_images-videos {
     display: flex;
@@ -100,7 +100,5 @@ img.onephotographer_image {
 .onephotographer_images-videos img {
     width: 350px;
     height: 300px;
-    list-style: none;
-    margin-bottom: 30px;
 }
 
