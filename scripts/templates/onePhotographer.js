@@ -1,5 +1,6 @@
 function displayData(photographer, photographerMedia) {
-   const {city, country, name, portrait, price, tagline } = photographer;
+   const {city, country, name, portrait, price, tagline} = photographer;
+   const {media} =photographerMedia
    const picture = `assets/Photographers/${portrait}`;
    // const { media } = photographerMedia;
    //  console.log(photographerMedia)
@@ -102,10 +103,17 @@ function displayData(photographer, photographerMedia) {
       const mediasImage = document.createElement ( "img" );
       mediasImage.setAttribute("src", media.image);
       mediasImage.setAttribute("class", "onephotographer_imageMedias");
+      // mediasImage.setAttribute("src", media.titre);
       // mediasImage.setAttribute = media.image;
       imagesVideos.append(mediasImage);
-      console.log(mediasImage)
-      
+      console.log(mediasImage) 
+   })
+   photographerMedia.map(media => {
+      const mediasTitre = document.createElement ( "h3" );
+      mediasTitre.setAttribute("src", media.title);
+      mediasTitre.setAttribute("class", "onephotographer_titleMedias");
+      imagesVideos.append(mediasTitre)
+      console.log(mediasTitre)
    })
       // titreImagesVideos.appendChild(allMedias)
 
