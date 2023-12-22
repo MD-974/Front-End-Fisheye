@@ -1,8 +1,10 @@
 function displayData(photographer, photographerMedia) {
-   const picture = `assets/Photographers/${portrait}`;
    const {city, country, name, portrait, price, tagline} = photographer;
-   
-   
+   const {media} =photographerMedia
+   const picture = `assets/Photographers/${portrait}`;
+   // const { media } = photographerMedia;
+   //  console.log(photographerMedia)
+  
 
  //--------------------------- Creations des "DIV" --------------------------
 
@@ -93,15 +95,48 @@ function displayData(photographer, photographerMedia) {
     //-------- Creations des elements  de la "div" allMedias -----------
     const imagesVideos = document.createElement ( "div" );
     imagesVideos.setAttribute("class", "onephotographer_images-videos");
-  
+//  const titreImagesVideos = document.createElement ( "div" );
+   //  titreImagesVideos.setAttribute("class", "onephotographer_titre-images_videos");
+   //  console.log(titreImagesVideos)
+    
    photographerMedia.map(media => {
-      const mediasImage = document.createElement ( "img" );
-      const urlImage = `assets/medias/${media.image}`;
-      mediasImage.setAttribute("src", urlImage);
-      mediasImage.setAttribute("class", "onephotographer_urlImage");
-      imagesVideos.append(mediasImage);
-   
+
+      if (media.image) {
+         const mediasImage = document.createElement ("img");
+         const urlImage = `assets/medias/${media.image}`;
+         // const urlImage = 'assets/medias/${media.image}';
+         mediasImage.setAttribute("src", urlImage);
+         mediasImage.setAttribute("class", "onephotographer_imageMedias");
+         imagesVideos.append(mediasImage);
+      }else if (media.video) {
+         const mediasVideo = document.createElement ("video");
+         mediasVideo.setAttribute("controls", "controls");
+         mediasVideo.setAttribute("width", "350px");
+         const videoSource = document.createElement ("source");
+         const urlVideo = `assets/medias/${media.video}`;
+         // const urlVideo = 'assets/medias/${media.video}';
+         videoSource.setAttribute("src", urlVideo);
+         videoSource.setAttribute("type", "video/mp4");
+         mediasVideo.append(videoSource);
+         imagesVideos.append(mediasVideo);
+      }  
    })
+
+
+
+
+   // photographerMedia.map(media => {
+   //    const mediasImage = document.createElement ( "img" );
+   //    mediasImage.setAttribute("src", media.image);
+   //    mediasImage.setAttribute("class", "onephotographer_imageMedias");
+   //    // mediasImage.setAttribute("src", media.titre);
+   //    // mediasImage.setAttribute = media.image;
+   //    imagesVideos.append(mediasImage);
+   //    console.log(mediasImage) 
+   // })
+
+
+
 
    // photographerMedia.map(media => {
    //    const mediasTitre = document.createElement ( "h3" );
@@ -110,12 +145,29 @@ function displayData(photographer, photographerMedia) {
    //    imagesVideos.append(mediasTitre)
    //    console.log(mediasTitre)
    // })
-  
+      // titreImagesVideos.appendChild(allMedias)
+
+
+   
+   
+//    photographerMedia.map(media => {
+//       const mediasTitre = document.createElement ("h3");
+//       mediasTitre.textContent = media.title;
+//       imagesVideos.appendChild(mediasTitre)
+// })
+        // const mediasVideo = document.createElement ("video");
+        // mediasVideo.setAttribute = media.Video;
+        // imagesVideos.append(mediasVideo)
+
+      
 
     //-------- Creations des elements  de la "div" allCoeurprix -----------
     const prixText = document.createElement( 'p' );
     prixText.textContent = price + "€/jour";
     prixText.setAttribute("class", "onephotographer_prix");
+
+   //  const likesText = document.createElement( "div" );
+   //  likesText.setAttribute("class", "onephotographer_likes");
 
     const coeurText = document.createElement( "div" );
     coeurText.innerHTML = "10000<i class='fa-solid fa-heart'><i>"
@@ -166,6 +218,10 @@ function displayData(photographer, photographerMedia) {
     
     const onephotographerCoeurprix = document.querySelector(".photograph-photosMedias");
     onephotographerCoeurprix.appendChild(allCoeurprix);
+
+   //  const onephotographer_allCoeurs = document.querySelector(".onephotographer_likes");
+   //  onephotographer_allCoeurs.appendChild(allCoeur)
+
 
 }
 
