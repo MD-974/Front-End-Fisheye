@@ -95,10 +95,8 @@ function displayData(photographer, photographerMedia) {
     //-------- Creations des elements  de la "div" allMedias -----------
     const imagesVideos = document.createElement ( "div" );
     imagesVideos.setAttribute("class", "onephotographer_images-videos");
-//  const titreImagesVideos = document.createElement ( "div" );
-   //  titreImagesVideos.setAttribute("class", "onephotographer_titre-images_videos");
-   //  console.log(titreImagesVideos)
-    
+
+    // elements "images" ou "video"  
    photographerMedia.map(media => {
 
       if (media.image) {
@@ -119,47 +117,24 @@ function displayData(photographer, photographerMedia) {
          videoSource.setAttribute("type", "video/mp4");
          mediasVideo.append(videoSource);
          imagesVideos.append(mediasVideo);
-      }  
-   })
+      } 
 
+     // element "titre du media(image ou video)"   
+      const mediasTitre = document.createElement ("h3");
+      mediasTitre.textContent = media.title;
+      imagesVideos.appendChild(mediasTitre);
 
+     // element "like du media(image ou video)"
+      const mediaslike = document.createElement ("div");
+      mediaslike.textContent = media.likes;
+      imagesVideos.appendChild(mediaslike);
 
-
-   // photographerMedia.map(media => {
-   //    const mediasImage = document.createElement ( "img" );
-   //    mediasImage.setAttribute("src", media.image);
-   //    mediasImage.setAttribute("class", "onephotographer_imageMedias");
-   //    // mediasImage.setAttribute("src", media.titre);
-   //    // mediasImage.setAttribute = media.image;
-   //    imagesVideos.append(mediasImage);
-   //    console.log(mediasImage) 
-   // })
-
-
-
-
-   // photographerMedia.map(media => {
-   //    const mediasTitre = document.createElement ( "h3" );
-   //    mediasTitre.setAttribute("src", media.title);
-   //    mediasTitre.setAttribute("class", "onephotographer_titleMedias");
-   //    imagesVideos.append(mediasTitre)
-   //    console.log(mediasTitre)
-   // })
-      // titreImagesVideos.appendChild(allMedias)
-
-
-   
-   
-//    photographerMedia.map(media => {
-//       const mediasTitre = document.createElement ("h3");
-//       mediasTitre.textContent = media.title;
-//       imagesVideos.appendChild(mediasTitre)
-// })
-        // const mediasVideo = document.createElement ("video");
-        // mediasVideo.setAttribute = media.Video;
-        // imagesVideos.append(mediasVideo)
-
+     // element "coeur du media(image ou video)"
+      const mediasCoeur = document.createElement ("div");
+      mediasCoeur.innerHTML = "<i class='fa-regular fa-heart'></i>";
+      imagesVideos.appendChild(mediasCoeur);
       
+   })
 
     //-------- Creations des elements  de la "div" allCoeurprix -----------
     const prixText = document.createElement( 'p' );
@@ -170,7 +145,7 @@ function displayData(photographer, photographerMedia) {
    //  likesText.setAttribute("class", "onephotographer_likes");
 
     const coeurText = document.createElement( "div" );
-    coeurText.innerHTML = "10000<i class='fa-solid fa-heart'><i>"
+    coeurText.innerHTML = "10000<i class='fa-solid fa-heart'><i>";
     coeurText.setAttribute("class", "onephotographer_coeur-text");
 
  
