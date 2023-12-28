@@ -145,7 +145,7 @@ function displayData(photographer, photographerMedia) {
       mediasInfos.appendChild(mediasTitre);
 
       const mediasLikeWrapper = document.createElement ("div");
-      mediasLikeWrapper.setAttribute("class", "onephotographer_medias-infos");
+      mediasLikeWrapper.setAttribute("class", "onephotographer_medias-likes-wrapper");
       mediasLikeWrapper.style.background = "lightyellow"
 
      // element "like du media(image ou video)"
