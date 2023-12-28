@@ -103,7 +103,7 @@ function displayData(photographer, photographerMedia) {
       // div conteneur "contien les information (image,titre, like, coeur) pour chaques medias (images/videos) d'un photographe"
       const mediasCard = document.createElement ("div");
       mediasCard.setAttribute("class", "onephotographer_media-card");
-      mediasCard.style.background = "lightgrey"
+      // mediasCard.style.background = "lightgrey"
 
 
       if (media.image) {
@@ -134,23 +134,32 @@ function displayData(photographer, photographerMedia) {
 
       const mediasInfos = document.createElement ("div");
       mediasInfos.setAttribute("class", "onephotographer_medias-infos");
-      mediasInfos.style.background = "lightgreen"
+      mediasInfos.style.display = "flex";
+      mediasInfos.style.alignItems = "center";
+      mediasInfos.style.justifyContent = "space-between"
+      // mediasInfos.style.background = "lightgreen"
          
      // element "titre du media(image ou video)"   
       const mediasTitre = document.createElement ("h3");
       mediasTitre.textContent = media.title;
       mediasTitre.style.color = "#901C1C";
-      // mediasTitre.setAttribute("font-size", "24px");
+      mediasTitre.style.fontWeight = "400";
+      mediasTitre.setAttribute("font-size", "24px");
       // imagesVideos.appendChild(mediasTitre);
       mediasInfos.appendChild(mediasTitre);
 
       const mediasLikeWrapper = document.createElement ("div");
       mediasLikeWrapper.setAttribute("class", "onephotographer_medias-likes-wrapper");
-      mediasLikeWrapper.style.background = "lightyellow"
+      mediasLikeWrapper.style.display = "flex";
+      mediasLikeWrapper.style.gap ="5px";
+      // mediasLikeWrapper.style.background = "lightyellow"
 
      // element "like du media(image ou video)"
       const mediaslike = document.createElement ("p");
       mediaslike.textContent = media.likes;
+      mediaslike.style.color = "#901C1C";
+      mediaslike.style.fontWeight = "500";
+      mediaslike.setAttribute("font-size", "24px");
       // imagesVideos.appendChild(mediaslike);
       mediasLikeWrapper.appendChild(mediaslike);
 
