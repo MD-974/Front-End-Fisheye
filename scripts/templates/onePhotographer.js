@@ -93,22 +93,26 @@ function displayData(photographer, photographerMedia) {
     mediasSelect.setAttribute("id", "tri-medias");
    
     //-------- Creations des elements  de la "div" allMedias -----------
-    const imagesVideos = document.createElement ( "div" );
+    const imagesVideos = document.createElement ("div");
     imagesVideos.setAttribute("class", "onephotographer_images-videos");
   
-
     // elements "images" ou "video"  
 
-
-    
    photographerMedia.map(media => {
+   
+      // div conteneur "contien les information (image,titre, like, coeur) pour chaques medias (images/videos) d'un photographe"
+      const mediasCard = document.createElement ("div");
+      mediasCard.setAttribute("class", "onephotographer_media-card");
+      mediasCard.style.background = "lightgrey"
+
 
       if (media.image) {
          const mediasImage = document.createElement ("img");
          const urlImage = `assets/medias/${media.image}`;
          mediasImage.setAttribute("src", urlImage);
          mediasImage.setAttribute("class", "onephotographer_imageMedias");
-         imagesVideos.append(mediasImage);
+         // imagesVideos.append(mediasImage);
+         mediasCard.append(mediasImage);
       }else if (media.video) {
          const mediasVideo = document.createElement ("video");
          mediasVideo.setAttribute("controls", "controls");
@@ -119,31 +123,33 @@ function displayData(photographer, photographerMedia) {
          videoSource.setAttribute("src", urlVideo);
          videoSource.setAttribute("type", "video/mp4");
          mediasVideo.append(videoSource);
-         imagesVideos.append(mediasVideo);
-      } 
-      
-      
-
+         // imagesVideos.append(mediasVideo);
+         mediasCard.append(mediasVideo);
+      }
+         
      // element "titre du media(image ou video)"   
       const mediasTitre = document.createElement ("h3");
       mediasTitre.textContent = media.title;
-      mediasTitre.setAttribute("font-size", "24px");
       mediasTitre.style.color = "#901C1C";
-      // mediasInfo.appendChild(mediasTitre);
-      imagesVideos.appendChild(mediasTitre);
+      // mediasTitre.setAttribute("font-size", "24px");
+      // imagesVideos.appendChild(mediasTitre);
+      mediasCard.appendChild(mediasTitre);
 
 
      // element "like du media(image ou video)"
       const mediaslike = document.createElement ("p");
       mediaslike.textContent = media.likes;
-      imagesVideos.appendChild(mediaslike);
+      // imagesVideos.appendChild(mediaslike);
+      mediasCard.appendChild(mediaslike);
 
      // element "coeur du media(image ou video)"
       const mediasCoeur = document.createElement ("p");
       mediasCoeur.innerHTML = "<i class='fa-regular fa-heart'></i>";
       mediasCoeur.style.color = "#901C1C";
-      imagesVideos.appendChild(mediasCoeur);
-      
+      // imagesVideos.appendChild(mediasCoeur);
+      mediasCard.appendChild(mediasCoeur);
+
+      imagesVideos.appendChild(mediasCard);
    })
 
     //-------- Creations des elements  de la "div" allCoeurprix -----------
