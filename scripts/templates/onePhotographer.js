@@ -96,8 +96,10 @@ function displayData(photographer, photographerMedia) {
     const imagesVideos = document.createElement ("div");
     imagesVideos.setAttribute("class", "onephotographer_images-videos");
   
+    //tableau pour calculer tous les likes d'un photographe
+    allLikes = [];
+    
     // elements "images" ou "video"  
-
    photographerMedia.map(media => {
    
       // div conteneur "contien les information (image,titre, like, coeur) pour chaques medias (images/videos) d'un photographe"
@@ -157,6 +159,7 @@ function displayData(photographer, photographerMedia) {
      // element "like du media(image ou video)"
       const mediaslike = document.createElement ("p");
       mediaslike.textContent = media.likes;
+      allLikes.push(media.likes)
       mediaslike.style.color = "#901C1C";
       mediaslike.style.fontWeight = "500";
       mediaslike.setAttribute("font-size", "24px");
@@ -182,7 +185,8 @@ function displayData(photographer, photographerMedia) {
 
 
     const coeurText = document.createElement( "div" );
-    coeurText.innerHTML = "10000<i class='fa-solid fa-heart'><i>";
+   //  coeurText.innerHTML = "10000<i class='fa-solid fa-heart'><i>";
+    coeurText.innerHTML = allLikes.reduce((a, b) => a + b) + "<i class='fa-solid fa-heart'><i>";
     coeurText.setAttribute("class", "onephotographer_coeur-text");
 
  
