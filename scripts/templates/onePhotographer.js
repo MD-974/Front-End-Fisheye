@@ -144,22 +144,26 @@ function displayData(photographer, photographerMedia) {
       // imagesVideos.appendChild(mediasTitre);
       mediasInfos.appendChild(mediasTitre);
 
+      const mediasLikeWrapper = document.createElement ("div");
+      mediasLikeWrapper.setAttribute("class", "onephotographer_medias-infos");
+      mediasLikeWrapper.style.background = "lightyellow"
 
      // element "like du media(image ou video)"
       const mediaslike = document.createElement ("p");
       mediaslike.textContent = media.likes;
       // imagesVideos.appendChild(mediaslike);
-      mediasInfos.appendChild(mediaslike);
+      mediasLikeWrapper.appendChild(mediaslike);
 
      // element "coeur du media(image ou video)"
       const mediasCoeur = document.createElement ("p");
       mediasCoeur.innerHTML = "<i class='fa-regular fa-heart'></i>";
       mediasCoeur.style.color = "#901C1C";
       // imagesVideos.appendChild(mediasCoeur);
-      mediasInfos.appendChild(mediasCoeur);
+      mediasLikeWrapper.appendChild(mediasCoeur);
 
-      mediasCard.appendChild(mediasInfos);
       imagesVideos.appendChild(mediasCard);
+      mediasCard.appendChild(mediasInfos);
+      mediasInfos.appendChild(mediasLikeWrapper)
    })
 
     //-------- Creations des elements  de la "div" allCoeurprix -----------
