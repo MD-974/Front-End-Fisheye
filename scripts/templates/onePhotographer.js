@@ -111,21 +111,30 @@ function displayData(photographer, photographerMedia) {
          const urlImage = `assets/medias/${media.image}`;
          mediasImage.setAttribute("src", urlImage);
          mediasImage.setAttribute("class", "onephotographer_imageMedias");
+         mediasImage.setAttribute("width", "350px");
+         mediasImage.setAttribute("height", "300px");
+         mediasImage.style.borderRadius = "5px";
          // imagesVideos.append(mediasImage);
          mediasCard.append(mediasImage);
       }else if (media.video) {
          const mediasVideo = document.createElement ("video");
          mediasVideo.setAttribute("controls", "controls");
          mediasVideo.setAttribute("width", "350px");
+         mediasVideo.setAttribute("height", "300px");
+         mediasVideo.style.borderRadius = "5px";
+         mediasVideo.style.objectFit = "cover";
          const videoSource = document.createElement ("source");
          const urlVideo = `assets/medias/${media.video}`;
-         // const urlVideo = 'assets/medias/${media.video}';
          videoSource.setAttribute("src", urlVideo);
          videoSource.setAttribute("type", "video/mp4");
          mediasVideo.append(videoSource);
          // imagesVideos.append(mediasVideo);
          mediasCard.append(mediasVideo);
       }
+
+      const mediasInfos = document.createElement ("div");
+      mediasInfos.setAttribute("class", "onephotographer_medias-infos");
+      mediasInfos.style.background = "lightgreen"
          
      // element "titre du media(image ou video)"   
       const mediasTitre = document.createElement ("h3");
@@ -133,22 +142,23 @@ function displayData(photographer, photographerMedia) {
       mediasTitre.style.color = "#901C1C";
       // mediasTitre.setAttribute("font-size", "24px");
       // imagesVideos.appendChild(mediasTitre);
-      mediasCard.appendChild(mediasTitre);
+      mediasInfos.appendChild(mediasTitre);
 
 
      // element "like du media(image ou video)"
       const mediaslike = document.createElement ("p");
       mediaslike.textContent = media.likes;
       // imagesVideos.appendChild(mediaslike);
-      mediasCard.appendChild(mediaslike);
+      mediasInfos.appendChild(mediaslike);
 
      // element "coeur du media(image ou video)"
       const mediasCoeur = document.createElement ("p");
       mediasCoeur.innerHTML = "<i class='fa-regular fa-heart'></i>";
       mediasCoeur.style.color = "#901C1C";
       // imagesVideos.appendChild(mediasCoeur);
-      mediasCard.appendChild(mediasCoeur);
+      mediasInfos.appendChild(mediasCoeur);
 
+      mediasCard.appendChild(mediasInfos);
       imagesVideos.appendChild(mediasCard);
    })
 

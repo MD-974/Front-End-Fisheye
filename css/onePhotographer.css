@@ -85,17 +85,17 @@ img.onephotographer_image {
     margin: 50px 0;
 }
 
-.onephotographer_images-videos img {
+/* .onephotographer_images-videos img {
     width: 350px;
     height: 300px;
     border-radius: 5px;
-}
+} */
 
-.onephotographer_images-videos video {
+/* .onephotographer_images-videos video {
     object-fit: cover;
-}
+} */
 
-.onephotographer_imagesVideos-images {
+/* .onephotographer_imagesVideos-images {
 width: 350px;
 height: 150px;   
-}
+} */
