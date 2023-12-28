@@ -48,7 +48,6 @@ img.onephotographer_image {
     margin-right: 25px;
 }
   
-
 .onephotographer_allCoeurprix {
     position: fixed;
     display: flex;
@@ -76,17 +75,6 @@ img.onephotographer_image {
     padding: 10px 0px 10px 20px;
 }
 
-
-
-
-
-
-
-/* .onephotographer_allMedias {
-    display: flex;
-    flex-wrap: wrap;
-} */
-
 .onephotographer_images-videos {
     display: flex;
     flex-wrap: wrap;
@@ -100,5 +88,14 @@ img.onephotographer_image {
 .onephotographer_images-videos img {
     width: 350px;
     height: 300px;
+    border-radius: 5px;
 }
 
+.onephotographer_images-videos video {
+    object-fit: cover;
+}
+
+.onephotographer_imagesVideos-images {
+width: 350px;
+height: 150px;   
+}

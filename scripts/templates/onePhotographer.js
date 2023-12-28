@@ -95,14 +95,17 @@ function displayData(photographer, photographerMedia) {
     //-------- Creations des elements  de la "div" allMedias -----------
     const imagesVideos = document.createElement ( "div" );
     imagesVideos.setAttribute("class", "onephotographer_images-videos");
+  
 
     // elements "images" ou "video"  
+
+
+    
    photographerMedia.map(media => {
 
       if (media.image) {
          const mediasImage = document.createElement ("img");
          const urlImage = `assets/medias/${media.image}`;
-         // const urlImage = 'assets/medias/${media.image}';
          mediasImage.setAttribute("src", urlImage);
          mediasImage.setAttribute("class", "onephotographer_imageMedias");
          imagesVideos.append(mediasImage);
@@ -118,20 +121,27 @@ function displayData(photographer, photographerMedia) {
          mediasVideo.append(videoSource);
          imagesVideos.append(mediasVideo);
       } 
+      
+      
 
      // element "titre du media(image ou video)"   
       const mediasTitre = document.createElement ("h3");
       mediasTitre.textContent = media.title;
+      mediasTitre.setAttribute("font-size", "24px");
+      mediasTitre.style.color = "#901C1C";
+      // mediasInfo.appendChild(mediasTitre);
       imagesVideos.appendChild(mediasTitre);
 
+
      // element "like du media(image ou video)"
-      const mediaslike = document.createElement ("div");
+      const mediaslike = document.createElement ("p");
       mediaslike.textContent = media.likes;
       imagesVideos.appendChild(mediaslike);
 
      // element "coeur du media(image ou video)"
-      const mediasCoeur = document.createElement ("div");
+      const mediasCoeur = document.createElement ("p");
       mediasCoeur.innerHTML = "<i class='fa-regular fa-heart'></i>";
+      mediasCoeur.style.color = "#901C1C";
       imagesVideos.appendChild(mediasCoeur);
       
    })
@@ -141,8 +151,6 @@ function displayData(photographer, photographerMedia) {
     prixText.textContent = price + "€/jour";
     prixText.setAttribute("class", "onephotographer_prix");
 
-   //  const likesText = document.createElement( "div" );
-   //  likesText.setAttribute("class", "onephotographer_likes");
 
     const coeurText = document.createElement( "div" );
     coeurText.innerHTML = "10000<i class='fa-solid fa-heart'><i>";
@@ -164,17 +172,12 @@ function displayData(photographer, photographerMedia) {
     allTrier.appendChild(mediasSelect);
     // pour la "div" allMedias
     allMedias.appendChild(imagesVideos);
+   //  imagesVideos.appendChild(images)
     // pour la "div" allCoeurprix
     allCoeurprix.appendChild(prixText);
-   //  allCoeurprix.appendChild(likesText);
-   allCoeurprix.appendChild(coeurText);
+    allCoeurprix.appendChild(coeurText);
 
-   //  allCoeur.appendChild(coeurText);
-   //  allCoeur.appendChild(coeurImage)
 
- 
-
-    
     const onePhotographerContainer = document.querySelector(".photograph-header");
     onePhotographerContainer.appendChild(headerContainer);
     const onePhotographerSection = document.querySelector(".onePhotographer_headerContainer");
@@ -193,10 +196,6 @@ function displayData(photographer, photographerMedia) {
     
     const onephotographerCoeurprix = document.querySelector(".photograph-photosMedias");
     onephotographerCoeurprix.appendChild(allCoeurprix);
-
-   //  const onephotographer_allCoeurs = document.querySelector(".onephotographer_likes");
-   //  onephotographer_allCoeurs.appendChild(allCoeur)
-
 
 }
 
