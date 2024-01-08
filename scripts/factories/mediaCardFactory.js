@@ -54,11 +54,6 @@ function mediaCardFactory (media) {
     // element "like du media(image ou video)"
     const mediaslike = document.createElement ("p");
     mediaslike.textContent = media.likes;
-
-
-    // allLikes.push(media.likes)
-
-
     // mediaslike.style.color = "#901C1C";
     // mediaslike.style.fontWeight = "500";
     // mediaslike.setAttribute("font-size", "24px");
