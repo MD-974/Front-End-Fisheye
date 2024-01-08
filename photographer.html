@@ -18,7 +18,7 @@
       </a>
     </header>
 
-    <main id="main">
+    <main id="main" aria-hidden="false">
 
       <div class="photograph-header"></div>
       <div class="photograph-photosMedias"></div>
@@ -30,26 +30,82 @@
 			<div class="modal">
 
 				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <h2 id="modalTitle" class="modalTitle">Contactez-moi</h2>
+          <img src="assets/icons/close.svg" alt="close" class="close" onclick="closeModal()" />
         </header>
 
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
+        <!-- form -->
+        <form class="form" method="post" action="#">
+          <!-- firstName -->
+          <div>
+            <label for="firstName">Prénom</label>
+            <input type="text" 
+            id="firstName"  
+            name="firstName"  
+            aria-label="firstName"  
+            aria-required="true"
+            aria-invalid="false" 
+            />
+          </div>
+          <!-- LastName -->
+          <div>
+            <label for="LastName">Nom</label>
+            <input type="text"  
+            id="LastName"  
+            name="LastName"  
+            aria-label="LastName"  
+            aria-required="true"
+            aria-invalid="false"  
+            />
+          </div>
+          <!-- email -->
+          <div>
+            <label for="email">Email</label>
+            <input type="email" 
+            id="email" 
+            name="email" 
+            aria-label="email" 
+            aria-required="true" 
+            aria-invalid="false" 
+            />
+          </div>
+          <!-- message -->
+          <div>
+            <label for="message">Message</label>
+            <input type="textarea" 
+            id="message" 
+            name="message"  
+            aria-label="message" 
+            aria-required="true" 
+            aria-invalid="false"
+            />
+          </div>
+          <!-- submit -->
+          <input 
+          type="submit" 
+          class="contact_button" 
+          value="Envoyer" 
+          id="envoi" 
+          aria-label="envoyer" 
+          />
+        </form>
+
+        <!-- <form>
+          <div>
+            <label>Prénom</label>
+            <input />
+          </div>
           <button class="contact_button">Envoyer</button>
-				</form>
-
+        </form> -->
+        
 			</div>
-
+      
 		</div>
-
+    
     <script src="https://kit.fontawesome.com/54d6cb3a22.js" crossorigin="anonymous"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/templates/onePhotographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
-
+    
   </body>
 </html>

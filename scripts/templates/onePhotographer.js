@@ -1,10 +1,8 @@
 function displayData(photographer, photographerMedia) {
    const {city, country, name, portrait, price, tagline} = photographer;
-   const {media} =photographerMedia
+   const {media} = photographerMedia
    const picture = `assets/Photographers/${portrait}`;
-   // const { media } = photographerMedia;
-   //  console.log(photographerMedia)
-  
+   
 
  //--------------------------- Creations des "DIV" --------------------------
 
@@ -23,8 +21,6 @@ function displayData(photographer, photographerMedia) {
     const photographeImage = document.createElement("div");
     photographeImage.setAttribute("class", "onePhotographer_image");
 
-
-       // ---------------------------------------------------
 
 
     //"DIV" photograph-photosMedias
@@ -91,22 +87,27 @@ function displayData(photographer, photographerMedia) {
     mediasSelect.setAttribute("class", "onephotographer_liste-deroulante");
     mediasSelect.setAttribute("name", "tri-liste");
     mediasSelect.setAttribute("id", "tri-medias");
-   
+   // "option" pour le select de "trier par"
+    mediasSelect.innerHTML = "<option value='Popularite'>Popularite</option>";
+    mediasSelect.innerHTML += "<option value='Date'>Date</option>";
+    mediasSelect.innerHTML += "<option value='Titre'>Titre</option>";
+    
+    
     //-------- Creations des elements  de la "div" allMedias -----------
     const imagesVideos = document.createElement ("div");
     imagesVideos.setAttribute("class", "onephotographer_images-videos");
   
     //tableau pour calculer tous les likes d'un photographe
-    allLikes = [];
+   let allLikes = [];
     
     // elements "images" ou "video"  
    photographerMedia.map(media => {
    
-      // div conteneur "contien les information (image,titre, like, coeur) pour chaques medias (images/videos) d'un photographe"
+      // div conteneur "contient les informations (image,titre,like,coeur) 
+      // pour chaques medias (images/videos) d'un photographe"
       const mediasCard = document.createElement ("div");
       mediasCard.setAttribute("class", "onephotographer_media-card");
       // mediasCard.style.background = "lightgrey"
-
 
       if (media.image) {
          const mediasImage = document.createElement ("img");
@@ -116,7 +117,7 @@ function displayData(photographer, photographerMedia) {
          mediasImage.setAttribute("width", "350px");
          mediasImage.setAttribute("height", "300px");
          mediasImage.style.borderRadius = "5px";
-         // imagesVideos.append(mediasImage);
+         mediasImage.style.objectFit = "cover";
          mediasCard.append(mediasImage);
       }else if (media.video) {
          const mediasVideo = document.createElement ("video");
@@ -130,7 +131,6 @@ function displayData(photographer, photographerMedia) {
          videoSource.setAttribute("src", urlVideo);
          videoSource.setAttribute("type", "video/mp4");
          mediasVideo.append(videoSource);
-         // imagesVideos.append(mediasVideo);
          mediasCard.append(mediasVideo);
       }
 
@@ -144,10 +144,9 @@ function displayData(photographer, photographerMedia) {
      // element "titre du media(image ou video)"   
       const mediasTitre = document.createElement ("h3");
       mediasTitre.textContent = media.title;
-      mediasTitre.style.color = "#901C1C";
-      mediasTitre.style.fontWeight = "400";
-      mediasTitre.setAttribute("font-size", "24px");
-      // imagesVideos.appendChild(mediasTitre);
+      // mediasTitre.style.color = "#901C1C";
+      // mediasTitre.style.fontWeight = "400";
+      // mediasTitre.setAttribute("font-size", "24px");
       mediasInfos.appendChild(mediasTitre);
 
       const mediasLikeWrapper = document.createElement ("div");
@@ -160,17 +159,15 @@ function displayData(photographer, photographerMedia) {
       const mediaslike = document.createElement ("p");
       mediaslike.textContent = media.likes;
       allLikes.push(media.likes)
-      mediaslike.style.color = "#901C1C";
-      mediaslike.style.fontWeight = "500";
-      mediaslike.setAttribute("font-size", "24px");
-      // imagesVideos.appendChild(mediaslike);
+      // mediaslike.style.color = "#901C1C";
+      // mediaslike.style.fontWeight = "500";
+      // mediaslike.setAttribute("font-size", "24px");
       mediasLikeWrapper.appendChild(mediaslike);
 
      // element "coeur du media(image ou video)"
       const mediasCoeur = document.createElement ("p");
       mediasCoeur.innerHTML = "<i class='fa-regular fa-heart'></i>";
       mediasCoeur.style.color = "#901C1C";
-      // imagesVideos.appendChild(mediasCoeur);
       mediasLikeWrapper.appendChild(mediasCoeur);
 
       imagesVideos.appendChild(mediasCard);
@@ -178,14 +175,12 @@ function displayData(photographer, photographerMedia) {
       mediasInfos.appendChild(mediasLikeWrapper)
    })
 
-    //-------- Creations des elements  de la "div" allCoeurprix -----------
+    //-------- Creation des elements  de la "div" allCoeurprix -----------
     const prixText = document.createElement( 'p' );
     prixText.textContent = price + "€/jour";
     prixText.setAttribute("class", "onephotographer_prix");
-
-
+    //-------- Creation  element de comptage de la "div" coeurText -----------
     const coeurText = document.createElement( "div" );
-   //  coeurText.innerHTML = "10000<i class='fa-solid fa-heart'><i>";
     coeurText.innerHTML = allLikes.reduce((a, b) => a + b) + "<i class='fa-solid fa-heart'><i>";
     coeurText.setAttribute("class", "onephotographer_coeur-text");
 
@@ -205,7 +200,6 @@ function displayData(photographer, photographerMedia) {
     allTrier.appendChild(mediasSelect);
     // pour la "div" allMedias
     allMedias.appendChild(imagesVideos);
-   //  imagesVideos.appendChild(images)
     // pour la "div" allCoeurprix
     allCoeurprix.appendChild(prixText);
     allCoeurprix.appendChild(coeurText);
@@ -236,12 +230,10 @@ async function init() {
  // Récuperation de l'id de l'url
     const paramsUrl = new URLSearchParams(window.location.search);
     const id = paramsUrl.get("id");
-
  // Récupère les datas d'un photographe
     const dataOnePhotographe  = await getOnePhotographer(id);
-// Récupère les media d'un photographe
+ // Récupère les media d'un photographe
     const mediaOnePhotographe  = await getOnePhotographerMedia(id);
-
 
 
     displayData(dataOnePhotographe, mediaOnePhotographe);

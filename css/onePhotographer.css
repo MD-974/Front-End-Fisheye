@@ -1,4 +1,4 @@
-
+/* -------------------header--------------- */
 .photograph-header {
     display: flex;
     flex-direction: row;
@@ -37,6 +37,8 @@ img.onephotographer_image {
     border-radius: 100%;
 }
 
+/* -------------------photosMedias--------------- */
+
 .photograph-photosMedias {
     margin: 50px 100px;
     height: 1750px;
@@ -47,7 +49,33 @@ img.onephotographer_image {
     font-weight: 700;
     margin-right: 25px;
 }
-  
+
+.onephotographer_images-videos {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0;
+    gap: 95px;
+    margin: 50px 0;
+}
+
+.onephotographer_medias-infos h3, .onephotographer_medias-likes-wrapper p {
+    color: #901C1C;
+    font-size: 24px;
+    /* word-wrap: break-word; */
+}
+.onephotographer_medias-infos h3 {
+    font-weight: 400;
+    width: 295px;
+}
+
+.onephotographer_medias-likes-wrapper p {
+    font-weight: 500;
+}
+
+/* ----------------encart tarif/likes--------------- */
+
 .onephotographer_allCoeurprix {
     position: fixed;
     display: flex;
@@ -75,15 +103,10 @@ img.onephotographer_image {
     padding: 10px 0px 10px 20px;
 }
 
-.onephotographer_images-videos {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 0;
-    gap: 95px;
-    margin: 50px 0;
-}
+
+
+
+
 
 /* .onephotographer_images-videos img {
     width: 350px;
