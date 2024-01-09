@@ -114,17 +114,20 @@ function displayData(photographer, photographerMedia) {
       case "Date":
           console.log("trier par date");
            photographerMedia.sort((a, b) => new Date(b.date) - new Date(a.date));
+           console.log(photographerMedia.map(media => media.date));
           break;
        case "Popularite":
            console.log("trier par popularité");
            photographerMedia.sort((a, b) => b.likes - a.likes);
+           console.log(photographerMedia.map(media => media.likes));
            break;
        case "Titre":
            console.log("trier par titre");
            photographerMedia.sort((a, b) => a.title > b.title ? 1 : -1);
+           console.log(photographerMedia.map(media => media.title));
            break;
          }
-         console.log(photographerMedia, selectedOption);
+        
          // Mettez à jour la liste des médias après le tri
          updateMediaList();
 });
