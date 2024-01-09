@@ -7,7 +7,7 @@ function displayData(photographer, photographerMedia) {
 // function ComparaisonLikes(a, b) {
 //    return b.likes - a.likes;
 // }
-// console.log(photographerMedia.sort(ComparaisonLikes));
+// console.log(photographerMedia);
 
 
 
@@ -98,12 +98,12 @@ function displayData(photographer, photographerMedia) {
     mediasSelect.setAttribute("name", "tri-liste");
     mediasSelect.setAttribute("id", "tri-medias");
      // "option" pour le select de "trier par"
-    mediasSelect.innerHTML = "<option value='Popularite' class='Popularite'>Popularite</option>";
+    mediasSelect.innerHTML += "<option value='Popularite' class='Popularite'>Popularite</option>";
     mediasSelect.innerHTML += "<option value='Date' class='Date'>Date</option>";
     mediasSelect.innerHTML += "<option value='Titre' class='Titre'>Titre</option>";
    
    // Mise en place "popularité" par defaut
-    photographerMedia.sort((a, b) => b.likes - a.likes);
+   //  photographerMedia.sort((a, b) => b.likes - a.likes);
 	
    // Ajoutez un gestionnaire d’événements pour le changement de la liste déroulante
    mediasSelect.addEventListener("change", function() {
@@ -111,16 +111,20 @@ function displayData(photographer, photographerMedia) {
    var selectedOption = mediasSelect.value;
    // Utilisez le switch pour trier les médias en fonction de l’option sélectionnée
    switch (selectedOption) {
+      case "Date":
+          console.log("trier par date");
+           photographerMedia.sort((a, b) => new Date(b.date) - new Date(a.date));
+          break;
        case "Popularite":
+           console.log("trier par popularité");
            photographerMedia.sort((a, b) => b.likes - a.likes);
            break;
-       case "Date":
-            photographerMedia.sort((a, b) => new Date(b.date) - new Date(a.date));
-           break;
        case "Titre":
+           console.log("trier par titre");
            photographerMedia.sort((a, b) => a.title > b.title ? 1 : -1);
            break;
          }
+         console.log(photographerMedia, selectedOption);
          // Mettez à jour la liste des médias après le tri
          updateMediaList();
 });
