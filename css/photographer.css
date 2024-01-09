@@ -31,8 +31,11 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+} 
+.select option:checked {
+    background-color: aqua;
+    
 }
-
 .modal {
     border-radius: 5px;
     background-color: #DB8876;

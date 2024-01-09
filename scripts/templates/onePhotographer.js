@@ -2,7 +2,14 @@ function displayData(photographer, photographerMedia) {
    const {city, country, name, portrait, price, tagline} = photographer;
    const {media} = photographerMedia
    const picture = `assets/Photographers/${portrait}`;
-   
+
+// photographeMedia trie par popularité
+function ComparaisonLikes(a, b) {
+   return b.likes - a.likes;
+}
+console.log(photographerMedia.sort(ComparaisonLikes));
+
+
 
  //--------------------------- Creations des "DIV" --------------------------
 
@@ -63,8 +70,11 @@ function displayData(photographer, photographerMedia) {
        const modal = document.getElementById("contact_modal");
        modal.style.display = "block";
        modal.focus();
-       var modalOverlay = document.getElementById("modal-overlay");
-       modalOverlay.style.display = "block";
+
+      //  var modalOverlay = document.getElementById("modal-overlay");
+      //  modalOverlay.style.display = "block";
+
+      
     });
     //-------- Creations des elements  de la "div" photographeImage -----------
     // element "picture"
@@ -87,12 +97,20 @@ function displayData(photographer, photographerMedia) {
     mediasSelect.setAttribute("class", "onephotographer_liste-deroulante");
     mediasSelect.setAttribute("name", "tri-liste");
     mediasSelect.setAttribute("id", "tri-medias");
-   // "option" pour le select de "trier par"
-    mediasSelect.innerHTML = "<option value='Popularite'>Popularite</option>";
-    mediasSelect.innerHTML += "<option value='Date'>Date</option>";
-    mediasSelect.innerHTML += "<option value='Titre'>Titre</option>";
+     // "option" pour le select de "trier par"
+    mediasSelect.innerHTML = "<option value='Popularite' class='Popularite'>Popularite</option>";
+    mediasSelect.innerHTML += "<option value='Date' class='Date'>Date</option>";
+    mediasSelect.innerHTML += "<option value='Titre' class='Titre'>Titre</option>";
     
-    
+
+
+    //  mediasSelect.addEventListener('change', function() {
+   //    var selectedOption = mediasSelect.value;
+   //    if (selectedOption === 'Popularite') {} 
+   //    else if (selectedOption === 'Date') {} 
+   //    else if (selectedOption === 'Titre') {}
+   //  });
+
     //-------- Creations des elements  de la "div" allMedias -----------
     const imagesVideos = document.createElement ("div");
     imagesVideos.setAttribute("class", "onephotographer_images-videos");
@@ -101,11 +119,12 @@ function displayData(photographer, photographerMedia) {
    let allLikes = [];
     
     // elements "images" ou "video"  
+   //  console.log(photographerMedia);
    photographerMedia.map(media => {
       const {mediasCard, mediaLikes} = mediaCardFactory(media);
       imagesVideos.appendChild(mediasCard);
       allLikes.push(mediaLikes);
-     
+ 
    })
 
     //-------- Creation des elements  de la "div" allCoeurprix -----------

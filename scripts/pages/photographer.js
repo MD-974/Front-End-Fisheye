@@ -13,8 +13,6 @@ async function getOnePhotographer(id) {
         }  
     });
 
-// attention il faut gerer aussi les erreur d id 
-
    return onePhotographe;
    
 
@@ -29,5 +27,6 @@ async function getOnePhotographerMedia(id) {
             return element
         }
     })
+    
     return photographeMedia;
 }
