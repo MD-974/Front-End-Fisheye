@@ -4,10 +4,10 @@ function displayData(photographer, photographerMedia) {
    const picture = `assets/Photographers/${portrait}`;
 
 // photographeMedia trie par popularité
-function ComparaisonLikes(a, b) {
-   return b.likes - a.likes;
-}
-console.log(photographerMedia.sort(ComparaisonLikes));
+// function ComparaisonLikes(a, b) {
+//    return b.likes - a.likes;
+// }
+// console.log(photographerMedia.sort(ComparaisonLikes));
 
 
 
@@ -101,15 +101,44 @@ console.log(photographerMedia.sort(ComparaisonLikes));
     mediasSelect.innerHTML = "<option value='Popularite' class='Popularite'>Popularite</option>";
     mediasSelect.innerHTML += "<option value='Date' class='Date'>Date</option>";
     mediasSelect.innerHTML += "<option value='Titre' class='Titre'>Titre</option>";
-    
+   
+   // Mise en place "popularité" par defaut
+    photographerMedia.sort((a, b) => b.likes - a.likes);
+	
+   // Ajoutez un gestionnaire d’événements pour le changement de la liste déroulante
+   mediasSelect.addEventListener("change", function() {
+   // Récupère la valeur sélectionnée dans la liste déroulante
+   var selectedOption = mediasSelect.value;
+   // Utilisez le switch pour trier les médias en fonction de l’option sélectionnée
+   switch (selectedOption) {
+       case "Popularite":
+           photographerMedia.sort((a, b) => b.likes - a.likes);
+           break;
+       case "Date":
+            photographerMedia.sort((a, b) => new Date(b.date) - new Date(a.date));
+           break;
+       case "Titre":
+           photographerMedia.sort((a, b) => a.title > b.title ? 1 : -1);
+           break;
+         }
+         // Mettez à jour la liste des médias après le tri
+         updateMediaList();
+});
 
-
-    //  mediasSelect.addEventListener('change', function() {
-   //    var selectedOption = mediasSelect.value;
-   //    if (selectedOption === 'Popularite') {} 
-   //    else if (selectedOption === 'Date') {} 
-   //    else if (selectedOption === 'Titre') {}
-   //  });
+// Fonction pour mettre à jour la liste des médias après le tri
+function updateMediaList() {
+   // Obtenez la div contenant les médias
+   const imagesVideos = document.querySelector(".onephotographer_images-videos");
+   // Supprimez tous les médias actuels de la div
+   while (imagesVideos.firstChild) {
+       imagesVideos.removeChild(imagesVideos.firstChild);
+   }
+   // Ajoutez les médias triés à la div
+   photographerMedia.forEach(media => {
+       const { mediasCard, mediaLikes } = mediaCardFactory(media);
+       imagesVideos.appendChild(mediasCard);
+   });
+}
 
     //-------- Creations des elements  de la "div" allMedias -----------
     const imagesVideos = document.createElement ("div");
