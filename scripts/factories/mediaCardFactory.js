@@ -64,7 +64,34 @@ function mediaCardFactory (media) {
     mediasCoeur.innerHTML = "<i class='fa-regular fa-heart'></i>";
     mediasCoeur.style.color = "#901C1C";
     mediasLikeWrapper.appendChild(mediasCoeur);
+    
+    //  Ajout d'un eventlistener sur le coeur plus incrementer le nombre de like
+    mediasCoeur.addEventListener("click", function() {
+        if (mediasCoeur.classList.contains("fa-solid")) {
+            mediasCoeur.classList.remove("fa-solid");
+            mediaslike.textContent = media.likes;
+        } else {
+            mediasCoeur.classList.remove("fa-heart");
+            mediasCoeur.classList.add("fa-solid");
+            mediaslike.textContent = media.likes + 1;
+        }
+        
+        // mediasCoeur.style.backgroundColor = "#901C1C";
+    });
 
+
+
+
+
+    // mediasCoeur.addEventListener("click", function() {
+    //     if (mediasCoeur.style.class === "fa-solid fa-heart") {
+    //         mediasCoeur.style.color = "#901C1C";
+    //         mediaslike.textContent = media.likes;
+    //     } else {
+    //         mediasCoeur.style.class = "fa-solid fa-heart";
+    //         mediaslike.textContent = media.likes + 1;
+    //     }
+    // })
 
     mediasCard.appendChild(mediasInfos);
     mediasInfos.appendChild(mediasLikeWrapper)
@@ -72,5 +99,6 @@ function mediaCardFactory (media) {
     return {
         mediasCard: mediasCard,
         mediaLikes: media.likes
+        
     }
 }
