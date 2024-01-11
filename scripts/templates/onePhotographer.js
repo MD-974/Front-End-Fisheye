@@ -165,7 +165,7 @@ function updateMediaList() {
     coeurText.innerHTML = allLikes.reduce((a, b) => a + b) + "<i class='fa-solid fa-heart'><i>";
     coeurText.setAttribute("class", "onephotographer_coeur-text");
 
-
+   
  
 
  //---------------------- ajout de 'article.appendChild' ------------------ 

@@ -73,6 +73,11 @@ img.onephotographer_image {
 .onephotographer_medias-likes-wrapper p {
     font-weight: 500;
 }
+.onephotographer_medias-likes-wrapper i {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}
 
 /* ----------------encart tarif/likes--------------- */
 
@@ -92,7 +97,7 @@ img.onephotographer_image {
     padding: 10px 25px;
     font-size: 24px;
     font-weight: 500;
-    color: #000;
+    /* color: #db8876; */
 }
 
 .onephotographer_coeur-text {

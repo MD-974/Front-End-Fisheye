@@ -60,23 +60,26 @@ function mediaCardFactory (media) {
     mediasLikeWrapper.appendChild(mediaslike);
 
     // element "coeur du media(image ou video)"
-    const mediasCoeur = document.createElement ("p");
-    mediasCoeur.innerHTML = "<i class='fa-regular fa-heart'></i>";
+    // const mediasCoeur = document.createElement ("p");
+    const mediasCoeur = document.createElement ("i");
+    // mediasCoeur.innerHTML = "<i class='fa-regular fa-heart'></i>";
+    mediasCoeur.setAttribute("class", "fa-regular fa-heart");
     mediasCoeur.style.color = "#901C1C";
     mediasLikeWrapper.appendChild(mediasCoeur);
     
     //  Ajout d'un eventlistener sur le coeur plus incrementer le nombre de like
     mediasCoeur.addEventListener("click", function() {
-        if (mediasCoeur.classList.contains("fa-solid")) {
-            mediasCoeur.classList.remove("fa-solid");
+        if (mediasCoeur.classList.contains("far")) {
+            mediasCoeur.classList.remove("far");
+            mediasCoeur.classList.add("fas");
+            mediasCoeur.style.color = "#901C1C";
             mediaslike.textContent = media.likes;
         } else {
-            mediasCoeur.classList.remove("fa-heart");
-            mediasCoeur.classList.add("fa-solid");
+            mediasCoeur.classList.remove("fas");
+            mediasCoeur.classList.add("far");
             mediaslike.textContent = media.likes + 1;
         }
         
-        // mediasCoeur.style.backgroundColor = "#901C1C";
     });
 
 
