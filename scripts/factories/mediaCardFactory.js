@@ -48,7 +48,7 @@ function mediaCardFactory (media) {
     const mediasLikeWrapper = document.createElement ("div");
     mediasLikeWrapper.setAttribute("class", "onephotographer_medias-likes-wrapper");
     mediasLikeWrapper.style.display = "flex";
-    mediasLikeWrapper.style.gap ="5px";
+    mediasLikeWrapper.style.gap ="10px";
     // mediasLikeWrapper.style.background = "lightyellow"
 
     // element "like du media(image ou video)"
@@ -78,9 +78,6 @@ function mediaCardFactory (media) {
         
         // mediasCoeur.style.backgroundColor = "#901C1C";
     });
-
-
-
 
 
     // mediasCoeur.addEventListener("click", function() {

@@ -3,13 +3,6 @@ function displayData(photographer, photographerMedia) {
    const {media} = photographerMedia
    const picture = `assets/Photographers/${portrait}`;
 
-// photographeMedia trie par popularité
-// function ComparaisonLikes(a, b) {
-//    return b.likes - a.likes;
-// }
-// console.log(photographerMedia);
-
-
 
  //--------------------------- Creations des "DIV" --------------------------
 

@@ -30,13 +30,21 @@
 			<div class="modal">
 
 				<header>
-          <h2 id="modalTitle" class="modalTitle" te>Contactez-moi</h2>
+          <h2 id="modalTitle" class="modalTitle"> Contactez-moi </h2>
           <img src="assets/icons/close.svg" alt="close" class="close" onclick="closeModal()" />
         </header>
 
-        <!-- form -->
+				<form>
+					<div>
+						<label>Prénom</label>
+						<input />
+					</div>
+          <button class="contact_button" >Envoyer</button>
+				</form>
+
+        <!-- form
         <form class="form" method="post" action="#">
-          <!-- firstName -->
+        
           <div>
             <label for="firstName">Prénom</label>
             <input type="text" 
@@ -47,7 +55,7 @@
             aria-invalid="false" 
             />
           </div>
-          <!-- lastName -->
+          
           <div>
             <label for="LastName">Nom</label>
             <input type="text"  
@@ -58,7 +66,7 @@
             aria-invalid="false"  
             />
           </div>
-          <!-- email -->
+          
           <div>
             <label for="email">Email</label>
             <input type="email" 
@@ -69,7 +77,7 @@
             aria-invalid="false" 
             />
           </div>
-          <!-- message -->
+          
           <div>
             <label for="message">Message</label>
             <input type="textarea" 
@@ -80,7 +88,7 @@
             aria-invalid="false"
             />
           </div>
-          <!-- submit -->
+          
           <input 
           type="submit" 
           class="contact_button" 
@@ -88,9 +96,9 @@
           id="envoi" 
           aria-label="envoyer" 
           />
-        </form>
+        </form> 
 
-        <!-- <form>
+        <-- <form>
           <div>
             <label>Prénom</label>
             <input />
