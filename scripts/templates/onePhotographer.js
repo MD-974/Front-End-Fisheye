@@ -154,7 +154,7 @@ function updateMediaList() {
       imagesVideos.appendChild(mediasCard);
       allLikes.push(mediaLikes);
  
-   })
+    })
 
     //-------- Creation des elements  de la "div" allCoeurprix -----------
     const prixText = document.createElement( 'p' );
@@ -165,10 +165,7 @@ function updateMediaList() {
     coeurText.innerHTML = allLikes.reduce((a, b) => a + b) + "<i class='fa-solid fa-heart'><i>";
     coeurText.setAttribute("class", "onephotographer_coeur-text");
 
-   
- 
-
- //---------------------- ajout de 'article.appendChild' ------------------ 
+    //---------------------- ajout de 'article.appendChild' ------------------ 
     // pour la "div" informations
     informations.appendChild(h2);
     informations.appendChild(villeText);
@@ -207,7 +204,7 @@ function updateMediaList() {
     onephotographerCoeurprix.appendChild(allCoeurprix);
 
 }
-
+//** Initialise la page en récupérant les données et les médias du photographe. **/ 
 async function init() {
  // Récuperation de l'id de l'url
     const paramsUrl = new URLSearchParams(window.location.search);
@@ -216,8 +213,7 @@ async function init() {
     const dataOnePhotographe  = await getOnePhotographer(id);
  // Récupère les media d'un photographe
     const mediaOnePhotographe  = await getOnePhotographerMedia(id);
-
-
+ //  Afficher les datas et les medias d'un photographe
     displayData(dataOnePhotographe, mediaOnePhotographe);
 }   
 

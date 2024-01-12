@@ -69,29 +69,17 @@ function mediaCardFactory (media) {
     
     //  Ajout d'un eventlistener sur le coeur plus incrementer le nombre de like
     mediasCoeur.addEventListener("click", function() {
-        if (mediasCoeur.classList.contains("far")) {
-            mediasCoeur.classList.remove("far");
-            mediasCoeur.classList.add("fas");
-            mediasCoeur.style.color = "#901C1C";
-            mediaslike.textContent = media.likes;
-        } else {
+        if (mediasCoeur.classList.contains("fas")) {
             mediasCoeur.classList.remove("fas");
             mediasCoeur.classList.add("far");
-            mediaslike.textContent = media.likes + 1;
+            mediaslike.textContent = media.likes;
+        } else {
+            mediasCoeur.classList.remove("far");
+            mediasCoeur.classList.add("fas");
+            mediaslike.textContent = media.likes + 1;   
         }
-        
     });
 
-
-    // mediasCoeur.addEventListener("click", function() {
-    //     if (mediasCoeur.style.class === "fa-solid fa-heart") {
-    //         mediasCoeur.style.color = "#901C1C";
-    //         mediaslike.textContent = media.likes;
-    //     } else {
-    //         mediasCoeur.style.class = "fa-solid fa-heart";
-    //         mediaslike.textContent = media.likes + 1;
-    //     }
-    // })
 
     mediasCard.appendChild(mediasInfos);
     mediasInfos.appendChild(mediasLikeWrapper)
