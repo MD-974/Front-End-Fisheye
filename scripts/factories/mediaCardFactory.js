@@ -1,4 +1,4 @@
-function mediaCardFactory (media) {
+function mediaCardFactory (media,event ) {
     // div conteneur "contient les informations (image,titre,like,coeur) 
     // pour chaques medias (images/videos) d'un photographe"
     const mediasCard = document.createElement ("div");
@@ -62,21 +62,26 @@ function mediaCardFactory (media) {
     // element "coeur du media(image ou video)"
     // const mediasCoeur = document.createElement ("p");
     const mediasCoeur = document.createElement ("i");
-    // mediasCoeur.innerHTML = "<i class='fa-regular fa-heart'></i>";
     mediasCoeur.setAttribute("class", "fa-regular fa-heart");
     mediasCoeur.style.color = "#901C1C";
     mediasLikeWrapper.appendChild(mediasCoeur);
     
-    //  Ajout d'un eventlistener sur le coeur plus incrementer le nombre de like
+    //  Ajout d'un eventlistener sur le coeur plus incrementeation et decrementation du like
     mediasCoeur.addEventListener("click", function() {
         if (mediasCoeur.classList.contains("fas")) {
             mediasCoeur.classList.remove("fas");
             mediasCoeur.classList.add("far");
+            media.likes = media.likes - 1;
             mediaslike.textContent = media.likes;
+            mediasCard.dispatchEvent(new Event("updateLikes"));
+            console.log("vous avez dislike ce media : " + media.title);
         } else {
             mediasCoeur.classList.remove("far");
             mediasCoeur.classList.add("fas");
-            mediaslike.textContent = media.likes + 1;   
+            media.likes = media.likes + 1;
+            mediaslike.textContent = media.likes;  
+            mediasCard.dispatchEvent(new Event("updateLikes"));
+            console.log("vous avez like ce media : " + media.title); 
         }
     });
 

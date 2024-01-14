@@ -2,7 +2,7 @@ function displayData(photographer, photographerMedia) {
    const {city, country, name, portrait, price, tagline} = photographer;
    const {media} = photographerMedia
    const picture = `assets/Photographers/${portrait}`;
-
+   // console.log(photographerMedia);
 
  //--------------------------- Creations des "DIV" --------------------------
 
@@ -138,22 +138,36 @@ function updateMediaList() {
    photographerMedia.forEach(media => {
        const { mediasCard, mediaLikes } = mediaCardFactory(media);
        imagesVideos.appendChild(mediasCard);
-   });
-}
+      });
+   }
+   function getTotalLikes() {
+      let allLikes = [];
+      photographerMedia.map(media => {
+         allLikes.push(media.likes);
+      })
+      return allLikes.reduce((a, b) => a + b);
+   }
 
     //-------- Creations des elements  de la "div" allMedias -----------
+    
     const imagesVideos = document.createElement ("div");
     imagesVideos.setAttribute("class", "onephotographer_images-videos");
   
     //tableau pour calculer tous les likes d'un photographe
-   let allLikes = [];
+   //  let allLikes = []; 
+    let totalLikes = getTotalLikes();
+
+    const event = new Event("updateLikes");
     
-    // elements "images" ou "video"  
-   //  console.log(photographerMedia);
-   photographerMedia.map(media => {
-      const {mediasCard, mediaLikes} = mediaCardFactory(media);
+
+    photographerMedia.map(media => {
+      const {mediasCard, mediaLikes} = mediaCardFactory(media, event, );
       imagesVideos.appendChild(mediasCard);
-      allLikes.push(mediaLikes);
+      mediasCard.addEventListener("updateLikes", () => {
+         // media = mediaLikes;
+         totalLikes = getTotalLikes();
+         coeurText.innerHTML = totalLikes + "<i class='fa-solid fa-heart'><i>";
+      })
  
     })
 
@@ -162,8 +176,10 @@ function updateMediaList() {
     prixText.textContent = price + "€/jour";
     prixText.setAttribute("class", "onephotographer_prix");
     //-------- Creation  element de comptage de la "div" coeurText -----------
+
     const coeurText = document.createElement( "div" );
-    coeurText.innerHTML = allLikes.reduce((a, b) => a + b) + "<i class='fa-solid fa-heart'><i>";
+   // afficher le nombre de likes total et le coeur pour un photographe
+    coeurText.innerHTML = totalLikes + "<i class='fa-solid fa-heart'><i>";
     coeurText.setAttribute("class", "onephotographer_coeur-text");
 
     //---------------------- ajout de 'article.appendChild' ------------------ 
@@ -207,15 +223,18 @@ function updateMediaList() {
 }
 //** Initialise la page en récupérant les données et les médias du photographe. **/ 
 async function init() {
- // Récuperation de l'id de l'url
+   // Récuperation de l'id de l'url
     const paramsUrl = new URLSearchParams(window.location.search);
     const id = paramsUrl.get("id");
- // Récupère les datas d'un photographe
+   // Récupère les datas d'un photographe
     const dataOnePhotographe  = await getOnePhotographer(id);
- // Récupère les media d'un photographe
+    console.log("Données récupérées avec succès!");
+   // Récupère les media d'un photographe
     const mediaOnePhotographe  = await getOnePhotographerMedia(id);
- //  Afficher les datas et les medias d'un photographe
+    console.log("Media récupérées avec succès!");
+   //  Afficher les datas et les medias d'un photographe
     displayData(dataOnePhotographe, mediaOnePhotographe);
+    console.log("Affichage terminé!");
 }   
 
 init()
