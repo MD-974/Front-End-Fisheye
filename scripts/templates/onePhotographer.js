@@ -7,7 +7,7 @@ function displayData(photographer, photographerMedia) {
  //--------------------------- Creations des "DIV" --------------------------
 
    //"DIV" photograph-header
-
+   
     //onePhotographer_headerContainer
     const headerContainer = document.createElement("div");
     headerContainer.setAttribute("class", "onePhotographer_headerContainer");
@@ -91,6 +91,7 @@ function displayData(photographer, photographerMedia) {
     mediasSelect.setAttribute("name", "tri-liste");
     mediasSelect.setAttribute("id", "tri-medias");
      // "option" pour le select de "trier par"
+    mediasSelect.innerHTML += "<option value='Trier par' class='Trier par'>----</option>";
     mediasSelect.innerHTML += "<option value='Popularite' class='Popularite'>Popularite</option>";
     mediasSelect.innerHTML += "<option value='Date' class='Date'>Date</option>";
     mediasSelect.innerHTML += "<option value='Titre' class='Titre'>Titre</option>";
