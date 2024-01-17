@@ -47,4 +47,18 @@ h1 {
 .photographer_section article img {
     height: 200px;
     width: 200px;
-} 
+}
+
+/* mise en place du contour de l image d'un photographe (ok) */
+/* .photographer_section article img {
+    overflow: hidden;
+    border-radius: 100%;
+    outline: 3px solid transparent;
+    transition: outline-color 0.2s ease-out;
+  }
+
+.photographer_section article img:hover, 
+.photographer_section article img:focus-visible {
+    outline-color: #D3573C;
+    transition: outline-color 0.2s ease-in;
+} */

@@ -30,7 +30,9 @@
 			<div class="modal">
 
 				<header>
+          <!-- <h2 id="modalTitle" class="modalTitle"> Contactez-moi <span id="photographerName">toto</span> </h2> -->
           <h2 id="modalTitle" class="modalTitle"> Contactez-moi </h2>
+          <h2 id="modalTitle2" class="modalTitle2">  </h2>
           <img src="assets/icons/close.svg" alt="close" class="close" onclick="closeModal()" />
         </header>
 
@@ -45,9 +47,9 @@
             aria-required="true"
             aria-invalid="false" 
             />
-          </div>
           
-          <div>
+          
+          
             <label for="LastName">Nom</label>
             <input type="text"  
             id="LastName"  
@@ -56,9 +58,7 @@
             aria-required="true"
             aria-invalid="false"  
             />
-          </div>
           
-          <div>
             <label for="email">Email</label>
             <input type="email" 
             id="email" 
@@ -67,17 +67,17 @@
             aria-required="true" 
             aria-invalid="false" 
             />
-          </div>
           
-          <div>
+
             <label for="message">Message</label>
-            <input type="textarea" 
+            <textarea type="textarea" 
             id="message" 
             name="message"  
             aria-label="message" 
             aria-required="true" 
             aria-invalid="false"
-            />
+            row="5"
+            ></textarea>
           </div>
           
           <input 
@@ -97,7 +97,7 @@
     <script src="https://kit.fontawesome.com/54d6cb3a22.js" crossorigin="anonymous"></script>
     <script src="/scripts/factories/mediaCardFactory.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/templates/onePhotographer.js"></script>
+    <script src="/scripts/templates/onePhotographer.js" type="module"></script>
     <script src="/scripts/utils/contactForm.js"></script>
     
   </body>

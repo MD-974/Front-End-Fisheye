@@ -1,5 +1,4 @@
 //Mettre le code JavaScript lié à la page photographer.html
-
 async function getOnePhotographer(id) {
     // recuperation des photographes
     const reponsePhotographer = await fetch ("data/photographers.json");
@@ -12,12 +11,8 @@ async function getOnePhotographer(id) {
             onePhotographe = element;
         }  
     });
-
    return onePhotographe;
-   
-
 }
-
 async function getOnePhotographerMedia(id) {
     const reponse = await fetch ("data/photographers.json");
     const { media } = await reponse.json();
@@ -26,7 +21,6 @@ async function getOnePhotographerMedia(id) {
         if (element.photographerId == id) {
             return element
         }
-    })
-    
+    })   
     return photographeMedia;
 }

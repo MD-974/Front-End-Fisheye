@@ -1,8 +1,10 @@
+import { PhotographerMedia } from "../utils/PhotographerMedia.js";
+
 function displayData(photographer, photographerMedia) {
    const {city, country, name, portrait, price, tagline} = photographer;
    const {media} = photographerMedia
    const picture = `assets/Photographers/${portrait}`;
-   // console.log(photographerMedia);
+   
 
  //--------------------------- Creations des "DIV" --------------------------
 
@@ -138,7 +140,7 @@ function updateMediaList() {
    }
    // Ajoutez les médias triés à la div
    photographerMedia.forEach(media => {
-       const { mediasCard, mediaLikes } = mediaCardFactory(media);
+       const { mediasCard, mediaLikes } = mediaCardFactory(media, photographerMedia);
        imagesVideos.appendChild(mediasCard);
       });
    }
@@ -148,16 +150,10 @@ function updateMediaList() {
       photographerMedia.map(media => {
          allLikes.push(media.likes);
          // console.log(media.likes);
-   
-
       })
       return allLikes.reduce((a, b) => a + b);
-    
-
    }
-   // function getTotalLikes() {
-   //    return photographerMedia.map(media => media.likes).reduce((a, b) => a + b, 0);}
-
+  
     //-------- Creations des elements  de la "div" allMedias -----------
     
     const imagesVideos = document.createElement ("div");
@@ -178,11 +174,11 @@ function updateMediaList() {
    
    const event = new Event("updateLikes");
    
-
    photographerMedia.map(media => {
-     const {mediasCard} = mediaCardFactory(media, event, );
+     const {mediasCard} = mediaCardFactory(media, photographerMedia );
      imagesVideos.appendChild(mediasCard);
      mediasCard.addEventListener("updateLikes", () => {
+      // console.log(photographerMedia)
         coeurText.innerHTML = getTotalLikes() + "<i class='fa-solid fa-heart'><i>";
      })
    })
@@ -237,8 +233,12 @@ async function init() {
    // Récupère les media d'un photographe
     const mediaOnePhotographe  = await getOnePhotographerMedia(id);
     console.log("Media récupérées avec succès!");
+   //  console.log(mediaOnePhotographe)
+
+    const objPhotographerMedias = new PhotographerMedia(mediaOnePhotographe);
+   
    //  Afficher les datas et les medias d'un photographe
-    displayData(dataOnePhotographe, mediaOnePhotographe);
+    displayData(dataOnePhotographe, objPhotographerMedias.medias);
     console.log("Affichage terminé!");
 }   
 

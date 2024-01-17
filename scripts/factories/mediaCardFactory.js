@@ -1,4 +1,4 @@
-function mediaCardFactory (media,event ) {
+function mediaCardFactory (media,objPhotographerMedias ) {
     // div conteneur "contient les informations (image,titre,like,coeur) 
     // pour chaques medias (images/videos) d'un photographe"
     const mediasCard = document.createElement ("div");
@@ -62,7 +62,12 @@ function mediaCardFactory (media,event ) {
     // element "coeur du media(image ou video)"
     // const mediasCoeur = document.createElement ("p");
     const mediasCoeur = document.createElement ("i");
-    mediasCoeur.setAttribute("class", "fa-regular fa-heart");
+    if (media.islike) {
+        mediasCoeur.setAttribute("class", "fa-regular fa-heart fas" );
+    }else {
+        mediasCoeur.setAttribute("class", "fa-regular fa-heart far" );
+    }
+
     mediasCoeur.style.color = "#901C1C";
     mediasLikeWrapper.appendChild(mediasCoeur);
     
@@ -72,6 +77,7 @@ function mediaCardFactory (media,event ) {
             mediasCoeur.classList.remove("fas");
             mediasCoeur.classList.add("far");
             media.likes = media.likes - 1;
+            media.islike = false
             mediaslike.textContent = media.likes;
             mediasCard.dispatchEvent(new Event("updateLikes"));
             console.log("vous avez dislike ce media : " + media.title);
@@ -79,10 +85,17 @@ function mediaCardFactory (media,event ) {
             mediasCoeur.classList.remove("far");
             mediasCoeur.classList.add("fas");
             media.likes = media.likes + 1;
+            media.islike = true
             mediaslike.textContent = media.likes;  
             mediasCard.dispatchEvent(new Event("updateLikes"));
             console.log("vous avez like ce media : " + media.title); 
         }
+        let conteur = 0
+        objPhotographerMedias.forEach(element => {
+         conteur = conteur + Number(element.likes)  
+        });
+        console.log( "Total de like : " + conteur)
+        document.querySelector('.onephotographer_coeur-text').innerHTML = conteur
     });
 
 

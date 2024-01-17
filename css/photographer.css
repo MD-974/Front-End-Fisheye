@@ -95,6 +95,14 @@ form input {
     font-size: 30px;
 }
 
+form textarea {
+    border-radius: 8px;
+    width: 98%;
+    font-size: 24px;
+    padding: 15px 0 0 15px;
+    font-family: inherit;
+}
+
 /* photographers_section => Card Photographe */
 
 .photographer_image {
