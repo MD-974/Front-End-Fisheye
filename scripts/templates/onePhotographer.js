@@ -222,7 +222,7 @@ function updateMediaList() {
     onephotographerCoeurprix.appendChild(allCoeurprix);
 
 }
-//** Initialise la page en récupérant les données et les médias du photographe. **/ 
+// Initialise la page en récupérant les données et les médias du photographe. 
 async function init() {
    // Récuperation de l'id de l'url
     const paramsUrl = new URLSearchParams(window.location.search);
