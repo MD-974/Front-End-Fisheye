@@ -91,7 +91,7 @@ function displayData(photographer, photographerMedia) {
     mediasSelect.setAttribute("name", "tri-liste");
     mediasSelect.setAttribute("id", "tri-medias");
      // "option" pour le select de "trier par"
-    mediasSelect.innerHTML += "<option value='Trier par' class='Trier par'>----</option>";
+    mediasSelect.innerHTML = "<option value='Trier par' class='Trier par'>-- --</option>";
     mediasSelect.innerHTML += "<option value='Popularite' class='Popularite'>Popularite</option>";
     mediasSelect.innerHTML += "<option value='Date' class='Date'>Date</option>";
     mediasSelect.innerHTML += "<option value='Titre' class='Titre'>Titre</option>";
@@ -121,10 +121,12 @@ function displayData(photographer, photographerMedia) {
            console.log(photographerMedia.map(media => media.title));
            break;
          }
-        
          // Mettez à jour la liste des médias après le tri
          updateMediaList();
 });
+// const Popularite = getTotalLikes(selectedOption);
+// const Titre = getTotalLikes(selectedOption);
+// const Date = getTotalLikes(selectedOption);
 
 // Fonction pour mettre à jour la liste des médias après le tri
 function updateMediaList() {
@@ -140,56 +142,59 @@ function updateMediaList() {
        imagesVideos.appendChild(mediasCard);
       });
    }
+   
    function getTotalLikes() {
       let allLikes = [];
       photographerMedia.map(media => {
          allLikes.push(media.likes);
+         // console.log(media.likes);
+   
+
       })
       return allLikes.reduce((a, b) => a + b);
+    
+
    }
+   // function getTotalLikes() {
+   //    return photographerMedia.map(media => media.likes).reduce((a, b) => a + b, 0);}
 
     //-------- Creations des elements  de la "div" allMedias -----------
     
     const imagesVideos = document.createElement ("div");
     imagesVideos.setAttribute("class", "onephotographer_images-videos");
-  
-    //tableau pour calculer tous les likes d'un photographe
-   //  let allLikes = []; 
-    let totalLikes = getTotalLikes();
+   
+   //-------- Creation des elements  de la "div" allCoeurprix -----------
 
-    const event = new Event("updateLikes");
-    
+   const prixText = document.createElement( 'p' );
+   prixText.textContent = price + "€/jour";
+   prixText.setAttribute("class", "onephotographer_prix");
 
-    photographerMedia.map(media => {
-      const {mediasCard, mediaLikes} = mediaCardFactory(media, event, );
-      imagesVideos.appendChild(mediasCard);
-      mediasCard.addEventListener("updateLikes", () => {
-         // media = mediaLikes;
-         totalLikes = getTotalLikes();
-         coeurText.innerHTML = totalLikes + "<i class='fa-solid fa-heart'><i>";
-      })
- 
-    })
-
-    //-------- Creation des elements  de la "div" allCoeurprix -----------
-    const prixText = document.createElement( 'p' );
-    prixText.textContent = price + "€/jour";
-    prixText.setAttribute("class", "onephotographer_prix");
-    //-------- Creation  element de comptage de la "div" coeurText -----------
-
-    const coeurText = document.createElement( "div" );
+   //-------- Creation  element de comptage de la "div" coeurText -----------
+   
+   const coeurText = document.createElement( "div" );
    // afficher le nombre de likes total et le coeur pour un photographe
-    coeurText.innerHTML = totalLikes + "<i class='fa-solid fa-heart'><i>";
-    coeurText.setAttribute("class", "onephotographer_coeur-text");
+   coeurText.innerHTML = getTotalLikes() + "<i class='fa-solid fa-heart'><i>";
+   coeurText.setAttribute("class", "onephotographer_coeur-text");
+   
+   const event = new Event("updateLikes");
+   
 
-    //---------------------- ajout de 'article.appendChild' ------------------ 
-    // pour la "div" informations
-    informations.appendChild(h2);
-    informations.appendChild(villeText);
-    informations.appendChild(taglineText);
-    // pour la "div" contactButton
-    contactButton.appendChild(button);
-    // pour la "div" photographeImage
+   photographerMedia.map(media => {
+     const {mediasCard} = mediaCardFactory(media, event, );
+     imagesVideos.appendChild(mediasCard);
+     mediasCard.addEventListener("updateLikes", () => {
+        coeurText.innerHTML = getTotalLikes() + "<i class='fa-solid fa-heart'><i>";
+     })
+   })
+   
+   //---------------------- ajout de 'article.appendChild' ------------------ 
+   // pour la "div" informations
+   informations.appendChild(h2);
+   informations.appendChild(villeText);
+   informations.appendChild(taglineText);
+   // pour la "div" contactButton
+   contactButton.appendChild(button);
+   // pour la "div" photographeImage
     photographeImage.appendChild(img);
     // pour la "div" allTrier
     allTrier.appendChild(medias);

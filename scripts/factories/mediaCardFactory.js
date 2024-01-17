@@ -89,9 +89,5 @@ function mediaCardFactory (media,event ) {
     mediasCard.appendChild(mediasInfos);
     mediasInfos.appendChild(mediasLikeWrapper)
 
-    return {
-        mediasCard: mediasCard,
-        mediaLikes: media.likes
-        
-    }
+    return {mediasCard }
 }
