@@ -35,28 +35,20 @@ function mediaCardFactory (media,objPhotographerMedias ) {
     mediasInfos.style.display = "flex";
     mediasInfos.style.alignItems = "center";
     mediasInfos.style.justifyContent = "space-between"
-    // mediasInfos.style.background = "lightgreen"
 
     // element "titre du media(image ou video)"   
     const mediasTitre = document.createElement ("h3");
     mediasTitre.textContent = media.title;
-    // mediasTitre.style.color = "#901C1C";
-    // mediasTitre.style.fontWeight = "400";
-    // mediasTitre.setAttribute("font-size", "24px");
     mediasInfos.appendChild(mediasTitre);
 
     const mediasLikeWrapper = document.createElement ("div");
     mediasLikeWrapper.setAttribute("class", "onephotographer_medias-likes-wrapper");
     mediasLikeWrapper.style.display = "flex";
     mediasLikeWrapper.style.gap ="10px";
-    // mediasLikeWrapper.style.background = "lightyellow"
-
+    
     // element "like du media(image ou video)"
     const mediaslike = document.createElement ("p");
     mediaslike.textContent = media.likes;
-    // mediaslike.style.color = "#901C1C";
-    // mediaslike.style.fontWeight = "500";
-    // mediaslike.setAttribute("font-size", "24px");
     mediasLikeWrapper.appendChild(mediaslike);
 
     // element "coeur du media(image ou video)"
@@ -69,6 +61,7 @@ function mediaCardFactory (media,objPhotographerMedias ) {
 
     mediasCoeur.style.color = "#901C1C";
     mediasLikeWrapper.appendChild(mediasCoeur);
+    
     
     //  Ajout d'un eventlistener sur le coeur plus incrementation et decrementation du like
     mediasCoeur.addEventListener("click", function() {
@@ -97,11 +90,7 @@ function mediaCardFactory (media,objPhotographerMedias ) {
         console.log( "Total de like : " + compteur)
         
         
-        icone_coeur = "<i class='fa-coeur-un-truc-comme-ca'></i>"
-        document.querySelector('.onephotographer_coeur-text').innerHTML = conteur + icone_coeur
-        // document.querySelector('.onephotographer_coeur-text').innerHTML = compteur
-
-
+        document.querySelector("#compteur-likes").innerHTML = compteur
 
     });
 

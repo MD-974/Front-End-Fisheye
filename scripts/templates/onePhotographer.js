@@ -93,10 +93,10 @@ function displayData(photographer, photographerMedia) {
     mediasSelect.setAttribute("name", "tri-liste");
     mediasSelect.setAttribute("id", "tri-medias");
      // "option" pour le select de "trier par"
-    mediasSelect.innerHTML = "<option value='Trier par' class='Trier par'>-- --</option>";
-    mediasSelect.innerHTML += "<option value='Popularite' class='Popularite'>Popularite</option>";
-    mediasSelect.innerHTML += "<option value='Date' class='Date'>Date</option>";
-    mediasSelect.innerHTML += "<option value='Titre' class='Titre'>Titre</option>";
+   //  mediasSelect.innerHTML = "<option value='Trier par' class='Trier par'>-- --</option>";
+    mediasSelect.innerHTML = "<option value='Popularite'>Popularite</option>";
+    mediasSelect.innerHTML += "<option value='Date'>Date</option>";
+    mediasSelect.innerHTML += "<option value='Titre'>Titre</option>";
    
    // Mise en place "popularité" par defaut
    //  photographerMedia.sort((a, b) => b.likes - a.likes);
@@ -165,19 +165,25 @@ function updateMediaList() {
    
    const coeurText = document.createElement( "div" );
    // afficher le nombre de likes total et le coeur pour un photographe
-   coeurText.innerHTML = getTotalLikes();
-   coeurText
    coeurText.setAttribute("class", "onephotographer_coeur-text");
+   const compteurLikes = document.createElement("span");
+   compteurLikes.id = "compteur-likes";
+   const coeurLikes = document.createElement( "i");
+   coeurLikes.classList.add("fa-solid", "fa-heart");
+   coeurText.appendChild(compteurLikes);
+   coeurText.appendChild(coeurLikes);
+   // document.getElementById("compteur-likes").innerHTML = getTotalLikes();
+
 
    const event = new Event("updateLikes");
    
-   photographerMedia.map(media => {
-     const {mediasCard} = mediaCardFactory(media, photographerMedia );
-     imagesVideos.appendChild(mediasCard);
-     mediasCard.addEventListener("updateLikes", () => {
-         coeurText.innerHTML = getTotalLikes() + "<i class='fa-solid fa-heart'><i>";
-     })
-   })
+   // photographerMedia.map(media => {
+   //   const {mediasCard} = mediaCardFactory(media, photographerMedia );
+   //   imagesVideos.appendChild(mediasCard);
+   //   mediasCard.addEventListener("updateLikes", () => {
+   //    document.getElementById("compteur-likes").innerHTML = getTotalLikes();
+   //   })
+   // })
    
    //---------------------- ajout de 'article.appendChild' ------------------ 
    // pour la "div" informations
@@ -198,6 +204,10 @@ function updateMediaList() {
     allCoeurprix.appendChild(coeurText);
 
 
+    
+    
+    
+    
     const onePhotographerContainer = document.querySelector(".photograph-header");
     onePhotographerContainer.appendChild(headerContainer);
     const onePhotographerSection = document.querySelector(".onePhotographer_headerContainer");
@@ -206,19 +216,29 @@ function updateMediaList() {
     onePhotographerContact.appendChild(contactButton);
     const onePhotographerimage = document.querySelector(".onePhotographer_headerContainer");
     onePhotographerimage.appendChild(photographeImage);
-
-
+    
+    
     const onePhotographerallTrier = document.querySelector(".photograph-photosMedias");
     onePhotographerallTrier.appendChild(allTrier);
-
+    
     const onePhotographerImagesvideos = document.querySelector(".photograph-photosMedias");
     onePhotographerImagesvideos.appendChild(allMedias);
     
     const onephotographerCoeurprix = document.querySelector(".photograph-photosMedias");
     onephotographerCoeurprix.appendChild(allCoeurprix);
+    
+    document.getElementById("compteur-likes").innerHTML = getTotalLikes();
+ 
+    photographerMedia.map(media => {
+      const {mediasCard} = mediaCardFactory(media, photographerMedia );
+      imagesVideos.appendChild(mediasCard);
+      mediasCard.addEventListener("updateLikes", () => {
+       document.getElementById("compteur-likes").innerHTML = getTotalLikes();
+      })
+    })
+   }
 
-}
-// Initialise la page en récupérant les données et les médias du photographe. 
+   // Initialise la page en récupérant les données et les médias du photographe. 
 async function init() {
    // Récuperation de l'id de l'url
     const paramsUrl = new URLSearchParams(window.location.search);
