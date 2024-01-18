@@ -97,7 +97,6 @@ img.onephotographer_image {
     padding: 10px 25px;
     font-size: 24px;
     font-weight: 500;
-    /* color: #db8876; */
 }
 
 .onephotographer_coeur-text {
@@ -106,25 +105,4 @@ img.onephotographer_image {
     gap: 10px;
     font-size: 24px;
     padding: 10px 0px 10px 20px;
-    color: black;
 }
-
-
-
-
-
-
-/* .onephotographer_images-videos img {
-    width: 350px;
-    height: 300px;
-    border-radius: 5px;
-} */
-
-/* .onephotographer_images-videos video {
-    object-fit: cover;
-} */
-
-/* .onephotographer_imagesVideos-images {
-width: 350px;
-height: 150px;   
-} */

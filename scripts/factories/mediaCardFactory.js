@@ -95,7 +95,12 @@ function mediaCardFactory (media,objPhotographerMedias ) {
          compteur = compteur + Number(element.likes)  
         });
         console.log( "Total de like : " + compteur)
-        // document.querySelector('.onephotographer_coeur-text').innerHTML = compteur
+        
+        
+
+        document.querySelector('.onephotographer_coeur-text').innerHTML = compteur
+
+
 
     });
 
