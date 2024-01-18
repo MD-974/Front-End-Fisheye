@@ -60,7 +60,6 @@ function mediaCardFactory (media,objPhotographerMedias ) {
     mediasLikeWrapper.appendChild(mediaslike);
 
     // element "coeur du media(image ou video)"
-    // const mediasCoeur = document.createElement ("p");
     const mediasCoeur = document.createElement ("i");
     if (media.islike) {
         mediasCoeur.setAttribute("class", "fa-regular fa-heart fas" );
@@ -71,7 +70,7 @@ function mediaCardFactory (media,objPhotographerMedias ) {
     mediasCoeur.style.color = "#901C1C";
     mediasLikeWrapper.appendChild(mediasCoeur);
     
-    //  Ajout d'un eventlistener sur le coeur plus incrementeation et decrementation du like
+    //  Ajout d'un eventlistener sur le coeur plus incrementation et decrementation du like
     mediasCoeur.addEventListener("click", function() {
         if (mediasCoeur.classList.contains("fas")) {
             mediasCoeur.classList.remove("fas");
@@ -90,12 +89,14 @@ function mediaCardFactory (media,objPhotographerMedias ) {
             mediasCard.dispatchEvent(new Event("updateLikes"));
             console.log("vous avez like ce media : " + media.title); 
         }
-        let conteur = 0
+
+        let compteur = 0
         objPhotographerMedias.forEach(element => {
-         conteur = conteur + Number(element.likes)  
+         compteur = compteur + Number(element.likes)  
         });
-        console.log( "Total de like : " + conteur)
-        document.querySelector('.onephotographer_coeur-text').innerHTML = conteur
+        console.log( "Total de like : " + compteur)
+        // document.querySelector('.onephotographer_coeur-text').innerHTML = compteur
+
     });
 
 

@@ -21,6 +21,12 @@
     cursor: pointer;
 }
 
+/* button:hover {
+    background-color: #DB8876;
+    color:#000000;
+    transition: .15s ease-out;
+} */
+
 .onephotographer_liste-deroulante {
     font-size: 18px;
     font-weight: 700;

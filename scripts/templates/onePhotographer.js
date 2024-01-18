@@ -126,9 +126,6 @@ function displayData(photographer, photographerMedia) {
          // Mettez à jour la liste des médias après le tri
          updateMediaList();
 });
-// const Popularite = getTotalLikes(selectedOption);
-// const Titre = getTotalLikes(selectedOption);
-// const Date = getTotalLikes(selectedOption);
 
 // Fonction pour mettre à jour la liste des médias après le tri
 function updateMediaList() {
@@ -149,7 +146,6 @@ function updateMediaList() {
       let allLikes = [];
       photographerMedia.map(media => {
          allLikes.push(media.likes);
-         // console.log(media.likes);
       })
       return allLikes.reduce((a, b) => a + b);
    }
@@ -171,7 +167,7 @@ function updateMediaList() {
    // afficher le nombre de likes total et le coeur pour un photographe
    coeurText.innerHTML = getTotalLikes() + "<i class='fa-solid fa-heart'><i>";
    coeurText.setAttribute("class", "onephotographer_coeur-text");
-   
+   // coeurText.style.color="black"
    const event = new Event("updateLikes");
    
    photographerMedia.map(media => {

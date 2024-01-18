@@ -9,10 +9,6 @@ function closeModal() {
     document.getElementById("contact_form").reset();
 }
 
-
-// const photographerName = document.getElementById("photographerName");
-
-
 const form = document.getElementById("contact_form");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
