@@ -97,8 +97,9 @@ function mediaCardFactory (media,objPhotographerMedias ) {
         console.log( "Total de like : " + compteur)
         
         
-
-        document.querySelector('.onephotographer_coeur-text').innerHTML = compteur
+        icone_coeur = "<i class='fa-coeur-un-truc-comme-ca'></i>"
+        document.querySelector('.onephotographer_coeur-text').innerHTML = conteur + icone_coeur
+        // document.querySelector('.onephotographer_coeur-text').innerHTML = compteur
 
 
 

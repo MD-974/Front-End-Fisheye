@@ -165,17 +165,17 @@ function updateMediaList() {
    
    const coeurText = document.createElement( "div" );
    // afficher le nombre de likes total et le coeur pour un photographe
-   coeurText.innerHTML = getTotalLikes() + "<i class='fa-solid fa-heart'><i>";
+   coeurText.innerHTML = getTotalLikes();
+   coeurText
    coeurText.setAttribute("class", "onephotographer_coeur-text");
-   // coeurText.style.color="black"
+
    const event = new Event("updateLikes");
    
    photographerMedia.map(media => {
      const {mediasCard} = mediaCardFactory(media, photographerMedia );
      imagesVideos.appendChild(mediasCard);
      mediasCard.addEventListener("updateLikes", () => {
-      // console.log(photographerMedia)
-        coeurText.innerHTML = getTotalLikes() + "<i class='fa-solid fa-heart'><i>";
+         coeurText.innerHTML = getTotalLikes() + "<i class='fa-solid fa-heart'><i>";
      })
    })
    
