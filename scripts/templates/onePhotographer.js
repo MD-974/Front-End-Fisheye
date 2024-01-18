@@ -4,7 +4,7 @@ function displayData(photographer, photographerMedia) {
    const {city, country, name, portrait, price, tagline} = photographer;
    const {media} = photographerMedia
    const picture = `assets/Photographers/${portrait}`;
-   
+   document.querySelector("#modalTitle2").innerHTML = name
 
  //--------------------------- Creations des "DIV" --------------------------
 
@@ -92,14 +92,13 @@ function displayData(photographer, photographerMedia) {
     mediasSelect.setAttribute("class", "onephotographer_liste-deroulante");
     mediasSelect.setAttribute("name", "tri-liste");
     mediasSelect.setAttribute("id", "tri-medias");
-     // "option" pour le select de "trier par"
+
+   // "option" pour le select de "trier par"
    //  mediasSelect.innerHTML = "<option value='Trier par' class='Trier par'>-- --</option>";
     mediasSelect.innerHTML = "<option value='Popularite'>Popularite</option>";
     mediasSelect.innerHTML += "<option value='Date'>Date</option>";
     mediasSelect.innerHTML += "<option value='Titre'>Titre</option>";
    
-   // Mise en place "popularité" par defaut
-   //  photographerMedia.sort((a, b) => b.likes - a.likes);
 	
    // Ajoutez un gestionnaire d’événements pour le changement de la liste déroulante
    mediasSelect.addEventListener("change", function() {
@@ -107,16 +106,16 @@ function displayData(photographer, photographerMedia) {
    var selectedOption = mediasSelect.value;
    // Utilisez le switch pour trier les médias en fonction de l’option sélectionnée
    switch (selectedOption) {
-      case "Date":
+      case "Popularite":
+          console.log("trier par popularité");
+          photographerMedia.sort((a, b) => b.likes - a.likes);
+          console.log(photographerMedia.map(media => media.likes));
+          break;
+       case "Date":
           console.log("trier par date");
            photographerMedia.sort((a, b) => new Date(b.date) - new Date(a.date));
            console.log(photographerMedia.map(media => media.date));
           break;
-       case "Popularite":
-           console.log("trier par popularité");
-           photographerMedia.sort((a, b) => b.likes - a.likes);
-           console.log(photographerMedia.map(media => media.likes));
-           break;
        case "Titre":
            console.log("trier par titre");
            photographerMedia.sort((a, b) => a.title > b.title ? 1 : -1);
@@ -236,6 +235,13 @@ function updateMediaList() {
        document.getElementById("compteur-likes").innerHTML = getTotalLikes();
       })
     })
+
+
+
+    mediasSelect.dispatchEvent(new Event("change"));
+
+
+
    }
 
    // Initialise la page en récupérant les données et les médias du photographe. 

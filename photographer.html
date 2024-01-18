@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/onePhotographer.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/onePhotographer.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 
     <header>
       <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" alt="fisheye logo" />
+        <img src="assets/images/logo.png" class="logo" alt="fisheye logo" >
       </a>
     </header>
 
@@ -31,9 +31,12 @@
 
 				<header>
           <!-- <h2 id="modalTitle" class="modalTitle"> Contactez-moi <span id="photographerName">toto</span> </h2> -->
+        <div class="modal-Header">
           <h2 id="modalTitle" class="modalTitle"> Contactez-moi </h2>
-          <h2 id="modalTitle2" class="modalTitle2">  </h2>
-          <img src="assets/icons/close.svg" alt="close" class="close" onclick="closeModal()" />
+          <h3 id="modalTitle2" class="modalTitle2"> </h3>
+        </div>
+
+          <img src="assets/icons/close.svg" alt="close" class="close" onclick="closeModal()" >
         </header>
 
         <form id="contact_form" class="form">
@@ -47,7 +50,7 @@
             aria-label="firstName"  
             aria-required="true"
             aria-invalid="false" 
-            />
+            >
           
           
           
@@ -59,7 +62,7 @@
             aria-label="LastName"  
             aria-required="true"
             aria-invalid="false"  
-            />
+            >
           
             <label for="email">Email</label>
             <input type="email" 
@@ -69,18 +72,18 @@
             aria-label="email" 
             aria-required="true" 
             aria-invalid="false" 
-            />
+            >
           
 
             <label for="message">Message</label>
-            <textarea type="textarea" 
+            <textarea
             id="message" 
             name="message" 
             placeholder="Veuillez saisir votre message, merci" 
             aria-label="message" 
             aria-required="true" 
             aria-invalid="false"
-            row="5"
+            
             ></textarea>
           </div>
           
@@ -90,7 +93,7 @@
             value="Envoyer" 
             id="envoi" 
             aria-label="envoyer" 
-            /> 
+            > 
             
           </form> 
         
