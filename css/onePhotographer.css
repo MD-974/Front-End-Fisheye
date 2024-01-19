@@ -5,32 +5,27 @@
     justify-content: space-around;
     align-items: center;
 }
-
 .onePhotographer_headerContainer {
     display: contents;
 }
-
 .onePhotographer_nom {
     font-size: 64px;
     font-weight: 400;
     color: #d3573c;
     margin: 0;
 }
-
 .onePhotographer_ville {
     font-size: 24px;
     font-weight: 400;
     color: #901c1c;
     margin: 0;
 }
-
 .onePhotographer_tagline {
     font-size: 18px;
     font-weight: 400;
     color: #525252;
     margin: 0;
 }
-
 img.onephotographer_image {
     height: 200px;
     width: 200px;
@@ -63,7 +58,6 @@ img.onephotographer_image {
 .onephotographer_medias-infos h3, .onephotographer_medias-likes-wrapper p {
     color: #901C1C;
     font-size: 24px;
-    /* word-wrap: break-word; */
 }
 .onephotographer_medias-infos h3 {
     font-weight: 400;
@@ -79,6 +73,36 @@ img.onephotographer_image {
     font-size: 24px;
 }
 
+/* ---------------- LIGHTBOX --------------- */
+#lightbox {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #901C1C;
+}
+.lightbox-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+
+
+
 /* ----------------encart tarif/likes--------------- */
 
 .onephotographer_allCoeurprix {
@@ -91,14 +115,12 @@ img.onephotographer_image {
     background: #db8876;
     margin-right: 50px;
 }
-
 .onephotographer_allCoeurprix p {
     margin: 0;
     padding: 10px 25px;
     font-size: 24px;
     font-weight: 500;
 }
-
 .onephotographer_coeur-text {
     display: flex;
     align-items: center;

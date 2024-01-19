@@ -23,6 +23,5 @@ form.addEventListener("submit", (event) => {
     // console.log("le Nom est : " + event.target.elements[1].value);
     // console.log("l'Email est : " + event.target.elements[2].value);
     // console.log("le Message est : " + event.target.elements[3].value);
-
     closeModal();
 })

@@ -3,7 +3,7 @@ function mediaCardFactory (media,objPhotographerMedias ) {
     // pour chaques medias (images/videos) d'un photographe"
     const mediasCard = document.createElement ("div");
     mediasCard.setAttribute("class", "onephotographer_media-card");
-    // mediasCard.style.background = "lightgrey"
+    
 
     if (media.image) {
         const mediasImage = document.createElement ("img");
@@ -18,6 +18,7 @@ function mediaCardFactory (media,objPhotographerMedias ) {
     } else if (media.video) {
         const mediasVideo = document.createElement ("video");
         mediasVideo.setAttribute("controls", "controls");
+        mediasVideo.setAttribute("class", "onephotographer_imageMedias");
         mediasVideo.setAttribute("width", "350px");
         mediasVideo.setAttribute("height", "300px");
         mediasVideo.style.borderRadius = "5px";

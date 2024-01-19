@@ -11,7 +11,6 @@ function photographerTemplate(data) {
         img.setAttribute("alt", "Photo de " + name);
         img.setAttribute("class", "photographer_image");
 
-
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         h2.setAttribute("class", "photographer_nom");
@@ -21,7 +20,6 @@ function photographerTemplate(data) {
         lienPhotographe.setAttribute("class", "photographer_lien");
         lienPhotographe.appendChild(img);
 		lienPhotographe.appendChild(h2);
-
 
         const villeText = document.createElement ( 'p' );
         villeText.textContent = city + ", " + country;
@@ -34,8 +32,7 @@ function photographerTemplate(data) {
         const priceText = document.createElement( 'p' )
         priceText.textContent = price + "€/jour";
         priceText.setAttribute("class", "photographer_prix");
-        
-        
+          
         // ajout de article.appendChild pour l'affichage dans l'ordre des elements
         article.appendChild(lienPhotographe)
         article.appendChild(villeText);

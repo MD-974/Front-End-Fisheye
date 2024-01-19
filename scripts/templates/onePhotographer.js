@@ -171,19 +171,9 @@ function updateMediaList() {
    coeurLikes.classList.add("fa-solid", "fa-heart");
    coeurText.appendChild(compteurLikes);
    coeurText.appendChild(coeurLikes);
-   // document.getElementById("compteur-likes").innerHTML = getTotalLikes();
-
-
+   
    const event = new Event("updateLikes");
-   
-   // photographerMedia.map(media => {
-   //   const {mediasCard} = mediaCardFactory(media, photographerMedia );
-   //   imagesVideos.appendChild(mediasCard);
-   //   mediasCard.addEventListener("updateLikes", () => {
-   //    document.getElementById("compteur-likes").innerHTML = getTotalLikes();
-   //   })
-   // })
-   
+
    //---------------------- ajout de 'article.appendChild' ------------------ 
    // pour la "div" informations
    informations.appendChild(h2);
@@ -203,10 +193,6 @@ function updateMediaList() {
     allCoeurprix.appendChild(coeurText);
 
 
-    
-    
-    
-    
     const onePhotographerContainer = document.querySelector(".photograph-header");
     onePhotographerContainer.appendChild(headerContainer);
     const onePhotographerSection = document.querySelector(".onePhotographer_headerContainer");
@@ -235,13 +221,8 @@ function updateMediaList() {
        document.getElementById("compteur-likes").innerHTML = getTotalLikes();
       })
     })
-
-
-
+    // Ajout d'un dispatchEvent sur change pour qu il soit considerer au debut en trier par popularité
     mediasSelect.dispatchEvent(new Event("change"));
-
-
-
    }
 
    // Initialise la page en récupérant les données et les médias du photographe. 
@@ -262,6 +243,16 @@ async function init() {
    //  Afficher les datas et les medias d'un photographe
     displayData(dataOnePhotographe, objPhotographerMedias.medias);
     console.log("Affichage terminé!");
+
+   // Ajout de l'addEventListener pour l'ouverture de la lightbox au "click" sur media
+    const lightboxMedia = document.querySelectorAll(".onephotographer_imageMedias")
+   console.log(lightboxMedia)
+   lightboxMedia.forEach(elem => (
+    elem.addEventListener("click", function (){
+         console.log("test")
+        displayLightbox()  
+    })
+))
 }   
 
 init()

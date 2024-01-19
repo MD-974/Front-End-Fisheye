@@ -25,6 +25,36 @@
 
     </main>
 
+    <div id="lightbox">
+
+      <div class="lightbox-container">
+
+        <div class="ligthbox-container-left">
+          <button class="lightbox-container-button">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+        </div>
+
+        <div class="lightbox-container-middle">
+          <figure>
+            <img src="" alt="image" class="lightbox-image" />
+            <figcaption class="lightbox-title"></figcaption>
+          </figure>
+        </div>
+
+        <div class="lightbox-container-right">
+          <button class="lightbox-container-button">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <button class="lightbox-container-button">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
     <div id="contact_modal">
 
 			<div class="modal">
@@ -33,15 +63,16 @@
           <!-- <h2 id="modalTitle" class="modalTitle"> Contactez-moi <span id="photographerName">toto</span> </h2> -->
         <div class="modal-Header">
           <h2 id="modalTitle" class="modalTitle"> Contactez-moi </h2>
-          <h3 id="modalTitle2" class="modalTitle2"> </h3>
+          <h3 id="modalTitle2" class="modalTitle2"> Nom </h3>
         </div>
 
-          <img src="assets/icons/close.svg" alt="close" class="close" onclick="closeModal()" >
+          <img src="assets/images/close.svg" alt="close" class="close" onclick="closeModal()" >
         </header>
 
         <form id="contact_form" class="form">
           
           <div>
+
             <label for="firstName">Prénom</label>
             <input type="text" 
             id="firstName"  
@@ -51,9 +82,6 @@
             aria-required="true"
             aria-invalid="false" 
             >
-          
-          
-          
             <label for="LastName">Nom</label>
             <input type="text"  
             id="LastName"  
@@ -63,7 +91,6 @@
             aria-required="true"
             aria-invalid="false"  
             >
-          
             <label for="email">Email</label>
             <input type="email" 
             id="email" 
@@ -73,8 +100,6 @@
             aria-required="true" 
             aria-invalid="false" 
             >
-          
-
             <label for="message">Message</label>
             <textarea
             id="message" 
@@ -83,8 +108,8 @@
             aria-label="message" 
             aria-required="true" 
             aria-invalid="false"
-            
             ></textarea>
+
           </div>
           
           <input 
@@ -101,11 +126,13 @@
       
 		</div>
     
+    
     <script src="https://kit.fontawesome.com/54d6cb3a22.js" crossorigin="anonymous"></script>
     <script src="/scripts/factories/mediaCardFactory.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/templates/onePhotographer.js" type="module"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/lightbox.js"></script>
     
   </body>
 </html>
