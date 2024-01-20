@@ -1,4 +1,4 @@
-/* -------------------header--------------- */
+/* -------------------- HEADER ------------------- */
 .photograph-header {
     display: flex;
     flex-direction: row;
@@ -32,19 +32,17 @@ img.onephotographer_image {
     border-radius: 100%;
 }
 
-/* -------------------photosMedias--------------- */
 
+/* ------------------ PHOTOS/MEDIAS --------------- */
 .photograph-photosMedias {
     margin: 50px 100px;
     height: 1750px;
 }
-
 .label-medias {
     font-size: 18px;
     font-weight: 700;
     margin-right: 25px;
 }
-
 .onephotographer_images-videos {
     display: flex;
     flex-wrap: wrap;
@@ -54,7 +52,6 @@ img.onephotographer_image {
     gap: 95px;
     margin: 50px 0;
 }
-
 .onephotographer_medias-infos h3, .onephotographer_medias-likes-wrapper p {
     color: #901C1C;
     font-size: 24px;
@@ -63,7 +60,6 @@ img.onephotographer_image {
     font-weight: 400;
     width: 280px;
 }
-
 .onephotographer_medias-likes-wrapper p {
     font-weight: 500;
 }
@@ -72,6 +68,20 @@ img.onephotographer_image {
     align-items: center;
     font-size: 24px;
 }
+
+
+/* ---------------- MODAL --------------- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 5;
+}
+
 
 /* ---------------- LIGHTBOX --------------- */
 #lightbox {
@@ -96,15 +106,7 @@ img.onephotographer_image {
 }
 
 
-
-
-
-
-
-
-
-/* ----------------encart tarif/likes--------------- */
-
+/* --------------- TARIF/COEUR -------------- */
 .onephotographer_allCoeurprix {
     position: fixed;
     display: flex;

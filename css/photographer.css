@@ -18,7 +18,7 @@
     border: none;
     background-color: #901C1C;
     border-radius: 5px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 button:hover {
@@ -36,7 +36,7 @@ button:hover {
     border: none;
     background-color: #901C1C;
     border-radius: 5px;
-    cursor: pointer;
+    /* cursor: pointer; */
 } 
 .select option:checked {
     background-color: aqua;
@@ -55,6 +55,7 @@ button:hover {
     position: fixed;
     bottom: 0;
     right: 30%;
+    z-index: 10;
 
 }
 
@@ -64,8 +65,12 @@ button:hover {
 }
 
 .modal header img {
-    cursor: pointer;
+    /* cursor: pointer; */
     margin-bottom: 70px;
+}
+.contact_button, button.onePhotographer_button, .onephotographer_liste-deroulante, .modal header img, 
+.onephotographer_medias-likes-wrapper i, .onephotographer_imageMedias {
+    cursor: pointer;
 }
 
 .modal header h2 {

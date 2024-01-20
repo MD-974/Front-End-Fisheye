@@ -9,7 +9,11 @@ function displayModal() {
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
+    var modalOverlay = document.getElementById("modal-overlay");
+    modalOverlay.style.display = "none";
     document.getElementById("contact_form").reset();
+
+    
 }
 
 

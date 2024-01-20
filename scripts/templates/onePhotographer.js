@@ -67,6 +67,12 @@ function displayData(photographer, photographerMedia) {
       const modal = document.getElementById("contact_modal");
             modal.style.display = "block";
             modal.focus();
+
+
+            var modalOverlay = document.getElementById("modal-overlay");
+						modalOverlay.style.display = "block";
+
+            
       }
    );
      
