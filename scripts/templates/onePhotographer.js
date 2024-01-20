@@ -187,6 +187,7 @@ function displayData(photographer, photographerMedia) {
  coeurText.setAttribute("class", "onephotographer_coeur-text");
  const compteurLikes = document.createElement("span");
  compteurLikes.id = "compteur-likes";
+ compteurLikes.style.fontWeight = "700";
  const coeurLikes = document.createElement( "i");
  coeurLikes.classList.add("fa-solid", "fa-heart");
  coeurText.appendChild(compteurLikes);

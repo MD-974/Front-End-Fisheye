@@ -11,14 +11,14 @@ function closeModal() {
     modal.style.display = "none";
     var modalOverlay = document.getElementById("modal-overlay");
     modalOverlay.style.display = "none";
-    document.getElementById("contact_form").reset();
+    document.getElementById("form-contact").reset();
 
     
 }
 
 
 //----- ENVOYER FORMULAIRE ------
-const form = document.getElementById("contact_form");
+const form = document.getElementById("form-contact");
 form.addEventListener("submit", (event) => {
     // Empecher le navigateur de soumettre le formulaire
     event.preventDefault();
