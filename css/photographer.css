@@ -1,13 +1,12 @@
-#contact_modal {
-    display: none;
-}
-
+/* -------------------- HEADER ------------------- */
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
 }
 
+
+/* -------------------- BUTTON ------------------- */
 .contact_button, button.onePhotographer_button {
     font-size: 20px;
     font-weight: bold;
@@ -18,15 +17,15 @@
     border: none;
     background-color: #901C1C;
     border-radius: 5px;
-    /* cursor: pointer; */
 }
-
 button:hover {
     background-color: #DB8876;
     color:#000000;
     transition: .15s ease-out;
 }
 
+
+/* -------------------- SELECT ------------------- */
 .onephotographer_liste-deroulante {
     font-size: 18px;
     font-weight: 700;
@@ -36,11 +35,56 @@ button:hover {
     border: none;
     background-color: #901C1C;
     border-radius: 5px;
-    /* cursor: pointer; */
 } 
-.select option:checked {
-    background-color: aqua;
-    
+
+
+/* -------------------- PHOTOGRAPHER ------------------- */
+.photographer_image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.photographer_nom {
+    font-weight: 400;
+    margin: 20px 0 0 0;
+}
+.photographer_lien {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+.photographer_ville {
+    font-size: 13px;
+    font-weight: 400;
+    color: #901C1C;
+    margin: 0;
+}
+.photographer_tagline {
+    font-size: 10px;
+    font-weight : 400;
+    color: #000;
+    margin: 0;
+}
+.photographer_prix {
+    font-size: 9px;
+    font-weight: 400;
+    color: #757575;
+    margin: 0;
+}
+
+
+/* -------------------- CURSOR ------------------- */
+.contact_button, button.onePhotographer_button, .onephotographer_liste-deroulante, .modal header img, 
+.onephotographer_medias-likes-wrapper i, .onephotographer_imageMedias {
+    cursor: pointer;
+}
+
+
+/* -------------------- MODAL ------------------- */
+#contact_modal {
+    display: none;
 }
 .modal {
     border-radius: 5px;
@@ -56,52 +100,41 @@ button:hover {
     bottom: 0;
     right: 30%;
     z-index: 10;
-
 }
-
 .modal header {
     justify-content: space-between;
     width: 100%;
 }
-
 .modal header img {
-    /* cursor: pointer; */
     margin-bottom: 70px;
 }
-.contact_button, button.onePhotographer_button, .onephotographer_liste-deroulante, .modal header img, 
-.onephotographer_medias-likes-wrapper i, .onephotographer_imageMedias {
-    cursor: pointer;
-}
-
 .modal header h2 {
     font-size: 50px;
     font-weight: 400;
     text-align: center;
     margin: 0;
 }
-
 .modal header h3 {
     font-size: 40px;
     font-weight: 400;
     margin-top: 0;
 }
 
+
+/* -------------------- FORM ------------------- */
 form {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
 }
-
 form label {
     color: #312E2E;
     font-size: 36px;
 }
-
 form ::placeholder {
     font-size: 20px;
 }
-
 form textarea {
     border-radius: 8px;
     width: 100%;
@@ -109,10 +142,8 @@ form textarea {
     font-size: 24px;
     padding: 25px 0 0 0;
     font-family: inherit;
-    resize: none;
-
+    resize: none; 
 }
-
 form div {
     display: flex;
     flex-direction: column;
@@ -120,54 +151,10 @@ form div {
     align-items: self-start;
     margin-bottom: 26px;
 }
-
 form input {
     width: 100%;
     height: 68px;
     border: none;
     border-radius: 5px;
     font-size: 30px;
-}
-
-
-/* photographers_section => Card Photographe */
-
-.photographer_image {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.photographer_nom {
-    font-weight: 400;
-    margin: 20px 0 0 0;
-}
-
-.photographer_lien {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-}
-
-.photographer_ville {
-    font-size: 13px;
-    font-weight: 400;
-    color: #901C1C;
-    margin: 0;
-}
-
-.photographer_tagline {
-    font-size: 10px;
-    font-weight : 400;
-    color: #000;
-    margin: 0;
-}
-
-.photographer_prix {
-    font-size: 9px;
-    font-weight: 400;
-    color: #757575;
-    margin: 0;
 }
