@@ -72,7 +72,6 @@ function mediaCardFactory (media,objPhotographerMedias ) {
             media.likes = media.likes - 1;
             media.islike = false
             mediaslike.textContent = media.likes;
-            mediasCard.dispatchEvent(new Event("updateLikes"));
             console.log("vous avez dislike ce media : " + media.title);
         } else {
             mediasCoeur.classList.remove("far");
@@ -80,7 +79,6 @@ function mediaCardFactory (media,objPhotographerMedias ) {
             media.likes = media.likes + 1;
             media.islike = true
             mediaslike.textContent = media.likes;  
-            mediasCard.dispatchEvent(new Event("updateLikes"));
             console.log("vous avez like ce media : " + media.title); 
         }
 

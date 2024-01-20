@@ -11,20 +11,19 @@
   </head>
 
   <body>
-
+    <!-- HEADER -->
     <header>
       <a href="index.html">
         <img src="assets/images/logo.png" class="logo" alt="fisheye logo" >
       </a>
     </header>
 
+    <!-- MAIN -->
     <main id="main" aria-hidden="false">
-
       <div class="photograph-header"></div>
       <div class="photograph-photosMedias"></div>
-
     </main>
-
+    <!--lightbox -->
     <div id="lightbox">
 
       <div class="lightbox-container">
@@ -37,7 +36,7 @@
 
         <div class="lightbox-container-middle">
           <figure>
-            <img src="" alt="image" class="lightbox-image" />
+            <img src="src" alt="image" class="lightbox-image">
             <figcaption class="lightbox-title"></figcaption>
           </figure>
         </div>
@@ -54,79 +53,87 @@
       </div>
 
     </div>
-
+    <!-- modal -->
     <div id="contact_modal">
-
 			<div class="modal">
-
+        <!-- HEADER-MODAL -->
 				<header>
-          <!-- <h2 id="modalTitle" class="modalTitle"> Contactez-moi <span id="photographerName">toto</span> </h2> -->
+        <!-- CONTACT -->
         <div class="modal-Header">
           <h2 id="modalTitle" class="modalTitle"> Contactez-moi </h2>
           <h3 id="modalTitle2" class="modalTitle2"> Nom </h3>
         </div>
 
-          <img src="assets/images/close.svg" alt="close" class="close" onclick="closeModal()" >
-        </header>
+        <img src="assets/images/close.svg" alt="close" class="close" onclick="closeModal()">
 
+        </header>
+        
+        <!-- FORM -->
         <form id="contact_form" class="form">
           
           <div>
 
+            <!-- FIRSTNAME -->
             <label for="firstName">Prénom</label>
-            <input type="text" 
-            id="firstName"  
-            name="firstName" 
-            placeholder="Prénom" 
-            aria-label="firstName"  
-            aria-required="true"
-            aria-invalid="false" 
+            <input 
+              type="text" 
+              id="firstName"  
+              name="firstName" 
+              placeholder="Prénom" 
+              aria-label="firstName"  
+              aria-required="true"
+              aria-invalid="false" 
             >
+            <!-- LASTNAME -->
             <label for="LastName">Nom</label>
-            <input type="text"  
-            id="LastName"  
-            name="LastName" 
-            placeholder="Nom" 
-            aria-label="LastName"  
-            aria-required="true"
-            aria-invalid="false"  
+            <input 
+              type="text"  
+              id="LastName"  
+              name="LastName" 
+              placeholder="Nom" 
+              aria-label="LastName"  
+              aria-required="true"
+              aria-invalid="false"  
             >
+            <!-- EMAIL -->
             <label for="email">Email</label>
-            <input type="email" 
-            id="email" 
-            name="email" 
-            placeholder="Email"
-            aria-label="email" 
-            aria-required="true" 
-            aria-invalid="false" 
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="Email"
+              aria-label="email" 
+              aria-required="true" 
+              aria-invalid="false" 
             >
+            <!-- MESSAGE -->
             <label for="message">Message</label>
             <textarea
-            id="message" 
-            name="message" 
-            placeholder="Veuillez saisir votre message, merci" 
-            aria-label="message" 
-            aria-required="true" 
-            aria-invalid="false"
-            ></textarea>
+              id="message" 
+              name="message" 
+              placeholder="Veuillez saisir votre message, merci" 
+              aria-label="message" 
+              aria-required="true" 
+              aria-invalid="false">
+            </textarea>
 
           </div>
-          
+
+          <!-- BOUTON ENVOYER -->
           <input 
             type="submit" 
             class="contact_button" 
             value="Envoyer" 
             id="envoi" 
             aria-label="envoyer" 
-            > 
+          > 
             
-          </form> 
+        </form> 
         
-			</div>
-      
+			</div> 
 		</div>
-    
-    
+
+    <!-- SCRIPT -->
     <script src="https://kit.fontawesome.com/54d6cb3a22.js" crossorigin="anonymous"></script>
     <script src="/scripts/factories/mediaCardFactory.js"></script>
     <script src="/scripts/pages/photographer.js"></script>

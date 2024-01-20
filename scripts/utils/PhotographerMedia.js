@@ -1,3 +1,8 @@
+/**
+     * Fonction constructeur pour initialiser la propriété "medias".
+     * @param {Array} medias - Un tableau optionnel d'objets média.
+     * @return {void}
+     */
 export class PhotographerMedia {
     constructor (medias = null) {
         if (medias !== null) {
