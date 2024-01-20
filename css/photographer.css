@@ -202,6 +202,10 @@ form input {
     border-radius: 5px;
     font-size: 30px;
 }
+.form-contact_button:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
 
 
 /* ---------------- LIGHTBOX --------------- */
