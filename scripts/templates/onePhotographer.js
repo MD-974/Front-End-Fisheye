@@ -1,5 +1,5 @@
 import { PhotographerMedia } from "../utils/PhotographerMedia.js";
-
+ let arrayMediaTrier = []
 function displayData(photographer, photographerMedia) {
    const {city, country, name, portrait, price, tagline} = photographer;
    const {media} = photographerMedia
@@ -85,6 +85,7 @@ function displayData(photographer, photographerMedia) {
    img.setAttribute("src", picture);
    img.setAttribute("alt", "Photo de " + name);
    img.setAttribute("class", "onephotographer_image");
+   
 
 
  //-------- Creations des elements  de la "div" allTrier -----------
@@ -120,16 +121,19 @@ function displayData(photographer, photographerMedia) {
          console.log("trier par popularité");
          photographerMedia.sort((a, b) => b.likes - a.likes);
          console.log(photographerMedia.map(media => media.likes));
+         arrayMediaTrier = photographerMedia
          break;
        case "Date":
          console.log("trier par date");
          photographerMedia.sort((a, b) => new Date(b.date) - new Date(a.date));
          console.log(photographerMedia.map(media => media.date));
+         arrayMediaTrier = photographerMedia
          break;
        case "Titre":
          console.log("trier par titre");
          photographerMedia.sort((a, b) => a.title > b.title ? 1 : -1);
          console.log(photographerMedia.map(media => media.title));
+         arrayMediaTrier = photographerMedia
          break;
       }
 
@@ -155,7 +159,19 @@ function displayData(photographer, photographerMedia) {
        const { mediasCard, mediaLikes } = mediaCardFactory(media, photographerMedia);
        imagesVideos.appendChild(mediasCard);
       });
-   }
+
+
+    //----- LIGHTBOX ----->
+    // Ajout de l'addEventListener sur le "click" sur les images pour lancer la lightbox
+    const lightboxMedia = document.querySelectorAll(".onephotographer_imageMedias")
+    lightboxMedia.forEach(elem => (
+      elem.addEventListener("click", function (event){
+          console.log("test")
+          const dataId = event.currentTarget.getAttribute("data-id")
+          displayLightbox(arrayMediaTrier, dataId)  
+          })
+      ));
+    }
    
 
 
@@ -260,7 +276,6 @@ async function init() {
  // Récupère les media d'un photographe
  const mediaOnePhotographe  = await getOnePhotographerMedia(id);
  console.log("Media récupérées avec succès!");
-   //  console.log(mediaOnePhotographe)
 
  // Créer un nouvel objet "PhotographerMedia" en utilisant le média "mediaOnePhotographe".
  const objPhotographerMedias = new PhotographerMedia(mediaOnePhotographe);
@@ -268,19 +283,7 @@ async function init() {
  //  Afficher les datas et les medias d'un photographe
  displayData(dataOnePhotographe, objPhotographerMedias.medias);
  console.log("Affichage terminé!");
-
- //----- LIGHTBOX ----->
- // Ajout de l'addEventListener sur le "click" sur les images pour lancer la lightbox
- const lightboxMedia = document.querySelectorAll(".onephotographer_imageMedias")
-   
- // console.log(lightboxMedia)
- lightboxMedia.forEach(elem => (
-   elem.addEventListener("click", function (){
-       console.log("test")
-       displayLightbox()  
-      })
-   ));
-      
+     
 }   
 
 init()

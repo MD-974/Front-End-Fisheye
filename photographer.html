@@ -2,11 +2,11 @@
 <html lang="fr">
 
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link href="css/onePhotographer.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <title>Fisheye - photographe </title>
   </head>
 
@@ -30,28 +30,23 @@
       <!-- container for lightbox -->
       <div class="lightbox-container">
         <!-- div left -->
-        <div class="ligthbox-container-left">
+        <div class="lightbox-container-left">
           <!-- button previous -->
-          <button class="lightbox-container-button">
+          <button id="buttonPrevious" class="lightbox-container-button">
             <i class="fa-solid fa-chevron-left"></i>
           </button>
         </div>
         <!-- div middle -->
         <div class="lightbox-container-middle">
-          <!-- image and title -->
-          <figure>
-            <img src="" alt="image" class="lightbox-image">
-            <figcaption class="lightbox-title"></figcaption>
-          </figure>
         </div>
         <!-- div right -->
         <div class="lightbox-container-right">
           <!-- button close -->
-          <button class="lightbox-container-button">
+          <button id="buttonClose" class="lightbox-container-button">
             <i class="fa-solid fa-xmark"></i>
           </button>
           <!-- button next -->
-          <button class="lightbox-container-button">
+          <button id="buttonNext" class="lightbox-container-button">
             <i class="fa-solid fa-chevron-right"></i>
           </button>
         </div>

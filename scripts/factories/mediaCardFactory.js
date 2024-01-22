@@ -11,6 +11,7 @@ function mediaCardFactory (media,objPhotographerMedias ) {
  // Création de la carte média
  const mediasCard = document.createElement ("div");
  mediasCard.setAttribute("class", "onephotographer_media-card");
+ 
    
  
  // Création de l'image si c'est une image,
@@ -26,6 +27,8 @@ function mediaCardFactory (media,objPhotographerMedias ) {
      mediasImage.setAttribute("height", "300px");
      mediasImage.style.borderRadius = "5px";
      mediasImage.style.objectFit = "cover";
+     // Ajout de l'attribut "data-id" pour pouvoir le retrouver
+     mediasImage.dataset.id = media.id;
      mediasCard.append(mediasImage);
     } else if (media.video) {
      // Création de l'élément video
@@ -42,6 +45,8 @@ function mediaCardFactory (media,objPhotographerMedias ) {
      const urlVideo = `assets/medias/${media.video}`;
      videoSource.setAttribute("src", urlVideo);
      videoSource.setAttribute("type", "video/mp4");
+     // Ajout de l'attribut "data-id" pour pouvoir le retrouver
+     mediasVideo.dataset.id = media.id;
      mediasVideo.append(videoSource);
      mediasCard.append(mediasVideo);
     }
@@ -117,4 +122,25 @@ function mediaCardFactory (media,objPhotographerMedias ) {
  mediasInfos.appendChild(mediasLikeWrapper)
 
  return {mediasCard }
+}
+
+function mediaCardFactoryLightbox (currentMedia) {
+    let elementMedia = ''
+    console.log(currentMedia);
+    if (typeof currentMedia.video !== "undefined") {
+        elementMedia += '<figure class="lb-media">';
+        elementMedia += `<video controls src="assets/medias/${currentMedia.video}" alt="${currentMedia.title}" class="lb-video-image">`;
+        elementMedia += '<source src="assets/medias/${currentMedia.video}" type="video/mp4">';
+        elementMedia += '</video>';
+        elementMedia += '<figcaption class="lb-media-title">' + currentMedia.title + '</figcaption>';
+        elementMedia += '</figure>';
+    } else {
+        elementMedia += '<figure class="lb-media">';
+        elementMedia += `<img src="assets/medias/${currentMedia.image}" alt="${currentMedia.title}" class="lb-video-image">`;
+        elementMedia += '<figcaption class="lb-media-title">' + currentMedia.title + '</figcaption>';
+        elementMedia += '</figure>';
+
+    }
+
+    return elementMedia
 }
