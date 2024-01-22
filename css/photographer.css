@@ -202,11 +202,6 @@ form input {
     border-radius: 5px;
     font-size: 30px;
 }
-.form-contact_button:hover {
-    transform: scale(1.02);
-    transition: transform 0.2s ease;
-}
-
 
 /* ---------------- LIGHTBOX --------------- */
 #lightbox {
@@ -229,57 +224,76 @@ form input {
 }
 .lightbox-container-middle {
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     height: 80%;
-    width: 50%;
+    width: 30%;
     margin: 0;
     padding: 0;
-    background-color: #db8876;
+    /* background-color: #db8876; */
     
 }
 .lb-video-image {
-    /* height: 100%;
-    width: 100%; */
+    width : 1050px;
+    height : 900px;
     object-fit: cover;
-    max-width: 80vw;
-    max-height: 80vh;
+    /* max-width: 80vw;
+    max-height: 80vh; */
     margin: 0;
+    border-radius: 5px;
+}
+
+
+.lightbox-container-left,
+.lightbox-container-right{
+    width: 10vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.lightbox-container-middle{
+    width: 80vw;
+    padding: 2% 0;
+    /* background-color: aqua; */
 }
 
 #buttonClose{
     position: absolute;
     top: 2%;
     cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-weight: 400;
+    color: #901C1C;
+    font-size: 55px;
+}
+
+#buttonNext, #buttonPrevious {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-weight: 400;
+    color: #901C1C;
+    font-size: 55px;
+}
+
+#buttonClose:hover {
+    color: #DB8876;
+}
+
+#buttonNext:hover, #buttonPrevious:hover {
+    color: #DB8876;
+}
+
+.lb-media-title {
+    font-size: 24px;
+    font-weight: 400;
+    color: #d3573c;
 }
   
-  .lightbox-container-left,
-  .lightbox-container-right{
-    width: 10vw;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .lightbox-container-middle{
-    width: 80vw;
-    padding: 2% 0;
-    background-color: aqua;
-  }
 
-/* .lightbox-container-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 50%;
-    margin: 0;
-    padding: 0;
-    background-color: blanchedalmond;
-} */
 /* --------------- TARIF/COEUR -------------- */
 .onephotographer_allCoeurprix {
     position: fixed;
