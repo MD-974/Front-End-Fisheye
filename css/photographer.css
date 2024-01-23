@@ -234,11 +234,11 @@ form input {
     
 }
 .lb-video-image {
-    width : 1050px;
-    height : 900px;
+    /* width : 1050px;
+    height : 900px; */
     object-fit: cover;
-    /* max-width: 80vw;
-    max-height: 80vh; */
+    max-width: 80vw;
+    max-height: 80vh;
     margin: 0;
     border-radius: 5px;
 }
@@ -246,7 +246,7 @@ form input {
 
 .lightbox-container-left,
 .lightbox-container-right{
-    width: 10vw;
+    width: 12vw;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -254,7 +254,7 @@ form input {
 }
 
 .lightbox-container-middle{
-    width: 80vw;
+    width: 75vw;
     padding: 2% 0;
     /* background-color: aqua; */
 }
@@ -291,6 +291,7 @@ form input {
     font-size: 24px;
     font-weight: 400;
     color: #d3573c;
+    margin: 10px 0;
 }
   
 
