@@ -7,7 +7,8 @@
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <title>Fisheye - photographe </title>
+    <title>Fisheye - photographe</title>
+    <!-- <h1>Fisheye - photographe</h1> -->
   </head>
 
   <body>
@@ -32,8 +33,9 @@
         <!-- div left -->
         <div class="lightbox-container-left">
           <!-- button previous -->
-          <button id="buttonPrevious" class="lightbox-container-button">
+          <button id="buttonPrevious" class="lightbox-container-button" alt ="buttonPrevious">
             <i class="fa-solid fa-chevron-left"></i>
+            <span class="sr-only">Previous</span>
           </button>
         </div>
         <!-- div middle -->
@@ -42,12 +44,14 @@
         <!-- div right -->
         <div class="lightbox-container-right">
           <!-- button close -->
-          <button id="buttonClose" class="lightbox-container-button">
+          <button id="buttonClose" class="lightbox-container-button" alt ="buttonClose">
             <i class="fa-solid fa-xmark"></i>
+            <span class="sr-only">Close</span>
           </button>
           <!-- button next -->
-          <button id="buttonNext" class="lightbox-container-button">
+          <button id="buttonNext" class="lightbox-container-button" alt ="buttonNext">
             <i class="fa-solid fa-chevron-right"></i>
+            <span class="sr-only">Next</span>
           </button>
         </div>
       </div>
@@ -121,9 +125,6 @@
     <!-- SCRIPT -->
     <script src="https://kit.fontawesome.com/54d6cb3a22.js" crossorigin="anonymous"></script>
     <script src="/scripts/templates/onePhotographer.js" type="module"></script>
-    <!-- <script src="/scripts/factories/mediaCardFactory.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-    <script src="/scripts/utils/lightbox.js"></script> -->
     
   </body>
 </html>

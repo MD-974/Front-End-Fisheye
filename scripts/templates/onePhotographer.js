@@ -1,4 +1,3 @@
-import { PhotographerMedia } from '../utils/PhotographerMedia.js'
 import { getOnePhotographerMedia, getOnePhotographer } from '../pages/photographer.js'
 import { displayLightbox } from '../utils/lightbox.js'
 import { mediaCardFactory } from '../factories/mediaCardFactory.js'
@@ -7,7 +6,6 @@ let id = 0
 let arrayMediaTrier = []
 function displayData (photographer, photographerMedia) {
   const { city, country, name, portrait, price, tagline } = photographer
-  // const { media } = photographerMedia
   const picture = `assets/Photographers/${portrait}`
   document.querySelector('#modalTitle2').innerHTML = name
 
@@ -47,13 +45,17 @@ function displayData (photographer, photographerMedia) {
   h2.textContent = name
   h2.setAttribute('class', 'onePhotographer_nom')
   // element "city+country"
-  const villeText = document.createElement('p')
+  const villeText = document.createElement('h3')
+  // pour la validation wave
+  // const villeText = document.createElement('p')
   villeText.textContent = city + ', ' + country
   villeText.setAttribute('class', 'onePhotographer_ville')
+  villeText.setAttribute('role', 'text')
   // element "tagline"
   const taglineText = document.createElement('p')
   taglineText.textContent = tagline
   taglineText.setAttribute('class', 'onePhotographer_tagline')
+  taglineText.setAttribute('role', 'text')
 
   // -------- Creations des elements  de la "div" contactButton -----------
 
@@ -140,7 +142,7 @@ function displayData (photographer, photographerMedia) {
     }
 
     // Ajoutez les médias triés à la div
-    console.log(photographerMedia)
+    // console.log(photographerMedia)
     photographerMedia.forEach(media => {
       const { mediasCard } = mediaCardFactory(media, photographerMedia)
       imagesVideos.appendChild(mediasCard)
@@ -169,9 +171,12 @@ function displayData (photographer, photographerMedia) {
   imagesVideos.setAttribute('class', 'onephotographer_images-videos')
 
   // -------- Creation des elements  de la "div" allCoeurprix -----------
-  const prixText = document.createElement('p')
+  const prixText = document.createElement('span')
+  // pour la validation wave
+  // const prixText = document.createElement('p')
   prixText.textContent = price + '€/jour'
   prixText.setAttribute('class', 'onephotographer_prix')
+  prixText.style.fontWeight = '700'
 
   // -------- Creation  element de comptage de la "div" coeurText -----------
   const coeurText = document.createElement('div')
@@ -251,11 +256,12 @@ async function init () {
   console.log('Media récupérées avec succès!')
 
   // Créer un nouvel objet "PhotographerMedia" en utilisant le média "mediaOnePhotographe".
-  const objPhotographerMedias = new PhotographerMedia(mediaOnePhotographe)
+  // const objPhotographerMedias = new PhotographerMedia(mediaOnePhotographe)
+  // ligne dessous remplace l'ancienne class
+  const objPhotographerMedias = mediaOnePhotographe.map(media => ({ ...media, islike: false }))
 
   //  Afficher les datas et les medias d'un photographe
-  displayData(dataOnePhotographe, objPhotographerMedias.medias)
+  displayData(dataOnePhotographe, objPhotographerMedias)
   console.log('Affichage terminé!')
 }
-
 init()

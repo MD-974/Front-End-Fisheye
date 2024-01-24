@@ -98,7 +98,7 @@ img.onephotographer_image {
     gap: 95px;
     margin: 50px 0;
 }
-.onephotographer_medias-infos h3, .onephotographer_medias-likes-wrapper p {
+.onephotographer_medias-infos h3, .onephotographer_medias-likes-wrapper span {
     color: #901C1C;
     font-size: 24px;
 }
@@ -106,7 +106,7 @@ img.onephotographer_image {
     font-weight: 400;
     width: 280px;
 }
-.onephotographer_medias-likes-wrapper p {
+.onephotographer_medias-likes-wrapper span {
     font-weight: 500;
 }
 .onephotographer_medias-likes-wrapper i {
@@ -203,6 +203,7 @@ form input {
     font-size: 30px;
 }
 
+
 /* ---------------- LIGHTBOX --------------- */
 #lightbox {
     display: none;
@@ -242,8 +243,6 @@ form input {
     margin: 0;
     border-radius: 5px;
 }
-
-
 .lightbox-container-left,
 .lightbox-container-right{
     width: 12vw;
@@ -252,13 +251,11 @@ form input {
     justify-content: center;
     /* align-items: center; */
 }
-
 .lightbox-container-middle{
     width: 75vw;
     padding: 2% 0;
     /* background-color: aqua; */
 }
-
 #buttonClose{
     position: absolute;
     top: 2%;
@@ -269,7 +266,6 @@ form input {
     color: #901C1C;
     font-size: 55px;
 }
-
 #buttonNext, #buttonPrevious {
     cursor: pointer;
     background-color: transparent;
@@ -278,15 +274,12 @@ form input {
     color: #901C1C;
     font-size: 55px;
 }
-
 #buttonClose:hover {
     color: #DB8876;
 }
-
 #buttonNext:hover, #buttonPrevious:hover {
     color: #DB8876;
 }
-
 .lb-media-title {
     font-size: 24px;
     font-weight: 400;
@@ -305,17 +298,21 @@ form input {
     border-radius: 5px;
     background: #db8876;
     margin-right: 50px;
+    width: 300px;
+    height: 80px;
+    justify-content: space-around;
 }
-.onephotographer_allCoeurprix p {
-    margin: 0;
-    padding: 10px 25px;
+.onephotographer_allCoeurprix span, .onephotographer_coeur-text, .onephotographer_prix {
     font-size: 24px;
-    font-weight: 500;
 }
 .onephotographer_coeur-text {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 24px;
-    padding: 10px 0px 10px 20px;
+    padding-left: 25px;
+}
+.onephotographer_prix {
+    display: flex;
+    align-items: center;
+    justify-content: center;   
 }

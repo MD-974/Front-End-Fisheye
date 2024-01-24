@@ -21,6 +21,7 @@ export function mediaCardFactory (media, objPhotographerMedias) {
     const urlImage = `assets/medias/${media.image}`
     mediasImage.setAttribute('src', urlImage)
     mediasImage.setAttribute('class', 'onephotographer_imageMedias')
+    mediasImage.setAttribute('alt', 'Image de : ' + media.title)
     mediasImage.setAttribute('width', '350px')
     mediasImage.setAttribute('height', '300px')
     mediasImage.style.borderRadius = '5px'
@@ -33,6 +34,7 @@ export function mediaCardFactory (media, objPhotographerMedias) {
     const mediasVideo = document.createElement('video')
     mediasVideo.setAttribute('controls', 'controls')
     mediasVideo.setAttribute('class', 'onephotographer_imageMedias')
+    mediasVideo.setAttribute('alt', 'Video de : ' + media.title)
     mediasVideo.setAttribute('width', '350px')
     mediasVideo.setAttribute('height', '300px')
     mediasVideo.style.borderRadius = '5px'
@@ -68,7 +70,7 @@ export function mediaCardFactory (media, objPhotographerMedias) {
   mediasLikeWrapper.style.gap = '10px'
 
   // Création "likes du media(image ou video)"
-  const mediaslike = document.createElement('p')
+  const mediaslike = document.createElement('span')
   mediaslike.textContent = media.likes
   mediasLikeWrapper.appendChild(mediaslike)
 
