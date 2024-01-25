@@ -89,6 +89,12 @@ img.onephotographer_image {
     font-weight: 700;
     margin-right: 25px;
 }
+.onephotographer_imageMedias {
+    width: 350px;
+    height: 300px; 
+    border-radius: 5px;
+    object-fit: cover;
+}
 .onephotographer_images-videos {
     display: flex;
     flex-wrap: wrap;
@@ -98,11 +104,11 @@ img.onephotographer_image {
     gap: 95px;
     margin: 50px 0;
 }
-.onephotographer_medias-infos h3, .onephotographer_medias-likes-wrapper span {
+.onephotographer_medias-infos h4, .onephotographer_medias-likes-wrapper span {
     color: #901C1C;
     font-size: 24px;
 }
-.onephotographer_medias-infos h3 {
+.onephotographer_medias-infos h4 {
     font-weight: 400;
     width: 280px;
 }
@@ -314,5 +320,6 @@ form input {
 .onephotographer_prix {
     display: flex;
     align-items: center;
-    justify-content: center;   
+    justify-content: center; 
+    font-weight: 700;  
 }

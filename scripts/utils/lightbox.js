@@ -26,12 +26,9 @@ let mediaList = []
 
 function displayMedia (photographerMedia, dataId) {
   const lightbox = document.querySelector('.lightbox-container-middle')
-  // lightbox.style.display = "block";
   mediaList = photographerMedia
-  // console.log(photographerMedia);
   index = mediaList.findIndex(media => media.id === Number(dataId))
   currentMedia = mediaList[index]
-  // console.log(mediaList)
   console.log(currentMedia)
   lightbox.innerHTML = mediaCardFactoryLightbox(currentMedia)
 }

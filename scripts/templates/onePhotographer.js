@@ -2,16 +2,24 @@ import { getOnePhotographerMedia, getOnePhotographer } from '../pages/photograph
 import { displayLightbox } from '../utils/lightbox.js'
 import { mediaCardFactory } from '../factories/mediaCardFactory.js'
 import { displayModal, closeModal } from '../utils/contactForm.js'
+
 let id = 0
 let arrayMediaTrier = []
+
+/*********************************************
+ * Fonction qui permet d'Afficher les données
+ * pour un photographe ainsi que ses médias.
+*********************************************/
 function displayData (photographer, photographerMedia) {
   const { city, country, name, portrait, price, tagline } = photographer
   const picture = `assets/Photographers/${portrait}`
   document.querySelector('#modalTitle2').innerHTML = name
 
-  // --------------------------- Creations des "DIV" --------------------------
+  /********************
+  *Creations des "DIV"
+  ********************/
 
-  // "DIV" photograph-header
+  //  ---- "DIV" photograph-header ----
   // onePhotographer_headerContainer
   const headerContainer = document.createElement('div')
   headerContainer.setAttribute('class', 'onePhotographer_headerContainer')
@@ -25,7 +33,7 @@ function displayData (photographer, photographerMedia) {
   const photographeImage = document.createElement('div')
   photographeImage.setAttribute('class', 'onePhotographer_image')
 
-  // "DIV" photograph-photosMedias
+  // ---- "DIV" photograph-photosMedias ----
   // onePhotographer_allTrier
   const allTrier = document.createElement('div')
   allTrier.setAttribute('class', 'onePhotographer_allTrier')
@@ -39,7 +47,9 @@ function displayData (photographer, photographerMedia) {
   const allCoeur = document.createElement('div')
   allCoeur.setAttribute('class', 'onephtographer_likes')
 
-  // -------- Creations des elements  de la "div" informations -----------
+  /***************************************************
+   * Creations des elements  de la "div" informations
+  ***************************************************/
   // element "name"
   const h2 = document.createElement('h2')
   h2.textContent = name
@@ -50,15 +60,14 @@ function displayData (photographer, photographerMedia) {
   // const villeText = document.createElement('p')
   villeText.textContent = city + ', ' + country
   villeText.setAttribute('class', 'onePhotographer_ville')
-  villeText.setAttribute('role', 'text')
   // element "tagline"
   const taglineText = document.createElement('p')
   taglineText.textContent = tagline
   taglineText.setAttribute('class', 'onePhotographer_tagline')
-  taglineText.setAttribute('role', 'text')
 
-  // -------- Creations des elements  de la "div" contactButton -----------
-
+  /***************************************************
+   * Creation des elements  de la "div" contactButton
+  ***************************************************/
   // Crée un élément de bouton avec le contenu texte et les attributs donnés,
   // et ajoute un addEventListener pour afficher une modale au clic
   const button = document.createElement('button')
@@ -72,7 +81,9 @@ function displayData (photographer, photographerMedia) {
     closeModal()
   })
 
-  // -------- Creations des elements  de la "div" photographeImage -----------
+  /******************************************************
+   * Creation des elements  de la "div" photographeImage
+  ******************************************************/
   // element "picture"
   const img = document.createElement('img')
   img.setAttribute('id', 'onephotographer_image')
@@ -80,7 +91,9 @@ function displayData (photographer, photographerMedia) {
   img.setAttribute('alt', 'Photo de ' + name)
   img.setAttribute('class', 'onephotographer_image')
 
-  // -------- Creations des elements  de la "div" allTrier -----------
+  /*********************************************
+  * Creation des elements  de la "div" allTrier
+  *********************************************/
   // element "label"
   const medias = document.createElement('label')
   medias.setAttribute('class', 'onephotographer_trier')
@@ -92,6 +105,7 @@ function displayData (photographer, photographerMedia) {
   mediasSelect.setAttribute('class', 'onephotographer_liste-deroulante')
   mediasSelect.setAttribute('name', 'tri-liste')
   mediasSelect.setAttribute('id', 'tri-medias')
+  mediasSelect.setAttribute('role', 'menu de trie')
 
   // "option" pour le select de "trier par"
   // Ajoute des options avec les valeurs "popularité, date et titre".
@@ -176,7 +190,6 @@ function displayData (photographer, photographerMedia) {
   // const prixText = document.createElement('p')
   prixText.textContent = price + '€/jour'
   prixText.setAttribute('class', 'onephotographer_prix')
-  prixText.style.fontWeight = '700'
 
   // -------- Creation  element de comptage de la "div" coeurText -----------
   const coeurText = document.createElement('div')

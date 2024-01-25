@@ -1,12 +1,8 @@
-/**
- * Fonction crée une carte média pour afficher
+/***************************************************************
+ * Fonction qui crée une carte média pour afficher
  * les images ou vidéos d'un photographe
  * avec leurs informations associées (titre, likes, coeur).
- * @param {Object} media - Les informations sur le média à afficher (image ou vidéo).
- * @param {Array} objPhotographerMedias - La liste des médias du photographe.
- * @returns {Object} - Retourne la carte média créée.
-*/
-
+****************************************************************/
 export function mediaCardFactory (media, objPhotographerMedias) {
   // Création de la carte média
   const mediasCard = document.createElement('div')
@@ -22,10 +18,7 @@ export function mediaCardFactory (media, objPhotographerMedias) {
     mediasImage.setAttribute('src', urlImage)
     mediasImage.setAttribute('class', 'onephotographer_imageMedias')
     mediasImage.setAttribute('alt', 'Image de : ' + media.title)
-    mediasImage.setAttribute('width', '350px')
-    mediasImage.setAttribute('height', '300px')
-    mediasImage.style.borderRadius = '5px'
-    mediasImage.style.objectFit = 'cover'
+
     // Ajout de l'attribut "data-id" pour pouvoir le retrouver
     mediasImage.dataset.id = media.id
     mediasCard.append(mediasImage)
@@ -35,20 +28,29 @@ export function mediaCardFactory (media, objPhotographerMedias) {
     mediasVideo.setAttribute('controls', 'controls')
     mediasVideo.setAttribute('class', 'onephotographer_imageMedias')
     mediasVideo.setAttribute('alt', 'Video de : ' + media.title)
-    mediasVideo.setAttribute('width', '350px')
-    mediasVideo.setAttribute('height', '300px')
-    mediasVideo.style.borderRadius = '5px'
-    mediasVideo.style.objectFit = 'cover'
+
     // Création de la source vidéo
     const videoSource = document.createElement('source')
     // Définition de l'URL de la vidéo
     const urlVideo = `assets/medias/${media.video}`
     videoSource.setAttribute('src', urlVideo)
     videoSource.setAttribute('type', 'video/mp4')
+
+    // Création de l'élément track pour les sous-titres
+    // const track = document.createElement('track')
+    // track.setAttribute('kind', 'subtitles')
+    // track.setAttribute('src', 'sous-titres.vtt') // URL du fichier de sous-titres
+    // track.setAttribute('srclang', 'fr') // Langue des sous-titres
+    // track.setAttribute('label', 'Français') // Label des sous-titres
+
     // Ajout de l'attribut "data-id" pour pouvoir le retrouver
     mediasVideo.dataset.id = media.id
+
     mediasVideo.append(videoSource)
     mediasCard.append(mediasVideo)
+
+    // Ajout du track à l'élément vidéo
+    // mediasVideo.appendChild(track)
   }
 
   // Création de la div qui contient les informations du media
@@ -59,7 +61,7 @@ export function mediaCardFactory (media, objPhotographerMedias) {
   mediasInfos.style.justifyContent = 'space-between'
 
   // Création "Titre du media(image ou video)"
-  const mediasTitre = document.createElement('h3')
+  const mediasTitre = document.createElement('h4')
   mediasTitre.textContent = media.title
   mediasInfos.appendChild(mediasTitre)
 
@@ -123,10 +125,18 @@ export function mediaCardFactory (media, objPhotographerMedias) {
   return { mediasCard }
 }
 
+/***************************************************************
+ * Fonction qui génère une carte média
+ * pour l'affichage de la lightbox en fonction du média actuel.
+ ***************************************************************/
 export function mediaCardFactoryLightbox (currentMedia) {
+  // Initialiser l'élément média
   let elementMedia = ''
   console.log(currentMedia)
+
+  // Vérifier si le média actuel est une vidéo
   if (typeof currentMedia.video !== 'undefined') {
+    // Générer l'élément video
     elementMedia += '<figure class="lb-media">'
     elementMedia += `<video controls src="assets/medias/${currentMedia.video}" alt="${currentMedia.title}" class="lb-video-image">`
     elementMedia += `<source src="assets/medias/${currentMedia.video}" type="video/mp4">`
@@ -134,11 +144,14 @@ export function mediaCardFactoryLightbox (currentMedia) {
     elementMedia += '<figcaption class="lb-media-title">' + currentMedia.title + '</figcaption>'
     elementMedia += '</figure>'
   } else {
+    // Si l'élement medias n'est pas une video
+    // Générer l'élément image
     elementMedia += '<figure class="lb-media">'
     elementMedia += `<img src="assets/medias/${currentMedia.image}" alt="${currentMedia.title}" class="lb-video-image">`
     elementMedia += '<figcaption class="lb-media-title">' + currentMedia.title + '</figcaption>'
     elementMedia += '</figure>'
   }
 
+  // Retourner l'élément média généré
   return elementMedia
 }
