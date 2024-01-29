@@ -12,7 +12,6 @@ export function photographerTemplate (data) {
     img.setAttribute('src', picture)
     img.setAttribute('alt', 'Photo de ' + name)
     img.setAttribute('class', 'photographer_image')
-
     // Créer et définir le contenu du texte pour l’élément nom
     const h2 = document.createElement('h2')
     h2.textContent = name

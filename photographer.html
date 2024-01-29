@@ -4,6 +4,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
+    <meta name="description" content="Fisheye - photographe-page">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -17,12 +18,12 @@
       <!-- pour la validation de wave pour un h1 -->
     <h1 class = "sr-only">Fisheye - photographe</h1>
       <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" alt="fisheye logo" >
+        <img src="assets/images/logo.png" class="logo" alt="fisheye logo" aria-label="retour vers la page d'accueil">
       </a>
     </header>
 
     <!-- MAIN -->
-    <main id="main" aria-hidden="false">
+    <main id="main" >
       <div class="photograph-header"></div>
       <div class="photograph-photosMedias"></div>
     </main>
@@ -75,17 +76,18 @@
             <h3 id="modalTitle2" class="modalTitle2"> Nom </h3>
           </div>
           <!-- CLOSE -->
-          <img src="assets/images/close.svg" alt="close" class="close">
+          <img src="assets/images/close.svg" alt="close" class="close" tabindex="0">
           </header>  
           <!-- FORM -->
           <form id="form-contact" class="form">
             <div>
               <!-- FIRSTNAME -->
-              <label for="firstName">Prénom</label>
+              <label for="firstName" >Prénom</label>
               <input 
                 type="text" 
                 id="firstName"  
-                name="firstName"   
+                name="firstName"
+                autofocus   
               >
               <!-- LASTNAME -->
               <label for="LastName">Nom</label>

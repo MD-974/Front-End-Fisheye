@@ -18,6 +18,8 @@ export function mediaCardFactory (media, objPhotographerMedias) {
     mediasImage.setAttribute('src', urlImage)
     mediasImage.setAttribute('class', 'onephotographer_imageMedias')
     mediasImage.setAttribute('alt', 'Image de : ' + media.title)
+    mediasImage.setAttribute('tabindex', '0')
+    mediasImage.setAttribute('aria-label', 'image closeup view')
 
     // Ajout de l'attribut "data-id" pour pouvoir le retrouver
     mediasImage.dataset.id = media.id
@@ -36,21 +38,18 @@ export function mediaCardFactory (media, objPhotographerMedias) {
     videoSource.setAttribute('src', urlVideo)
     videoSource.setAttribute('type', 'video/mp4')
 
-    // Création de l'élément track pour les sous-titres
+    // Création de la balise <track> pour les sous-titres
     // const track = document.createElement('track')
     // track.setAttribute('kind', 'subtitles')
-    // track.setAttribute('src', 'sous-titres.vtt') // URL du fichier de sous-titres
-    // track.setAttribute('srclang', 'fr') // Langue des sous-titres
-    // track.setAttribute('label', 'Français') // Label des sous-titres
+    // track.setAttribute('src', `assets/sous-titres/${media.video}.vtt`) // URL du fichier de sous-titres
+    // track.setAttribute('default', 'default') // Activer les sous-titres par défaut
 
     // Ajout de l'attribut "data-id" pour pouvoir le retrouver
     mediasVideo.dataset.id = media.id
 
     mediasVideo.append(videoSource)
     mediasCard.append(mediasVideo)
-
-    // Ajout du track à l'élément vidéo
-    // mediasVideo.appendChild(track)
+    // mediasVideo.append(track) // Ajout du track à l'élément vidéo
   }
 
   // Création de la div qui contient les informations du media
@@ -78,6 +77,8 @@ export function mediaCardFactory (media, objPhotographerMedias) {
 
   // Création "coeur du media(image ou video)"
   const mediasCoeur = document.createElement('i')
+  mediasCoeur.setAttribute('aria-label', 'likes')
+  mediasCoeur.setAttribute('tabindex', '0')
   if (media.islike) {
     mediasCoeur.setAttribute('class', 'fa-regular fa-heart fas')
   } else {
@@ -91,6 +92,7 @@ export function mediaCardFactory (media, objPhotographerMedias) {
     if (mediasCoeur.classList.contains('fas')) {
       mediasCoeur.classList.remove('fas')
       mediasCoeur.classList.add('far')
+      // mediasCoeur.setAttribute('aria-label', 'dislike')
       // Diminution du nombre de likes
       media.likes = media.likes - 1
       // Changement de l'attribut
@@ -100,6 +102,7 @@ export function mediaCardFactory (media, objPhotographerMedias) {
     } else {
       mediasCoeur.classList.remove('far')
       mediasCoeur.classList.add('fas')
+      // mediasCoeur.setAttribute('aria-label', 'like')
       // Augmentation du nombre de likes
       media.likes = media.likes + 1
       // Changement de l'attribut

@@ -29,6 +29,7 @@ function displayData (photographer, photographerMedia) {
   // onePhotographer_button
   const contactButton = document.createElement('div')
   contactButton.setAttribute('class', 'onePhotographer_button')
+  // contactButton.setAttribute('aria-label', 'Appuyer sur entreé pour ouvrir le formulaire de contact pour ' + name)
   // onePhotographer_image
   const photographeImage = document.createElement('div')
   photographeImage.setAttribute('class', 'onePhotographer_image')
@@ -55,9 +56,7 @@ function displayData (photographer, photographerMedia) {
   h2.textContent = name
   h2.setAttribute('class', 'onePhotographer_nom')
   // element "city+country"
-  const villeText = document.createElement('h3')
-  // pour la validation wave
-  // const villeText = document.createElement('p')
+  const villeText = document.createElement('p')
   villeText.textContent = city + ', ' + country
   villeText.setAttribute('class', 'onePhotographer_ville')
   // element "tagline"
@@ -172,8 +171,16 @@ function displayData (photographer, photographerMedia) {
         displayLightbox(arrayMediaTrier, dataId)
       })
     ))
+    document.activeElement.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+        if (event.target.classList.contains('onephotographer_imageMedias')) {
+          const dataId = document.activeElement.getAttribute('data-id')
+          displayLightbox(arrayMediaTrier, dataId)
+        }
+        console.log(event)
+      }
+    })
   }
-
   // Fonction de calcul du total de likes pour un photographe.
   function getTotalLikes () {
     const allLikes = photographerMedia.map(media => media.likes)

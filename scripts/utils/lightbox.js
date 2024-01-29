@@ -33,6 +33,7 @@ function displayMedia (photographerMedia, dataId) {
   lightbox.innerHTML = mediaCardFactoryLightbox(currentMedia)
 }
 
+// ----- NAVIGATION LIGHTBOX ----
 function previous () {
   if (index === 0) {
     index = mediaList.length - 1
@@ -60,3 +61,4 @@ function next () {
 }
 const buttonNext = document.getElementById('buttonNext')
 buttonNext.addEventListener('click', next)
+buttonNext.focus()
