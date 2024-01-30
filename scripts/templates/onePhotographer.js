@@ -13,7 +13,7 @@ let arrayMediaTrier = []
 function displayData (photographer, photographerMedia) {
   const { city, country, name, portrait, price, tagline } = photographer
   const picture = `assets/Photographers/${portrait}`
-  document.querySelector('#modalTitle2').innerHTML = name
+  document.querySelector('.modal-header-subtitle').innerHTML = name
 
   /********************
   *Creations des "DIV"
@@ -56,7 +56,7 @@ function displayData (photographer, photographerMedia) {
   h2.textContent = name
   h2.setAttribute('class', 'onePhotographer_nom')
   // element "city+country"
-  const villeText = document.createElement('p')
+  const villeText = document.createElement('h3')
   villeText.textContent = city + ', ' + country
   villeText.setAttribute('class', 'onePhotographer_ville')
   // element "tagline"

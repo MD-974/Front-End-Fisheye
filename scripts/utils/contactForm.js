@@ -1,16 +1,14 @@
 // ----- AFFICHER MODALE ------
 export function displayModal () {
-  const modal = document.getElementById('contact_modal')
-  modal.style.display = 'block'
+  const modal = document.querySelector('.modal-container')
+  modal.showModal() // Affiche le modal
   document.getElementById('firstName').focus()
 }
 
 // ----- FERMER MODALE ------
 export function closeModal () {
-  const modal = document.getElementById('contact_modal')
-  modal.style.display = 'none'
-  const modalOverlay = document.getElementById('modal-overlay')
-  modalOverlay.style.display = 'none'
+  const modal = document.querySelector('.modal-container')
+  modal.close() // Ferme le modal
   document.getElementById('form-contact').reset()
 }
 

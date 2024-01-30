@@ -27,8 +27,9 @@ export function mediaCardFactory (media, objPhotographerMedias) {
   } else if (media.video) {
     // Création de l'élément video
     const mediasVideo = document.createElement('video')
-    mediasVideo.setAttribute('controls', 'controls')
+    // mediasVideo.setAttribute('controls', 'controls')
     mediasVideo.setAttribute('class', 'onephotographer_imageMedias')
+    mediasVideo.setAttribute('tabindex', '0')
     mediasVideo.setAttribute('alt', 'Video de : ' + media.title)
 
     // Création de la source vidéo

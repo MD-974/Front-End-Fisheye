@@ -3,15 +3,15 @@ import { mediaCardFactoryLightbox } from '../factories/mediaCardFactory.js'
 
 export function displayLightbox (photographerMedia, dataId) {
   console.log('displayLightbox')
-  const lightbox = document.getElementById('lightbox')
+  const lightbox = document.querySelector('.lightbox')
   displayMedia(photographerMedia, dataId)
-  lightbox.style.display = 'block'
+  lightbox.showModal()
 }
 
 // ----- FERMER LIGHTBOX ----
 function closeLightbox () {
-  const lightbox = document.getElementById('lightbox')
-  lightbox.style.display = 'none'
+  const lightbox = document.querySelector('.lightbox')
+  lightbox.close()
   console.log('fermeture de la lightbox')
 }
 const closeLightboxBouton = document.getElementById('buttonClose')
