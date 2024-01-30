@@ -1,5 +1,5 @@
 import { getOnePhotographerMedia, getOnePhotographer } from '../pages/photographer.js'
-import { displayLightbox } from '../utils/lightbox.js'
+import { displayLightbox, lbopen, next, previous } from '../utils/lightbox.js'
 import { mediaCardFactory } from '../factories/mediaCardFactory.js'
 import { displayModal, closeModal } from '../utils/contactForm.js'
 
@@ -178,6 +178,18 @@ function displayData (photographer, photographerMedia) {
           displayLightbox(arrayMediaTrier, dataId)
         }
         console.log(event)
+      }
+    })
+    document.addEventListener('keydown', function (event) {
+      if (lbopen) {
+        switch (event.key) {
+          case 'ArrowRight':
+            next()
+            break
+          case 'ArrowLeft':
+            previous()
+            break
+        }
       }
     })
   }

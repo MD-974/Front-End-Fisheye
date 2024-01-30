@@ -151,19 +151,10 @@ img.onephotographer_image {
 .modal header img {
     margin-bottom: 70px;
 }
-.modal-header{
-    margin-top: 20px;
-}
-.modal-header-title {
+.modal-header-title, .modal-header-subtitle {
     font-size: 50px;
     font-weight: 400;
-    text-align: center;
-    margin: 0;
-}
-.modal-header-subtitle {
-    font-size: 40px;
-    font-weight: 400;
-    margin-top: 0;
+    margin: 0;  
 }
 
 
@@ -280,10 +271,9 @@ form input {
     color: #901C1C;
     font-size: 70px;
 }
-#buttonClose:hover {
-    color: #DB8876;
-}
-#buttonNext:hover, #buttonPrevious:hover {
+#buttonNext:hover, #buttonNext:focus,
+#buttonPrevious:hover, #buttonPrevious:focus,
+#buttonClose:hover, #buttonClose:focus{
     color: #DB8876;
 }
 .lb-media-title {
@@ -301,12 +291,16 @@ form input {
     flex-direction: row-reverse;
     bottom: 0;
     right: 0;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
     background: #db8876;
     margin-right: 50px;
     width: 300px;
     height: 80px;
     justify-content: space-around;
+    -webkit-border-radius: 5px 5;
+    -moz-border-radius: 5px 5;
+    -ms-border-radius: 5px 5;
+    -o-border-radius: 5px 5;
 }
 .onephotographer_allCoeurprix span, .onephotographer_coeur-text, .onephotographer_prix {
     font-size: 24px;

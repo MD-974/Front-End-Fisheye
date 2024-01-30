@@ -1,4 +1,7 @@
 import { mediaCardFactoryLightbox } from '../factories/mediaCardFactory.js'
+
+export let lbopen = false // Pour savoir si la lightbox est ouverte
+
 // ----- AFFICHER LIGHTBOX ----
 
 export function displayLightbox (photographerMedia, dataId) {
@@ -6,6 +9,8 @@ export function displayLightbox (photographerMedia, dataId) {
   const lightbox = document.querySelector('.lightbox')
   displayMedia(photographerMedia, dataId)
   lightbox.showModal()
+  console.log('ouverture de la lightbox')
+  lbopen = true
 }
 
 // ----- FERMER LIGHTBOX ----
@@ -13,16 +18,16 @@ function closeLightbox () {
   const lightbox = document.querySelector('.lightbox')
   lightbox.close()
   console.log('fermeture de la lightbox')
+  lbopen = false
 }
 const closeLightboxBouton = document.getElementById('buttonClose')
 console.log(closeLightboxBouton)
 closeLightboxBouton.addEventListener('click', closeLightbox)
 
-// ----- AFFICHER CONTAINER LIGHTBOX ----
-
 let index = null
 let currentMedia = {}
 let mediaList = []
+// ----- AFFICHER CONTAINER LIGHTBOX ----
 
 function displayMedia (photographerMedia, dataId) {
   const lightbox = document.querySelector('.lightbox-container-middle')
@@ -34,7 +39,7 @@ function displayMedia (photographerMedia, dataId) {
 }
 
 // ----- NAVIGATION LIGHTBOX ----
-function previous () {
+export function previous () {
   if (index === 0) {
     index = mediaList.length - 1
   } else {
@@ -44,11 +49,13 @@ function previous () {
   console.log(currentMedia)
   const lightbox = document.querySelector('.lightbox-container-middle')
   lightbox.innerHTML = mediaCardFactoryLightbox(currentMedia)
+  const buttonPrevious = document.getElementById('buttonPrevious')
+  buttonPrevious.focus()
 }
 const buttonPrevious = document.getElementById('buttonPrevious')
 buttonPrevious.addEventListener('click', previous)
 
-function next () {
+export function next () {
   if (index >= mediaList.length - 1) {
     index = 0
   } else {
@@ -58,6 +65,8 @@ function next () {
   console.log(currentMedia)
   const lightbox = document.querySelector('.lightbox-container-middle')
   lightbox.innerHTML = mediaCardFactoryLightbox(currentMedia)
+  const buttonNext = document.getElementById('buttonNext')
+  buttonNext.focus()
 }
 const buttonNext = document.getElementById('buttonNext')
 buttonNext.addEventListener('click', next)
