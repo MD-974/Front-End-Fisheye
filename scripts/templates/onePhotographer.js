@@ -177,7 +177,10 @@ function displayData (photographer, photographerMedia) {
           const dataId = document.activeElement.getAttribute('data-id')
           displayLightbox(arrayMediaTrier, dataId)
         }
-        console.log(event)
+        console.log('image/video : key entrer')
+        if (event.target.classList.contains()) {
+          console.log('coeur : like')
+        }
       }
     })
     document.addEventListener('keydown', function (event) {

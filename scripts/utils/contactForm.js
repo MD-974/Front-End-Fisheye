@@ -2,14 +2,49 @@
 export function displayModal () {
   const modal = document.querySelector('.modal-container')
   modal.showModal() // Affiche le modal
-  document.getElementById('firstName').focus()
-}
+  const modalElements = modal.querySelectorAll('[tabindex]')
+  document.getElementById('firstName').focus() // Focus sur le premier élément de la modal
 
+  modal.addEventListener('keydown', function (event) {
+    if (event.key === 'Tab') {
+      const firstElement = modalElements[0]
+      const lastElement = modalElements[modalElements.length - 1]
+
+      if (event.shiftKey) {
+        if (document.activeElement === firstElement) {
+          lastElement.focus()
+          event.preventDefault()
+        }
+      } else if (document.activeElement === lastElement) {
+        firstElement.focus()
+        event.preventDefault()
+      }
+    }
+  })
+}
 // ----- FERMER MODALE ------
+// export function closeModal () {
+//   const modal = document.querySelector('.modal-container')
+//   modal.close() // Ferme le modal
+//   document.getElementById('form-contact').reset()
+//   const closeImage = document.querySelector('.close');
+
+//   closeImage.addEventListener('keydown', function(event) {
+//     if (event.key === 'Enter') {
+//       modal.close(); // Ferme le modal lorsque la touche "Entrée" est enfoncée sur l'image "close"
+//     }
+// }}
 export function closeModal () {
   const modal = document.querySelector('.modal-container')
   modal.close() // Ferme le modal
-  document.getElementById('form-contact').reset()
+  document.getElementById('form-contact_button').reset()
+  const closeImage = document.querySelector('.close')
+
+  closeImage.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      modal.close() // Ferme le modal lorsque la touche "Entrée" est enfoncée sur l'image "close"
+    }
+  })
 }
 
 // ----- ENVOYER FORMULAIRE ------

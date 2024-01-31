@@ -11,6 +11,27 @@ export function displayLightbox (photographerMedia, dataId) {
   lightbox.showModal()
   console.log('ouverture de la lightbox')
   lbopen = true
+  const modalElements = lightbox.querySelectorAll('[tabindex]')
+  document.getElementById('firstName').focus() // Focus sur le premier élément de la modal
+
+  function manageLightboxFocus (event) {
+    if (event.key === 'Tab') {
+      const firstElement = modalElements[0]
+      const lastElement = modalElements[modalElements.length - 1]
+
+      if (event.shiftKey) {
+        if (document.activeElement === firstElement) {
+          lastElement.focus()
+          event.preventDefault()
+        }
+      } else if (document.activeElement === lastElement) {
+        firstElement.focus()
+        event.preventDefault()
+      }
+    }
+  }
+
+  lightbox.addEventListener('keydown', manageLightboxFocus)
 }
 
 // ----- FERMER LIGHTBOX ----
@@ -29,7 +50,7 @@ let currentMedia = {}
 let mediaList = []
 // ----- AFFICHER CONTAINER LIGHTBOX ----
 
-function displayMedia (photographerMedia, dataId) {
+export function displayMedia (photographerMedia, dataId) {
   const lightbox = document.querySelector('.lightbox-container-middle')
   mediaList = photographerMedia
   index = mediaList.findIndex(media => media.id === Number(dataId))
