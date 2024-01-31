@@ -79,11 +79,12 @@ export function mediaCardFactory (media, objPhotographerMedias) {
   // Création "coeur du media(image ou video)"
   const mediasCoeur = document.createElement('i')
   mediasCoeur.setAttribute('aria-label', 'likes')
+  mediasCoeur.dataset.id = media.id
   mediasCoeur.setAttribute('tabindex', '0')
   if (media.islike) {
-    mediasCoeur.setAttribute('class', 'fa-regular fa-heart fas')
+    mediasCoeur.setAttribute('class', 'icon__coeur fa-regular fa-heart fas')
   } else {
-    mediasCoeur.setAttribute('class', 'fa-regular fa-heart far')
+    mediasCoeur.setAttribute('class', 'icon__coeur fa-regular fa-heart far')
   }
   mediasCoeur.style.color = '#901C1C'
   mediasLikeWrapper.appendChild(mediasCoeur)
@@ -93,7 +94,6 @@ export function mediaCardFactory (media, objPhotographerMedias) {
     if (mediasCoeur.classList.contains('fas')) {
       mediasCoeur.classList.remove('fas')
       mediasCoeur.classList.add('far')
-      // mediasCoeur.setAttribute('aria-label', 'dislike')
       // Diminution du nombre de likes
       media.likes = media.likes - 1
       // Changement de l'attribut
@@ -103,7 +103,6 @@ export function mediaCardFactory (media, objPhotographerMedias) {
     } else {
       mediasCoeur.classList.remove('far')
       mediasCoeur.classList.add('fas')
-      // mediasCoeur.setAttribute('aria-label', 'like')
       // Augmentation du nombre de likes
       media.likes = media.likes + 1
       // Changement de l'attribut

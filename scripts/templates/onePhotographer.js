@@ -75,7 +75,7 @@ function displayData (photographer, photographerMedia) {
   button.addEventListener('click', function () {
     displayModal()
   })
-  const buttonCloseModal = document.querySelector('img.close')
+  const buttonCloseModal = document.querySelector('.modal-header-close')
   buttonCloseModal.addEventListener('click', function () {
     closeModal()
   })
@@ -177,13 +177,7 @@ function displayData (photographer, photographerMedia) {
           const dataId = document.activeElement.getAttribute('data-id')
           displayLightbox(arrayMediaTrier, dataId)
         }
-        console.log('image/video : key entrer')
-        if (event.target.classList.contains()) {
-          console.log('coeur : like')
-        }
       }
-    })
-    document.addEventListener('keydown', function (event) {
       if (lbopen) {
         switch (event.key) {
           case 'ArrowRight':
@@ -196,6 +190,42 @@ function displayData (photographer, photographerMedia) {
       }
     })
   }
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter' && event.target.classList.contains('icon__coeur')) {
+      console.log(event.target)
+      console.log('coucou')
+      const dataId = document.activeElement.getAttribute('data-id')
+      const mediaModif = arrayMediaTrier.find(media => media.id === Number(dataId))
+      if (event.target.classList.contains('fas')) {
+        event.target.classList.remove('fas')
+        event.target.classList.add('far')
+        // Diminution du nombre de likes
+        mediaModif.likes = mediaModif.likes - 1
+        // Changement de l'attribut
+        mediaModif.islike = false
+        document.activeElement.previousSibling.textContent = mediaModif.likes
+        console.log('vous avez dislike ce media : ' + mediaModif.title)
+      } else {
+        event.target.classList.remove('far')
+        event.target.classList.add('fas')
+        // Augmentation du nombre de likes
+        mediaModif.likes = mediaModif.likes + 1
+        // Changement de l'attribut
+        mediaModif.islike = true
+        document.activeElement.previousSibling.textContent = mediaModif.likes
+        console.log('vous avez like ce media : ' + mediaModif.title)
+      }
+      // Met à jour le contenu de l'élément avec l'ID "compteur-likes"
+      // avec le nombre total de likes.
+      document.getElementById('compteur-likes').innerHTML = getTotalLikes()
+    }
+  })
+
+  // if (event.target.classList.contains('onephotographer_imageMedias')) {
+  //   document.addEventListener('keydown', function (event) {
+  //   })
+  // }
+
   // Fonction de calcul du total de likes pour un photographe.
   function getTotalLikes () {
     const allLikes = photographerMedia.map(media => media.likes)

@@ -25,7 +25,7 @@ button:hover {
 }
 
 /* -- cursor -- */
-.form-contact_button, button.onePhotographer_button, .onephotographer_liste-deroulante, .modal header img, 
+.form-contact_button, button.onePhotographer_button, .onephotographer_liste-deroulante, #buttonCloseModal, 
 .onephotographer_medias-likes-wrapper i, .onephotographer_imageMedias {
     cursor: pointer;
 }
@@ -140,8 +140,14 @@ img.onephotographer_image {
     justify-content: space-between;
     width: 100%;
 }
-.modal header img {
-    margin-bottom: 70px;
+#buttonCloseModal {
+    width: 72px;
+    height: 72px;
+    border: none;
+    font-weight:400;
+    color: #FFFFFF;
+    font-size: 70px;
+    background-color: transparent;
 }
 .modal-header-title, .modal-header-subtitle {
     font-size: 50px;
