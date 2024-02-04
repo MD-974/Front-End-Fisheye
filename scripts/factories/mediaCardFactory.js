@@ -3,9 +3,10 @@
  * les images ou vidéos d'un photographe
  * avec leurs informations associées (titre, likes, coeur).
 ****************************************************************/
+
 export function mediaCardFactory (media, objPhotographerMedias) {
   // Création de la carte média
-  const mediasCard = document.createElement('div')
+  const mediasCard = document.createElement('article')
   mediasCard.setAttribute('class', 'onephotographer_media-card')
 
   // Création de l'image si c'est une image,
@@ -39,18 +40,11 @@ export function mediaCardFactory (media, objPhotographerMedias) {
     videoSource.setAttribute('src', urlVideo)
     videoSource.setAttribute('type', 'video/mp4')
 
-    // Création de la balise <track> pour les sous-titres
-    // const track = document.createElement('track')
-    // track.setAttribute('kind', 'subtitles')
-    // track.setAttribute('src', `assets/sous-titres/${media.video}.vtt`) // URL du fichier de sous-titres
-    // track.setAttribute('default', 'default') // Activer les sous-titres par défaut
-
     // Ajout de l'attribut "data-id" pour pouvoir le retrouver
     mediasVideo.dataset.id = media.id
 
     mediasVideo.append(videoSource)
     mediasCard.append(mediasVideo)
-    // mediasVideo.append(track) // Ajout du track à l'élément vidéo
   }
 
   // Création de la div qui contient les informations du media
@@ -76,18 +70,28 @@ export function mediaCardFactory (media, objPhotographerMedias) {
   mediaslike.textContent = media.likes
   mediasLikeWrapper.appendChild(mediaslike)
 
+  // Creation de la div bouton pour le coeur
+  const mediasLikeButton = document.createElement('button')
+  mediasLikeButton.setAttribute('class', 'onephotographer_medias-like-button')
+  mediasLikeButton.setAttribute('aria-label', 'likes')
+  mediasLikeButton.dataset.id = media.id
+  mediasLikeWrapper.appendChild(mediasLikeButton)
+
+  // Creation du span pour desactiver le aria-hidden
+  const mediasLikeSpan = document.createElement('span')
+  mediasLikeSpan.classList.add('sr-only', 'onephotographer_medias-like-span')
+  mediasLikeSpan.textContent = 'likes'
+  mediasLikeButton.appendChild(mediasLikeSpan)
+
   // Création "coeur du media(image ou video)"
   const mediasCoeur = document.createElement('i')
-  mediasCoeur.setAttribute('aria-label', 'likes')
-  mediasCoeur.dataset.id = media.id
-  mediasCoeur.setAttribute('tabindex', '0')
   if (media.islike) {
     mediasCoeur.setAttribute('class', 'icon__coeur fa-regular fa-heart fas')
   } else {
     mediasCoeur.setAttribute('class', 'icon__coeur fa-regular fa-heart far')
   }
   mediasCoeur.style.color = '#901C1C'
-  mediasLikeWrapper.appendChild(mediasCoeur)
+  mediasLikeButton.appendChild(mediasCoeur)
 
   // Ajout d'un event listener sur le coeur pour incrémenter/décrémenter le like
   mediasCoeur.addEventListener('click', function () {

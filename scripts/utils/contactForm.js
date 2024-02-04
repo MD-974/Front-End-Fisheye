@@ -22,22 +22,19 @@ export function displayModal () {
     }
   })
 }
+
 // ----- FERMER MODALE ------
 export function closeModal () {
   const modal = document.querySelector('.modal-container')
   modal.close() // Ferme le modal
-  // document.getElementById('form-contact_button').reset()
 }
-// const closeImage = document.querySelector('.close')
+
 document.activeElement.addEventListener('keydown', function (event) {
   if (event.key === 'Enter') {
     if (event.target.classList.contains('close')) {
       closeModal()
       console.log('fermeture de la modale')
     }
-    // const modal = document.querySelector('.modal-container')
-    // modal.close() // Ferme le modal lorsque la touche "Entrée" est enfoncée sur l'image "close"
-    // closeModal()
   }
 })
 

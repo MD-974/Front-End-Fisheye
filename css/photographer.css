@@ -120,6 +120,10 @@ img.onephotographer_image {
     align-items: center;
     font-size: 24px;
 }
+.onephotographer_medias-like-button, .onephotographer_medias-like-button:hover{
+    border: none;
+    background: transparent;
+}
 
 
 /* -------------------- MODAL ------------------- */
@@ -224,7 +228,6 @@ form input {
     width: 30%;
     margin: 0;
     padding: 0;
-    /* background-color: #db8876; */
     
 }
 .lb-video-image {
