@@ -91,7 +91,15 @@ export function mediaCardFactory (media, objPhotographerMedias) {
     mediasCoeur.setAttribute('class', 'icon__coeur fa-regular fa-heart far')
   }
   mediasCoeur.style.color = '#901C1C'
+
+  // Ajout de l'event listener 'enter' sur le bouton du coeur
+  // pour incrémenter/décrémenter le like
   mediasLikeButton.appendChild(mediasCoeur)
+  mediasLikeButton.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      mediasCoeur.click()
+    }
+  })
 
   // Ajout d'un event listener sur le coeur pour incrémenter/décrémenter le like
   mediasCoeur.addEventListener('click', function () {
